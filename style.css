@@ -1,0 +1,425 @@
+/* Color Variables */
+:root {
+    --primary-blue: #0077FF;
+    --navbar-bg: #D9D9D9;
+    --pure-white: #FFFFFF;
+    --hover-blue: #0062d1;
+    --light-gray: #f8f9fa;
+    --text-dark: #212529;
+}
+
+body {
+    font-family: 'Clash Grotesk', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: var(--text-dark);
+}
+
+/* Typography Overrides */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+}
+
+.text-primary {
+    color: var(--primary-blue) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-blue) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--hover-blue);
+    border-color: var(--hover-blue);
+}
+
+.text-info {
+    color: #40c4ff !important;
+}
+
+
+
+
+.navbar-brand img{
+    height: clamp(2.5rem, 4vw, 3.5rem);
+    width: auto;
+}
+
+
+.custom-navbar {
+    background-color: var(--navbar-bg);
+    border-radius: 12px;
+    margin: 1.5rem auto;
+    width: 95%;
+    max-width: 1400px;
+    padding: 0.6rem 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 991px) {
+    .custom-navbar {
+        padding: 0.5rem 0.5rem;
+        margin: 1rem auto;
+        border-radius: 10px;
+    }
+}
+
+.navbar-nav .nav-link {
+    color: #000000;
+    font-weight: 400;
+    font-size: 1rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--primary-blue);
+}
+
+.govolo-brand {
+    color: var(--text-dark);
+    letter-spacing: -0.5px;
+}
+
+.dropdown-icon {
+    vertical-align: middle;
+    transition: transform 0.2s;
+}
+
+@media (min-width: 992px) {
+    .hover-dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+        animation: fadeIn 0.15s ease-in-out;
+    }
+
+    .hover-dropdown:hover .dropdown-icon {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-menu {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 0.5rem 0;
+    min-width: 200px;
+}
+
+.dropdown-item {
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 1.25rem;
+    color: #444;
+    transition: all 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(0, 119, 255, 0.05);
+    color: var(--primary-blue);
+}
+
+
+
+.nav-explore-btn {
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    display: flex;
+    padding: 12px;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+
+    font-family: 'Clash Grotesk', sans-serif !important;
+
+}
+
+.custom-mobile-drawer {
+    width: 85% !important;
+    max-width: 380px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    background-color: var(--pure-white);
+}
+
+.custom-mobile-drawer .nav-link {
+    padding-left: 0;
+    color: #111;
+}
+
+.accordion-button::after {
+    background-size: 1rem;
+    color: var(--text-dark);
+}
+
+.accordion-button:not(.collapsed)::after {
+    filter: brightness(0) saturate(100%) invert(32%) sepia(87%) saturate(3089%) hue-rotate(204deg) brightness(101%) contrast(106%);
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--primary-blue);
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.nav-sublink {
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.nav-sublink:hover {
+    color: var(--primary-blue) !important;
+}
+
+
+/* ===== Hero Section ===== */
+.hero-section {
+    min-height: 100vh;
+}
+
+.hero-content-box {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.hero-subtitle {
+    letter-spacing: 0.5px;
+    opacity: 0.95;
+    font-size: 18px;
+    font-weight: 400 !important;
+}
+
+.hero-title {
+    letter-spacing: -1px;
+    font-weight: 500 !important;
+    font-size: 4rem;
+}
+
+.action-btn {
+    font-weight: 400 !important;
+    transition: all 0.3s ease;
+}
+
+.hover-fill:hover {
+    background-color: var(--pure-white) !important;
+    color: var(--text-dark) !important;
+    border-color: var(--pure-white) !important;
+}
+
+
+
+
+
+
+.slider-bg-container {
+    background-color: #000;
+    /* Prevent white flash behind images */
+}
+
+.slider-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.slider-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: 1;
+}
+
+.slider-bg.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* ===== Slider Arrows Controls (Vertical Stack) ===== */
+.pointer-events-none {
+    pointer-events: none;
+}
+
+.pointer-events-auto {
+    pointer-events: auto;
+}
+
+.slider-circle {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    /* Frosted glass look */
+    backdrop-filter: blur(8px);
+    transition: all 0.3s;
+    color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.slider-circle:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+    color: #fff;
+    border-color: #fff !important;
+}
+
+.track-line,
+.track-indicator {
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+
+
+
+
+
+
+.filter-bar-wrapper {
+    bottom: 2rem;
+}
+
+@media (min-width: 992px) {
+    .filter-container {
+        max-width: 1100px;
+    }
+}
+
+.filter-bar {
+    background-color: var(--pure-white);
+    border-radius: 1rem !important;
+}
+
+.filter-label {
+    letter-spacing: 0.5px;
+    font-size: 0.75rem;
+}
+
+@media (max-width: 1199px) {
+
+    /* Adjust for large tablets / small desktops */
+    .filter-item {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+
+    .filter-item i {
+        font-size: 1.1rem !important;
+    }
+
+    .custom-filter-dropdown .btn {
+        font-size: 0.9rem !important;
+    }
+
+    .search-btn {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.95rem !important;
+        font-weight: 400 !important;
+    }
+}
+
+@media (max-width: 991px) {
+
+    /* Tablets */
+    .filter-item {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+
+    .custom-filter-dropdown .btn {
+        font-size: 0.8rem !important;
+    }
+
+    .filter-item i.bi-geo-alt,
+    .filter-item i.bi-bicycle,
+    .filter-item i.bi-clock {
+        display: none !important;
+        /* hide icon on real tight spaces if needed, or just make them smaller */
+    }
+
+    .filter-bar {
+        padding: 0.5rem 0.5rem 0.5rem 1rem !important;
+    }
+}
+
+
+
+
+
+.custom-filter-dropdown .dropdown-toggle::after {
+    display: none;
+    /* Hide default bootstrap arrow */
+}
+
+.custom-filter-dropdown .dropdown-menu {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.custom-filter-dropdown .dropdown-item {
+    font-size: 0.95rem;
+    color: #444;
+    padding: 0.6rem 1.2rem;
+    transition: all 0.2s ease-in-out;
+    background-color: var(--pure-white);
+}
+
+.custom-filter-dropdown .dropdown-item:hover,
+.custom-filter-dropdown .dropdown-item:focus {
+    background-color: var(--primary-blue) !important;
+    color: var(--pure-white) !important;
+}
+
+.border-light {
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Mobile filter button */
+.mobile-filter-btn {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mobile-filter-btn:active {
+    transform: scale(0.95);
+}
+
+/* Adjust title sizes on mobile */
+@media (max-width: 991px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}

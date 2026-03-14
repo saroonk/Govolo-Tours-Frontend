@@ -1,0 +1,138 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    /* --- Slider Configuration (Crossfade, Vertical Indicators) --- */
+    const bgContainer = document.querySelector('.slider-bg-container');
+    const trackIndicator = document.querySelector('.track-indicator');
+
+    // Background images
+    const images = [
+        'assets/slider_img_1_1773465777544.png',
+        'assets/slider_img_2_1773465808651.png',
+        'assets/slider_img_3_1773465830830.png'
+    ];
+
+    let currentIndex = 0;
+    const slides = [];
+
+    // Initialize slides with opacity 0 except the first one
+    images.forEach((img, index) => {
+        const slide = document.createElement('div');
+        slide.classList.add('slider-bg');
+        if (index === 0) {
+            slide.classList.add('active'); // First slide is visible immediately
+            slide.style.opacity = '1';
+        }
+        slide.style.backgroundImage = `url('${img}')`;
+        bgContainer.appendChild(slide);
+        slides.push(slide);
+    });
+
+    const totalSlides = slides.length;
+    if (totalSlides === 0) return;
+
+    // Track indicator calculation logic (for vertical layout)
+    function updateIndicator(index) {
+        if (!trackIndicator) return;
+        trackIndicator.style.top = `${(index / totalSlides) * 100}%`;
+    }
+
+    updateIndicator(currentIndex);
+
+    let autoSlideInterval;
+
+    /**
+     * Updates classes for 'active' smoothly 
+     */
+    function updateClasses(activeIndex) {
+        slides.forEach((slide, index) => {
+            if (index === activeIndex) {
+                slide.classList.add('active');
+                slide.style.opacity = '1';
+            } else {
+                slide.classList.remove('active');
+                slide.style.opacity = '0';
+            }
+        });
+        updateIndicator(activeIndex);
+    }
+
+    /**
+     * Controls the slider direction logic 
+     */
+    function slideTo(direction) {
+        if (direction === 'next') {
+            // Move to the next index
+            currentIndex = (currentIndex + 1) % totalSlides;
+        } else if (direction === 'prev') {
+            // Move to previous index
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        }
+        updateClasses(currentIndex);
+    }
+
+    // Controls Buttons (Top / Bottom Arrows)
+    const btnNext = document.querySelector('.slide-next');
+    const btnPrev = document.querySelector('.slide-prev');
+
+    if (btnNext) {
+        btnNext.addEventListener('click', () => {
+            slideTo('next');
+            resetAutoSlide();
+        });
+    }
+
+    if (btnPrev) {
+        btnPrev.addEventListener('click', () => {
+            slideTo('prev');
+            resetAutoSlide();
+        });
+    }
+
+    /* Auto Sliding */
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            slideTo('next');
+        }, 6000); // 6 seconds interval
+    }
+
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
+    // Start auto slide initially
+    startAutoSlide();
+
+
+    /* --- Navbar Scroll Effect --- */
+    const navbar = document.querySelector('.custom-navbar');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                // Add stronger blur and background when scrolled
+                navbar.style.backgroundColor = 'rgba(217, 217, 217, 0.98)';
+                navbar.style.backdropFilter = 'blur(15px)';
+                navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+            } else {
+                // Return to normal
+                navbar.style.backgroundColor = 'var(--navbar-bg)';
+                navbar.style.backdropFilter = 'blur(10px)';
+                navbar.style.boxShadow = '0 4px 15px rgba(0,0,0,0.05)';
+            }
+        });
+    }
+    /* --- Custom Filter Dropdown Selection --- */
+    const filterDropdownItems = document.querySelectorAll('.custom-filter-dropdown .dropdown-item');
+    filterDropdownItems.forEach(item => {
+        item.addEventListener('click', function (e) {
+            e.preventDefault();
+            const text = this.innerText;
+            const dropdown = this.closest('.custom-filter-dropdown');
+            const selectedValue = dropdown.querySelector('.selected-value');
+            if (selectedValue) {
+                selectedValue.innerText = text;
+            }
+        });
+    });
+
+});
