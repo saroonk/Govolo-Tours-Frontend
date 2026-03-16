@@ -26,6 +26,31 @@ h6 {
     font-weight: 600;
 }
 
+/* ===== Reusable Section Headings ===== */
+.section-subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #113D48;
+    margin-bottom: 0.5rem;
+    font-family: 'Clash Grotesk', sans-serif;
+}
+
+.section-title {
+    font-size: 42px;
+    letter-spacing: -1.5px;
+    font-weight: 500;
+    color: var(--primary-blue);
+    line-height: 1.2;
+    margin-bottom: 0;
+    font-family: 'Clash Grotesk', sans-serif;
+}
+
+@media (max-width: 991px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
 .text-primary {
     color: var(--primary-blue) !important;
 }
@@ -52,7 +77,7 @@ h6 {
 
 
 
-.navbar-brand img{
+.navbar-brand img {
     height: clamp(2.5rem, 4vw, 3.5rem);
     width: auto;
 }
@@ -129,6 +154,7 @@ h6 {
     border: 1px solid rgba(0, 0, 0, 0.05);
     padding: 0.5rem 0;
     min-width: 200px;
+    /* z-index: 100; */
 }
 
 .dropdown-item {
@@ -137,6 +163,8 @@ h6 {
     padding: 0.5rem 1.25rem;
     color: #444;
     transition: all 0.2s;
+    border-radius: 8px !important;
+    /* background-color: red !important; */
 }
 
 .dropdown-item:hover {
@@ -408,6 +436,331 @@ h6 {
     border-color: rgba(0, 0, 0, 0.08) !important;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Tour Categories Section ===== */
+.tour-categories-section {
+    position: relative;
+    z-index: 0;
+}
+
+
+
+
+
+.custom-arch-carousel .item {
+    padding-top: 30px;
+    padding-bottom: 70px;
+}
+
+.custom-arch-carousel .category-card {
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.8s ease;
+    transform: translateY(60px) scale(0.85);
+    opacity: 0;
+}
+
+.custom-arch-carousel .category-card img {
+    border-radius: 20px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    width: 100%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.category-title {
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: var(--text-dark);
+    letter-spacing: -0.5px;
+}
+
+.category-link {
+    display: inline-block;
+    color: var(--primary-blue);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-transform: capitalize;
+    transition: color 0.2s;
+}
+
+.category-link:hover {
+    color: var(--hover-blue);
+}
+
+/* Arch CSS Logic using dynamic classes added via JS */
+.custom-arch-carousel .owl-item.item-center .category-card {
+    transform: translateY(0px) scale(1.15);
+    /* Highest in the arch */
+    opacity: 1;
+    z-index: 5;
+    position: relative;
+}
+
+.custom-arch-carousel .owl-item.item-left-1 .category-card {
+    transform: translateY(30px) scale(0.95) rotate(-4deg);
+    opacity: 0.95;
+    z-index: 4;
+    position: relative;
+}
+
+.custom-arch-carousel .owl-item.item-left-2 .category-card {
+    transform: translateY(70px) scale(0.8) rotate(-8deg);
+    opacity: 0.8;
+    z-index: 3;
+    position: relative;
+}
+
+.custom-arch-carousel .owl-item.item-right-1 .category-card {
+    transform: translateY(30px) scale(0.95) rotate(4deg);
+    opacity: 0.95;
+    z-index: 4;
+    position: relative;
+}
+
+.custom-arch-carousel .owl-item.item-right-2 .category-card {
+    transform: translateY(70px) scale(0.8) rotate(8deg);
+    opacity: 0.8;
+    z-index: 3;
+    position: relative;
+}
+
+/* Base fallback for invisible/distant items */
+.custom-arch-carousel .owl-item:not(.active) .category-card {
+    transform: translateY(120px) scale(0.7);
+    opacity: 0;
+}
+
+/* Custom Dots for Carousel */
+.custom-arch-carousel .owl-dots {
+    display: none !important;
+}
+
+.custom-arch-dots {
+    margin-top: -10px;
+    padding-bottom: 20px;
+}
+
+.custom-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background: transparent;
+    display: block;
+    transition: all 0.3s ease;
+    margin: 0 !important;
+    padding: 0;
+    cursor: pointer;
+    outline: none !important;
+}
+
+.custom-dot.active {
+    border-color: var(--primary-blue);
+    background: var(--primary-blue);
+}
+
+
+
+
+
+
+
+/* ===== Plan Your Trip Section ===== */
+.plan-trip-section {
+    background-color: #DBECFF;
+}
+
+
+
+.plan-desc {
+    font-size: 18px;
+    line-height: 26px;
+    color: #000000;
+    font-weight: 400;
+}
+
+.feature-title {
+    color: #113D48;
+    font-weight: 500;
+    /* matching reference typography dark tone */
+}
+
+.future-title+p {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.plan-btn {
+    font-weight: 400 !important;
+    font-size: 1rem;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+}
+
+.custom-dot:hover {
+    border-color: var(--primary-blue);
+}
+
+/* ===== Top Destinations Section ===== */
+.top-destinations-section {
+    background-color: #ffffff;
+}
+
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 240px;
+    gap: 20px;
+}
+
+.dest-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.dest-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.dest-card:hover img {
+    transform: scale(1.08);
+    /* Hover effect applied universally here */
+}
+
+.dest-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 40%);
+    display: flex;
+    align-items: flex-end;
+    padding: 25px;
+    pointer-events: none;
+}
+
+.dest-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+/* Specific Grid Spans for Desktop Masonry */
+.dest-vietnam {
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+.dest-amsterdam {
+    grid-column: span 3;
+    grid-row: span 2;
+}
+
+.dest-oldrain {
+    grid-column: span 4;
+    grid-row: span 1;
+}
+
+.dest-paris {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.dest-water {
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+.dest-oceana {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.dest-greece {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .destinations-grid {
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: 220px;
+    }
+
+    .dest-vietnam {
+        grid-column: span 3;
+    }
+
+    .dest-amsterdam {
+        grid-column: span 3;
+    }
+
+    .dest-oldrain {
+        grid-column: span 6;
+    }
+
+    .dest-paris {
+        grid-column: span 3;
+    }
+
+    .dest-water {
+        grid-column: span 3;
+    }
+
+    .dest-oceana {
+        grid-column: span 3;
+    }
+
+    .dest-greece {
+        grid-column: span 3;
+    }
+}
+
+@media (max-width: 767px) {
+    .destinations-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dest-card {
+        height: 250px;
+    }
+
+    .dest-amsterdam,
+    .dest-paris {
+        height: 350px;
+        /* Preserve tall look slightly on mobile */
+    }
+}
+
+
+
+
 /* Mobile filter button */
 .mobile-filter-btn {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -422,4 +775,69 @@ h6 {
     .hero-title {
         font-size: 2.5rem;
     }
+}
+
+/* ===== Recent Packages Section ===== */
+.recent-packages-section {
+    background-color: #DBECFF;
+    /* Light blue matching the reference */
+}
+
+.package-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    /* very soft shadow */
+}
+
+.package-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+}
+
+.package-img {
+    height: 320px;
+    width: 100%;
+    border-radius: 30px !important;
+}
+
+.package-img img{
+
+    border-radius: 0px 0px 15px 15px !important;
+}
+
+.package-title {
+    color: #0A0A0A;
+    letter-spacing: -0.5px;
+    font-weight: 500 !important;
+}
+.price{
+    font-weight: 500 !important;
+}
+
+.package-meta {
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.package-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Specific precise styling for View Tour button font weight */
+.package-btn {
+    font-weight: 400 !important;
+    font-size: 0.95rem;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+}
+
+.btn-see-all {
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-see-all:hover {
+    color: var(--primary-blue) !important;
+    border-color: var(--primary-blue) !important;
 }

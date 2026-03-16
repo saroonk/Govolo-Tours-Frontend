@@ -135,4 +135,107 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
+
+
+
+
+
+    // ==========================================
+    // Tour Categories Arch Carousel Logic
+    // ==========================================
+    var archCarousel = $('.custom-arch-carousel');
+
+    // Dynamically generate navigation dots based on the actual number of items
+    var dotsContainer = $('.custom-arch-dots');
+    var totalItems = archCarousel.children('.item').length;
+
+    dotsContainer.empty();
+    for (var i = 0; i < totalItems; i++) {
+        var activeClass = i === 0 ? 'active' : '';
+        dotsContainer.append('<button class="custom-dot ' + activeClass + '" data-index="' + i + '" aria-label="Slide ' + (i + 1) + '"></button>');
+    }
+
+    function updateArchStyles(e) {
+        var items = archCarousel.find('.owl-item');
+        items.removeClass('item-center item-left-1 item-left-2 item-right-1 item-right-2');
+
+        var centerItem;
+        var relativeIndex = 0;
+
+        if (e && e.item && e.item.index != null) {
+            centerItem = items.eq(e.item.index);
+            // Get relative index (0 to 4) using owl carousel API if available
+            if (e.relatedTarget) {
+                relativeIndex = e.relatedTarget.relative(e.item.index);
+            }
+        } else {
+            // Fallback for initialization before fully set
+            centerItem = archCarousel.find('.owl-item.center');
+            if (centerItem.length) {
+                // Estimate index
+                relativeIndex = centerItem.index() % totalItems;
+            }
+        }
+
+        if (centerItem.length) {
+            centerItem.addClass('item-center');
+            centerItem.prev().addClass('item-left-1');
+            centerItem.prev().prev().addClass('item-left-2');
+            centerItem.next().addClass('item-right-1');
+            centerItem.next().next().addClass('item-right-2');
+        }
+
+        // Update custom dots visually synchronously
+        if (e && e.relatedTarget) {
+            $('.custom-dot').removeClass('active');
+            $('.custom-dot[data-index="' + relativeIndex + '"]').addClass('active');
+        }
+    }
+
+    // Bind on translate to start CSS class changes simultaneously with the animation
+    archCarousel.on('translate.owl.carousel initialized.owl.carousel', updateArchStyles);
+
+    // Initialize Owl Carousel
+    archCarousel.owlCarousel({
+        center: true,
+        items: 5,
+        loop: true,
+        margin: 15, // brought items slightly closer for premium effect
+        nav: false,
+        dots: false, // Using custom dots instead to guarantee precise desktop rendering
+        smartSpeed: 800,
+        autoplay: true,
+        autoplayTimeout: 4000,
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 1.5,
+                center: true,
+                margin: 10
+            },
+            576: {
+                items: 3,
+                center: true,
+                margin: 15
+            },
+            992: {
+                items: 5,
+                center: true,
+                margin: 15
+            },
+            1200: {
+                items: 5,
+                center: true,
+                margin: 15
+            }
+        }
+    });
+
+    // Custom dots click event using modern event delegation to support dynamically injected elements
+    $('.custom-arch-dots').on('click', '.custom-dot', function () {
+        var index = $(this).data('index');
+        archCarousel.trigger('to.owl.carousel', [index, 800]);
+    });
+
 });
