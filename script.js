@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Background images
     const images = [
-        'assets/slider_img_1_1773465777544.png',
+        'assets/aa6bf5a56bd2c407d13505c5448ac0e37666d40a.jpg',
         'assets/slider_img_2_1773465808651.png',
         'assets/slider_img_3_1773465830830.png'
     ];
@@ -238,4 +238,62 @@ document.addEventListener('DOMContentLoaded', () => {
         archCarousel.trigger('to.owl.carousel', [index, 800]);
     });
 
+    // ==========================================
+    // Testimonial Carousel Auto Slider
+    // ==========================================
+    $('.testimonial-carousel').owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: false,
+        dots: false, // Since standard dots weren't shown in the reference exactly, but slider works (we can enable if needed)
+        autoplay: true,
+        autoplayTimeout: 4000,
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 1,      /* Mobile: 1 card */
+                margin: 10
+            },
+            768: {
+                items: 2,      /* Tablet: 2 cards */
+                margin: 15
+            },
+            992: {
+                items: 3,      /* Desktop: 3 cards */
+                margin: 20
+            }
+        }
+    });
+
+    // ==========================================
+    // Gallery Carousel with Lightbox
+    // ==========================================
+    $('.gallery-carousel').owlCarousel({
+        loop: true,
+        margin: 0,
+        nav: false,
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 3      /* Mobile: 2 images */
+            },
+            768: {
+                items: 3      /* Tablet: 3 images */
+            },
+            1200: {
+                items: 5      /* Desktop: 5 images */
+            }
+        }
+    });
+
+    // Initialize Fancybox (v5)
+    Fancybox.bind("[data-fancybox]", {
+        // Custom options for premium feel
+        Hash: false,
+    });
+
 });
+

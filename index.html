@@ -16,8 +16,9 @@
 
     <!-- Owl Carousel CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <!-- Fancybox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
@@ -595,6 +596,7 @@
             </div>
         </div>
     </section>
+  
 
     <!-- Recent Packages Section -->
     <section class="recent-packages-section py-5">
@@ -703,8 +705,280 @@
             </div>
         </div>
     </section>
+
+
+
+
+
+
+
+
+      
+
+    <!-- Special Offer Section -->
+    <section class="special-offer-section  my-5 overflow-hidden">
+        <div class="container-fluid px-0">
+            <div class="row align-items-center g-0">
+                <!-- Left Image -->
+                <div class="col-lg-4 col-md-4 z-1 position-relative p-0">
+                    <img src="assets/Mask Group.png" alt="Special Offer Left" class=" object-fit-cover special-offer-img ">
+                </div>
+                
+                <!-- Center Content -->
+                <div class="col-lg-3 col-md-4 text-center position-relative my-4 my-md-0 d-flex flex-column align-items-center justify-content-center h-100" style="min-height: 280px;">
+                    <div class="center-content-wrapper position-relative">
+                        <h2 class="section-title text-primary mb-3 px-3">Get Special Offer</h2>
+                        
+                        <!-- Wrapper for relative position to anchor the absolute airplane -->
+                        <div class="offer-img-wrapper position-relative d-inline-block px-3">
+                            <img src="assets/6356fa03683c353e7b30ad8b16ea499b184aa536.png" alt="40% OFF" class="img-fluid offer-img z-2 pb-md-3">
+                            <!-- Decorative Airplane - Bottom-Right of the 40% image -->
+                            <img src="assets/2b26656ec65f170e100a25654ad848869e2c3472.png" alt="Airplane" class="position-absolute airplane-icon-fixed z-3">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Image -->
+                <div class="col-lg-5 col-md-4 z-1 position-relative special-offer-right">
+                    <!-- Main Base Image -->
+                    <img src="assets/Mask Group copy.png" alt="Special Offer Right Base" class=" object-fit-cover special-offer-img ">
+                    
+                    <!-- Tilted Gallery Overlay - 5-6 Images -->
+                    <div class="tilted-gallery-container position-absolute z-2">
+                        <div class="gallery-item item-1"><img src="assets/dest_amsterdam.jpg" alt="Gallery"></div>
+                        <div class="gallery-item item-2"><img src="assets/dest_paris.jpg" alt="Gallery"></div>
+                        <div class="gallery-item item-3"><img src="assets/dest_vietnam.jpg" alt="Gallery"></div>
+                        <div class="gallery-item item-4"><img src="assets/dest_greece.jpg" alt="Gallery"></div>
+                        <div class="gallery-item item-5"><img src="assets/dest_oceana.jpg" alt="Gallery"></div>
+                        <div class="gallery-item item-6"><img src="assets/dest_oldrain.jpg" alt="Gallery"></div>
+                        <div class="gallery-item item-7"><img src="assets/dest_amsterdam.jpg" alt="Gallery"></div>
+                        <div class="gallery-item item-8"><img src="assets/dest_paris.jpg" alt="Gallery"></div>
+                        <div class="gallery-item item-9"><img src="assets/dest_vietnam.jpg" alt="Gallery"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section py-5">
+        <div class="container text-center mb-5 mt-3">
+            <h2 class="section-title">What Our Client Say</h2>
+        </div>
+        <div class="container pb-5">
+            <div class="owl-carousel testimonial-carousel mt-5">
+                <!-- Testimonial Item 1 -->
+                <div class="item">
+                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100">
+                        <div class="testimonial-img-wrapper position-absolute top-0 start-50 translate-middle">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User 1" class="rounded-circle border border-white border-4 shadow-sm">
+                        </div>
+                        <div class="card-body-content mt-4 pt-4 flex-grow-1 d-flex flex-column justify-content-between h-100">
+                            <div>
+                                <h5 class="fw-bold mb-1">John Doe</h5>
+                                <p class="text-secondary small mb-3">Traveler</p>
+                                <p class="text-muted mb-0 mx-auto testimonial-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor, justo eget tincidunt fermentum, sapien.
+                                </p>
+                            </div>
+                            <div class="stars-area text-warning fs-5 mt-3 d-flex align-items-center justify-content-center">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial Item 2 -->
+                <div class="item">
+                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100">
+                        <div class="testimonial-img-wrapper position-absolute top-0 start-50 translate-middle">
+                            <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="User 2" class="rounded-circle border border-white border-4 shadow-sm">
+                        </div>
+                        <div class="card-body-content mt-4 pt-4 flex-grow-1 d-flex flex-column justify-content-between h-100">
+                            <div>
+                                <h5 class="fw-bold mb-1">Michael Smith</h5>
+                                <p class="text-secondary small mb-3">Traveler</p>
+                                <p class="text-muted mb-0 mx-auto testimonial-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris.
+                                </p>
+                            </div>
+                            <div class="stars-area text-warning fs-5 mt-3 d-flex align-items-center justify-content-center">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial Item 3 -->
+                <div class="item">
+                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100">
+                        <div class="testimonial-img-wrapper position-absolute top-0 start-50 translate-middle">
+                            <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="User 3" class="rounded-circle border border-white border-4 shadow-sm">
+                        </div>
+                        <div class="card-body-content mt-4 pt-4 flex-grow-1 d-flex flex-column justify-content-between h-100">
+                            <div>
+                                <h5 class="fw-bold mb-1">James Cameron</h5>
+                                <p class="text-secondary small mb-3">Traveler</p>
+                                <p class="text-muted mb-0 mx-auto testimonial-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vestibulum diam id orci vehicula tristique.
+                                </p>
+                            </div>
+                            <div class="stars-area text-warning fs-5 mt-3 d-flex align-items-center justify-content-center">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial Item 4 -->
+                <div class="item">
+                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100">
+                        <div class="testimonial-img-wrapper position-absolute top-0 start-50 translate-middle">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User 4" class="rounded-circle border border-white border-4 shadow-sm">
+                        </div>
+                        <div class="card-body-content mt-4 pt-4 flex-grow-1 d-flex flex-column justify-content-between h-100">
+                            <div>
+                                <h5 class="fw-bold mb-1">Emily Davis</h5>
+                                <p class="text-secondary small mb-3">Traveler</p>
+                                <p class="text-muted mb-0 mx-auto testimonial-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris.
+                                </p>
+                            </div>
+                            <div class="stars-area text-warning fs-5 mt-3 d-flex align-items-center justify-content-center">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section py-0 mt-5">
+        <div class="owl-carousel gallery-carousel">
+            <div class="item">
+                <a href="assets/dest_amsterdam.jpg" data-fancybox="gallery">
+                    <img src="assets/dest_amsterdam.jpg" alt="Gallery" class="img-fluid gallery-img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="assets/dest_paris.jpg" data-fancybox="gallery">
+                    <img src="assets/dest_paris.jpg" alt="Gallery" class="img-fluid gallery-img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="assets/dest_vietnam.jpg" data-fancybox="gallery">
+                    <img src="assets/dest_vietnam.jpg" alt="Gallery" class="img-fluid gallery-img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="assets/dest_greece.jpg" data-fancybox="gallery">
+                    <img src="assets/dest_greece.jpg" alt="Gallery" class="img-fluid gallery-img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="assets/dest_oceana.jpg" data-fancybox="gallery">
+                    <img src="assets/dest_oceana.jpg" alt="Gallery" class="img-fluid gallery-img">
+                </a>
+            </div>
+            <div class="item">
+                <a href="assets/dest_oldrain.jpg" data-fancybox="gallery">
+                    <img src="assets/dest_oldrain.jpg" alt="Gallery" class="img-fluid gallery-img">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section text-white py-5 ">
+        <div class="container py-4">
+            <div class="row g-4 gy-5">
+                <!-- Left Column: Logo & Description -->
+                <div class="col-lg-5">
+                    <div class="footer-logo mb-4">
+                        <img src="assets/footerlogo.png" alt="Govolo Tours Logo" class="img-fluid  rounded-2" style="max-height: 120px;">
+                    </div>
+                    <p class="footer-desc text-white pe-lg-5 mb-5 opacity-75">
+Crafting Seamless Real Estate Experiences
+                    </p>
+                    <!-- Social Icons -->
+                    <div class="social-links d-flex gap-3 mt-4">
+                        <a href="#" class="social-icon text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <!-- <a href="#" class="social-icon text-white"><i class="fab fa-youtube"></i></a> -->
+                    </div>
+                </div>
+
+                <!-- Right Column: Navigation Links -->
+                <div class="col-lg-7">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <h5 class="nav-heading mb-4">Company</h5>
+                            <ul class="list-unstyled footer-links">
+                                <li><a href="#" class="text-white text-decoration-none">About Us</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Terms of service</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="nav-heading mb-4">Resources</h5>
+                            <ul class="list-unstyled footer-links">
+                                <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Career</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Videos</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Our Homes</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="nav-heading mb-4">Contact Us</h5>
+                            <p class="mb-2 opacity-75">Globalfam Realty FZE LLC Business Center, SPC, Muwaileh, Sharjah</p>
+                            <p class="mb-0 opacity-75">Email: info@globalfam.in</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider my-5 ">
+
+            <div class="row align-items-center gy-3 text-center text-md-start">
+                <div class="col-md-6">
+                    <p class="copyright mb-0 opacity-75">Globalfamrealty &copy; 2025. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-center justify-content-md-end gap-4 footer-legal-links">
+                        <a href="#" class="text-white text-decoration-none small opacity-75">Privacy</a>
+                        <a href="#" class="text-white text-decoration-none small opacity-75">Terms of Agreement</a>
+                        <a href="#" class="text-white text-decoration-none small opacity-75">Licenses</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- Fancybox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
     <!-- Bootstrap 5 JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
