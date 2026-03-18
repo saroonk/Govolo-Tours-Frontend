@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Govolo Tours</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Clash Grotesk Font -->
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <!-- Fancybox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+
+<body class="contact-page">
+    <!-- Hidden hooks for existing script.js (prevents null errors on non-home pages) -->
+    <div class="slider-bg-container" aria-hidden="true"
+        style="position:absolute;width:0;height:0;overflow:hidden;opacity:0;"></div>
+    <div class="track-indicator" aria-hidden="true"
+        style="position:absolute;width:0;height:0;overflow:hidden;opacity:0;"></div>
+
+    <!-- Desktop & Mobile Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+        <div class="container-fluid px-3">
+            <!-- Brand -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/Group_1.png" alt="Govolo Tours">
+            </a>
+
+            <!-- Mobile Toggle Button (Triggers Offcanvas Drawer) -->
+            <button class="navbar-toggler border-0 shadow-none d-lg-none p-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#mobileDrawer" aria-controls="mobileDrawer">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Desktop Menu -->
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="desktopNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <!-- Dropdown on Hover for Desktop -->
+                    <li class="nav-item dropdown hover-dropdown">
+                        <a class="nav-link" href="#" role="button" aria-expanded="false">
+                            Day Tours <i class="bi bi-chevron-down ms-1 small dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">City Tours</a></li>
+                            <li><a class="dropdown-item" href="#">Nature Walks</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Special Offers</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Car Rentals</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Contact</a>
+                    </li> -->
+                </ul>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-primary rounded-pill px-4 nav-explore-btn " type="button">Explore Tours <i
+                            class="bi bi-arrow-right ms-2   align-text-bottom"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Custom Mobile Drawer (Offcanvas) -->
+    <div class="offcanvas offcanvas-start custom-mobile-drawer border-0 shadow-sm" tabindex="-1" id="mobileDrawer"
+        aria-labelledby="mobileDrawerLabel">
+        <div class="offcanvas-header border-bottom-0 mt-2 px-4">
+            <h5 class="offcanvas-title" id="mobileDrawerLabel">
+                <a href="index.html" class="d-inline-flex align-items-center">
+                    <img src="assets/Group_1.png" alt="Govolo Tours" style="height: 36px; width: auto;">
+                </a>
+            </h5>
+            <button type="button" class="btn-close shadow-none p-2" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body px-4 pt-1">
+            <div class="accordion accordion-flush mobile-nav-accordion" id="mobileNavAccordion">
+                <div class="nav-item mb-3">
+                    <a class="nav-link fs-5" href="index.html">Home</a>
+                </div>
+                <div class="nav-item mb-3">
+                    <a class="nav-link fs-5" href="#">About</a>
+                </div>
+                <!-- Accordion for Mobile Dropdown (Clean/Modern integration) -->
+                <div class="accordion-item border-0 mb-3 bg-transparent">
+                    <h2 class="accordion-header" id="headingDayTours">
+                        <button class="accordion-button collapsed px-0 py-0 shadow-none bg-transparent  fs-5"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseDayTours"
+                            aria-expanded="false" aria-controls="collapseDayTours">
+                            Day Tours
+                        </button>
+                    </h2>
+                    <div id="collapseDayTours" class="accordion-collapse collapse" aria-labelledby="headingDayTours"
+                        data-bs-parent="#mobileNavAccordion">
+                        <div class="accordion-body px-3 py-2 mt-2 border-start border-2 border-light">
+                            <ul class="list-unstyled mb-0 d-flex flex-column gap-3">
+                                <li><a href="#" class="text-decoration-none text-muted  py-1 d-block nav-sublink">City
+                                        Tours</a></li>
+                                <li><a href="#" class="text-decoration-none text-muted  py-1 d-block nav-sublink">Nature
+                                        Walks</a></li>
+                                <li><a href="#"
+                                        class="text-decoration-none text-muted  py-1 d-block nav-sublink">Special
+                                        Offers</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item mb-3">
+                    <a class="nav-link fs-5" href="#">Destinations</a>
+                </div>
+                <div class="nav-item mb-3">
+                    <a class="nav-link fs-5" href="#">Car Rentals</a>
+                </div>
+                <!-- <div class="nav-item mb-3">
+                    <a class="nav-link active fs-5" href="contact.html">Contact</a>
+                </div> -->
+            </div>
+
+            <button
+                class="btn btn-primary rounded-pill w-100 py-3 mt-4 fs-6 d-flex align-items-center justify-content-center mobile-explore-btn"
+                type="button">
+                Explore Tours <i class="bi bi-arrow-right ms-2"></i>
+            </button>
+        </div>
+    </div>
+
+
+
+
+
+
+    <main class="contact-main">
+        <!-- Hero -->
+        <section class="contact-hero">
+            <div class="container position-relative">
+                <div class="row align-items-end g-4">
+                    <div class="col-lg-7">
+                        <nav aria-label="breadcrumb" class="contact-breadcrumb reveal-up">
+                            <ol class="breadcrumb mb-3">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                            </ol>
+                        </nav>
+                        <h1 class="display-5  mb-3 reveal-up" style="animation-delay: 80ms;">
+                            Tell us where you want to go next
+                        </h1>
+                        <p class="lead mb-4 pe-lg-5 reveal-up" style="animation-delay: 160ms;">
+                            Share your dates, vibe, and budget. We will help you craft a smooth, memorable trip with
+                            handpicked routes, stays, and experiences.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3 reveal-up" style="animation-delay: 240ms;">
+                            <a class="btn btn-primary btn-lg rounded-pill px-4 contact-hero-btn" href="#contactForm">
+                                Send Inquiry <i class="bi bi-arrow-right ms-2"></i>
+                            </a>
+                            <a class="btn btn-outline-light btn-lg rounded-pill px-4 contact-hero-btn"
+                                href="tel:+971000000000">
+                                Call Us <i class="bi bi-telephone ms-2"></i>
+                            </a>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2 mt-5 reveal-up" style="animation-delay: 320ms;">
+                            <span class="contact-chip"><i class="bi bi-shield-check me-2"></i>Secure booking</span>
+                            <span class="contact-chip"><i class="bi bi-lightning-charge me-2"></i>Fast replies</span>
+                            <span class="contact-chip"><i class="bi bi-stars me-2"></i>Curated itineraries</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="contact-hero-card reveal-up" style="animation-delay: 220ms;">
+                            <div class="d-flex align-items-start justify-content-between gap-3">
+                                <div>
+                                    <p class="text-uppercase mb-2 contact-eyebrow">Support</p>
+                                    <h2 class="h4 mb-2">We are here, always</h2>
+                                    <p class="mb-0 opacity-75">
+                                        Typical response time: under 2 hours.
+                                    </p>
+                                </div>
+                                <div class="contact-badge">
+                                    <i class="bi bi-headset"></i>
+                                </div>
+                            </div>
+                            <hr class="contact-hero-divider my-4">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <div class="contact-mini">
+                                        <p class="mb-1 contact-mini-label">Email</p>
+                                        <a href="mailto:info@globalfam.in" class="contact-mini-value">info@globalfam.in</a>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="contact-mini">
+                                        <p class="mb-1 contact-mini-label">WhatsApp</p>
+                                        <a href="#" class="contact-mini-value">Chat now</a>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="contact-mini">
+                                        <p class="mb-1 contact-mini-label">Office</p>
+                                        <p class="mb-0 contact-mini-value opacity-75">
+                                            Business Center, SPC, Muwaileh, Sharjah
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Contact Options -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="contact-card h-100 reveal-up">
+                            <div class="contact-card-icon">
+                                <i class="bi bi-telephone-outbound"></i>
+                            </div>
+                            <h3 class="h5 mb-2">Call us</h3>
+                            <p class="mb-3 opacity-75">For quick confirmations and urgent changes.</p>
+                            <a class="stretched-link text-decoration-none contact-card-link" href="tel:+971000000000">
+                                +971 00 000 0000
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="contact-card h-100 reveal-up" style="animation-delay: 80ms;">
+                            <div class="contact-card-icon">
+                                <i class="bi bi-envelope-paper"></i>
+                            </div>
+                            <h3 class="h5 mb-2">Email</h3>
+                            <p class="mb-3 opacity-75">Share trip details, we will reply with options.</p>
+                            <a class="stretched-link text-decoration-none contact-card-link"
+                                href="mailto:info@globalfam.in">
+                                info@globalfam.in
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="contact-card h-100 reveal-up" style="animation-delay: 160ms;">
+                            <div class="contact-card-icon">
+                                <i class="bi bi-chat-dots"></i>
+                            </div>
+                            <h3 class="h5 mb-2">WhatsApp</h3>
+                            <p class="mb-3 opacity-75">Fastest way to get a quote and itinerary draft.</p>
+                            <a class="stretched-link text-decoration-none contact-card-link" href="#">
+                                Start chat
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3">
+                        <div class="contact-card h-100 reveal-up" style="animation-delay: 240ms;">
+                            <div class="contact-card-icon">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <h3 class="h5 mb-2">Visit</h3>
+                            <p class="mb-3 opacity-75">Prefer in-person planning? We would love to host you.</p>
+                            <a class="stretched-link text-decoration-none contact-card-link" href="#map">
+                                Get directions
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form + Map -->
+        <section class="contact-section contact-section-alt" id="contactForm">
+            <div class="container">
+                <div class="row g-4 g-lg-5 align-items-stretch">
+                    <div class="col-lg-7">
+                        <div class="contact-panel h-100">
+                            <div class="d-flex align-items-start justify-content-between gap-3 mb-4">
+                                <div>
+                                    <!-- <p class="text-uppercase mb-2 contact-eyebrow">Inquiry Form</p> -->
+                                    <h2 class="h1 mb-2">Get a curated travel plan</h2>
+                                    <p class="mb-0 opacity-75">Fill this in and we will reply with 2 to 3 tailored
+                                        options.</p>
+                                </div>
+                                <!-- <div class="contact-panel-badge ">
+                                    <i class="bi bi-stars"></i>
+                                </div> -->
+                            </div>
+
+                            <form class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control contact-input" id="fullName"
+                                            placeholder="Full name">
+                                        <label for="fullName">Full name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control contact-input" id="email"
+                                            placeholder="name@example.com">
+                                        <label for="email">Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control contact-input" id="phone"
+                                            placeholder="+91 00000 00000">
+                                        <label for="phone">Phone (optional)</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="date" class="form-control contact-input" id="travelDate"
+                                            placeholder="Date">
+                                        <label for="travelDate">Preferred travel date</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select contact-input" id="tripType"
+                                            aria-label="Trip type">
+                                            <option selected>Day tour</option>
+                                            <option value="1">Multi-day itinerary</option>
+                                            <option value="2">Honeymoon</option>
+                                            <option value="3">Family trip</option>
+                                            <option value="4">Corporate</option>
+                                        </select>
+                                        <label for="tripType">Trip type</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select contact-input" id="budget" aria-label="Budget">
+                                            <option selected>Budget range</option>
+                                            <option value="1">Economy</option>
+                                            <option value="2">Comfort</option>
+                                            <option value="3">Premium</option>
+                                            <option value="4">Luxury</option>
+                                        </select>
+                                        <label for="budget">Budget</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control contact-input" placeholder="Your message"
+                                            id="message" style="height: 160px"></textarea>
+                                        <label for="message">Tell us your destination and preferences</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="updates">
+                                            <label class="form-check-label opacity-75" for="updates">
+                                                Send me trip ideas and offers
+                                            </label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-lg  px-4 contact-submit">
+                                            Send message <i class="bi bi-send ms-2"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <p class="small mb-0 opacity-75">
+                                        By submitting, you agree to be contacted about your inquiry.
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="contact-side h-100">
+                            <div class="contact-map" id="map">
+                                <div class="ratio ratio-4x3">
+                                    <iframe
+                                        src="https://www.google.com/maps?q=Muwaileh%20Sharjah&output=embed"
+                                        title="Govolo Tours office location map" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                            <div class="contact-side-body">
+                                <div class="d-flex align-items-center justify-content-between gap-3 mb-3">
+                                    <h3 class="h5 mb-0">Office hours</h3>
+                                    <span class="contact-pill"><i class="bi bi-clock me-2"></i>Local time</span>
+                                </div>
+                                <div class="contact-hours mb-4">
+                                    <div class="contact-hours-row">
+                                        <span>Mon to Fri</span>
+                                        <span class="opacity-75">10:00 AM to 7:00 PM</span>
+                                    </div>
+                                    <div class="contact-hours-row">
+                                        <span>Saturday</span>
+                                        <span class="opacity-75">11:00 AM to 4:00 PM</span>
+                                    </div>
+                                    <div class="contact-hours-row">
+                                        <span>Sunday</span>
+                                        <span class="opacity-75">Closed</span>
+                                    </div>
+                                </div>
+                                <div class="contact-promise">
+                                    <h3 class="h5 mb-3">What you get</h3>
+                                    <ul class="list-unstyled mb-0 d-grid gap-2">
+                                        <li class="contact-check"><i class="bi bi-check2-circle me-2"></i>Transparent
+                                            pricing and options</li>
+                                        <li class="contact-check"><i class="bi bi-check2-circle me-2"></i>Smart routing
+                                            for less travel time</li>
+                                        <li class="contact-check"><i class="bi bi-check2-circle me-2"></i>Hotel and
+                                            activity recommendations</li>
+                                        <li class="contact-check"><i class="bi bi-check2-circle me-2"></i>Support before
+                                            and during the trip</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <!-- <section class="contact-section">
+            <div class="container">
+                <div class="row align-items-end g-4 mb-4">
+                    <div class="col-lg-7">
+                        <p class="text-uppercase mb-2 contact-eyebrow">FAQ</p>
+                        <h2 class="h3 mb-0">Quick answers before you message</h2>
+                    </div>
+                    <div class="col-lg-5">
+                        <p class="mb-0 opacity-75">
+                            If you do not see your question here, just drop a note and we will help.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion contact-accordion" id="contactFaq">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">
+                                How soon can you share a quote?
+                            </button>
+                        </h2>
+                        <div id="faqCollapse1" class="accordion-collapse collapse show" aria-labelledby="faq1"
+                            data-bs-parent="#contactFaq">
+                            <div class="accordion-body opacity-75">
+                                Most inquiries get a response within 2 hours. Custom multi-day plans may take a bit
+                                longer depending on complexity.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                                Can you help with flights and hotels?
+                            </button>
+                        </h2>
+                        <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faq2"
+                            data-bs-parent="#contactFaq">
+                            <div class="accordion-body opacity-75">
+                                Yes. Share your preferred dates and city, and we will suggest best-fit flight timings
+                                and stay options based on your budget.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                                Do you arrange private cars and drivers?
+                            </button>
+                        </h2>
+                        <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faq3"
+                            data-bs-parent="#contactFaq">
+                            <div class="accordion-body opacity-75">
+                                We can arrange airport pickups, day tour vehicles, and multi-day transport depending on
+                                the destination.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+                                Can I change dates after booking?
+                            </button>
+                        </h2>
+                        <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faq4"
+                            data-bs-parent="#contactFaq">
+                            <div class="accordion-body opacity-75">
+                                Changes depend on the vendor cancellation rules. We always try to find the smoothest
+                                option and communicate any difference in cost upfront.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- CTA -->
+        <!-- <section class="contact-cta">
+            <div class="container">
+                <div class="contact-cta-inner">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-lg-8">
+                            <p class="text-uppercase mb-2 contact-eyebrow">Next step</p>
+                            <h2 class="h3 mb-2">Want a quick call to finalize your plan?</h2>
+                            <p class="mb-0 opacity-75">
+                                Share your number and we will schedule a short call at your preferred time.
+                            </p>
+                        </div>
+                        <div class="col-lg-4 text-lg-end">
+                            <a href="#contactForm" class="btn btn-light btn-lg rounded-pill px-4">
+                                Request a call <i class="bi bi-telephone ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer-section text-white py-5 ">
+        <div class="container py-4">
+            <div class="row g-4 gy-5">
+                <!-- Left Column: Logo & Description -->
+                <div class="col-lg-5">
+                    <div class="footer-logo mb-4">
+                        <img src="assets/footerlogo.png" alt="Govolo Tours Logo" class="img-fluid  rounded-2"
+                            style="max-height: 120px;">
+                    </div>
+                    <p class="footer-desc text-white pe-lg-5 mb-5 opacity-75">
+                        Crafting Seamless Real Estate Experiences
+                    </p>
+                    <!-- Social Icons -->
+                    <div class="social-links d-flex gap-3 mt-4">
+                        <a href="#" class="social-icon text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <!-- <a href="#" class="social-icon text-white"><i class="fab fa-youtube"></i></a> -->
+                    </div>
+                </div>
+
+                <!-- Right Column: Navigation Links -->
+                <div class="col-lg-7">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <h5 class="nav-heading mb-4">Company</h5>
+                            <ul class="list-unstyled footer-links">
+                                <li><a href="#" class="text-white text-decoration-none">About Us</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Terms of service</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="nav-heading mb-4">Resources</h5>
+                            <ul class="list-unstyled footer-links">
+                                <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Career</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Videos</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Our Homes</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="nav-heading mb-4">Contact Us</h5>
+                            <p class="mb-2 opacity-75">Globalfam Realty FZE LLC Business Center, SPC, Muwaileh, Sharjah
+                            </p>
+                            <p class="mb-0 opacity-75">Email: info@globalfam.in</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider my-5 ">
+
+            <div class="row align-items-center gy-3 text-center text-md-start">
+                <div class="col-md-6">
+                    <p class="copyright mb-0 opacity-75">Globalfamrealty &copy; 2025. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-center justify-content-md-end gap-4 footer-legal-links">
+                        <a href="#" class="text-white text-decoration-none small opacity-75">Privacy</a>
+                        <a href="#" class="text-white text-decoration-none small opacity-75">Terms of Agreement</a>
+                        <a href="#" class="text-white text-decoration-none small opacity-75">Licenses</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- Fancybox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

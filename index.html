@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <!-- Fancybox CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
-
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -154,25 +154,34 @@
             <!-- Content layout -->
             <div class="row h-100 align-items-center justify-content-center justify-content-lg-start">
                 <div class="col-lg-8 col-md-10 text-white hero-content-box mt-4 mt-lg-5 pt-4 text-center text-lg-start">
-                    <p class="mb-3 text-light hero-subtitle">Get unforgettable memories with us</p>
-                    <h1 class="display-4 mb-4 pe-lg-5 hero-title" style="line-height: 1.1;">Explore beauty of<br
+                    <p class="mb-3 text-light hero-subtitle" data-aos="fade" 
+  data-aos-duration="400"
+  data-aos-delay="50"
+  data-aos-offset="200"
+  data-aos-easing="ease-in-out"
+  >Get unforgettable memories with us</p>
+                    <h1 class="display-4 mb-4 pe-lg-5 hero-title" style="line-height: 1.1;" data-aos="fade" 
+  data-aos-duration="500"
+  data-aos-delay="100"
+  data-aos-offset="200"
+  data-aos-easing="ease-in-out">Explore beauty of<br
                             class="d-none d-sm-block"> the whole world</h1>
 
                     <div
                         class="d-flex flex-nowrap flex-lg-wrap justify-content-center justify-content-lg-start gap-2 gap-lg-3 mt-4 mt-lg-5">
                         <button
-                            class="btn btn-primary rounded-pill px-3 px-lg-5 py-2 py-lg-3 action-btn shadow-sm fs-6">Explore
-                            Tours <i class="bi bi-arrow-right ms-1 ms-lg-2"></i></button>
+                            class="btn btn-primary rounded-pill px-3 px-lg-5 py-2 py-lg-3 action-btn shadow-sm fs-6" data-aos="fade">Explore
+                            Tours <i class="bi bi-arrow-right ms-1 ms-lg-2"></i> </button>
                         <button
-                            class="btn btn-outline-light rounded-pill px-3 px-lg-4 py-2 py-lg-3 action-btn bg-transparent text-white border-white hover-fill fs-6">Our
+                            class="btn btn-outline-light rounded-pill px-3 px-lg-4 py-2 py-lg-3 action-btn bg-transparent text-white border-white hover-fill fs-6" data-aos="fade">Our
                             Services <i class="bi bi-arrow-right ms-1 ms-lg-2"></i></button>
                     </div>
                 </div>
             </div>
 
             <!-- Desktop Right-side Vertical Navigation Arrows -->
-            <div class="slider-controls d-none d-lg-flex flex-column align-items-center justify-content-center position-absolute top-50 end-0 translate-middle-y z-3 pe-5 me-2 pointer-events-none"
-                style="height: 300px;">
+            <div class="slider-controls d-none d-lg-flex flex-column align-items-center justify-content-center position-absolute top-50 end-0 translate-middle-y z-3 pe-5 me-2 pointer-events-none" 
+                style="height: 300px;" >
                 <button
                     class="btn btn-link pointer-events-auto text-white text-decoration-none p-0 mb-3 slider-btn slide-prev"
                     aria-label="Previous Slide">
@@ -206,7 +215,7 @@
 
 
             <div
-                class="filter-bar-wrapper d-none d-md-flex position-absolute start-50 translate-middle-x z-3 w-100 px-4 justify-content-center">
+                class="filter-bar-wrapper d-none d-md-flex position-absolute start-50 translate-middle-x z-3 w-100 px-4 justify-content-center" >
                 <div class="filter-bar bg-white rounded-pill shadow-lg d-flex align-items-center w-100 mx-auto"
                     style="max-width: 1080px; padding: 0.6rem 0.6rem 0.6rem 1.5rem;">
 
@@ -318,7 +327,7 @@
         <div class="modal-dialog modal-dialog-bottom modal-dialog-centered mx-3">
             <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
                 <div class="modal-header border-bottom-0 pb-0">
-                    <h5 class="modal-title fw-bold" id="mobileFilterModalLabel">Filter Tours</h5>
+                    <h5 class="modal-title " id="mobileFilterModalLabel">Filter Tours</h5>
                     <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
@@ -405,8 +414,8 @@
     </div>
 
     <!-- Tour Categories Section -->
-    <section class="tour-categories-section py-5 bg-white overflow-hidden mt-5">
-        <div class="container text-center mb-5 mt-4">
+    <section class="tour-categories-section py-5 bg-white overflow-hidden mt-5" data-aos="fade">
+        <div class="container text-center mb-5 mt-4" >
             <p class="section-subtitle">Wonderful Place For You</p>
             <h2 class="section-title">Tour Categories</h2>
         </div>
@@ -472,10 +481,9 @@
     </section>
 
     <!-- Plan Your Trip Section -->
-    <section class="plan-trip-section py-5 pb-lg-5 pt-lg-2 overflow-hidden">
+    <section class="plan-trip-section py-5 pb-lg-5 pt-lg-2 overflow-hidden" data-aos="fade">
         <div class="container py-lg-5">
             <div class="row align-items-center">
-                <!-- Left Images (Placed without CSS shapes as requested) -->
                 <div class="col-lg-6 mb-5 mb-lg-0 pe-lg-5">
                     <div class="row g-3">
                         <!-- Tall Left Image -->
@@ -536,7 +544,7 @@
     </section>
 
     <!-- Top Destinations Section -->
-    <section class="top-destinations-section py-5">
+    <section class="top-destinations-section py-5" data-aos="fade">
         <div class="container text-center mb-5">
             <p class="section-subtitle">Let's Go Together</p>
             <h2 class="section-title">Top Destinations</h2>
@@ -560,35 +568,35 @@
                 </div>
                 <!-- Old Rain -->
                 <div class="dest-card dest-oldrain">
-                    <img src="assets/dest_oldrain.jpg" alt="Old Rain">
+                    <img src="assets/old-rain.jpg" alt="Old Rain">
                     <div class="dest-overlay">
                         <h4 class="dest-title">Old Rain</h4>
                     </div>
                 </div>
                 <!-- Paris -->
                 <div class="dest-card dest-paris">
-                    <img src="assets/dest_paris.jpg" alt="Paris">
+                    <img src="assets/paris.jpg" alt="Paris">
                     <div class="dest-overlay">
                         <h4 class="dest-title">Paris</h4>
                     </div>
                 </div>
                 <!-- City of water -->
                 <div class="dest-card dest-water">
-                    <img src="assets/dest_water.jpg" alt="City of water">
+                    <img src="assets/cityofwater.jpg" alt="City of water">
                     <div class="dest-overlay">
                         <h4 class="dest-title">City of water</h4>
                     </div>
                 </div>
                 <!-- Oceana -->
                 <div class="dest-card dest-oceana">
-                    <img src="assets/dest_oceana.jpg" alt="Oceana">
+                    <img src="assets/oceana.jpg" alt="Oceana">
                     <div class="dest-overlay">
                         <h4 class="dest-title">Oceana</h4>
                     </div>
                 </div>
                 <!-- Greece -->
                 <div class="dest-card dest-greece">
-                    <img src="assets/dest_greece.jpg" alt="Greece">
+                    <img src="assets/greese.jpg" alt="Greece">
                     <div class="dest-overlay">
                         <h4 class="dest-title">Greece</h4>
                     </div>
@@ -601,7 +609,7 @@
     <!-- Recent Packages Section -->
     <section class="recent-packages-section py-5">
         <div class="container mb-5">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4" data-aos="fade">
                 <div>
                     <p class="section-subtitle">Let's Go Together</p>
                     <h2 class="section-title">Recent Packages</h2>
@@ -615,7 +623,7 @@
             <div class="row g-4 mt-2">
                 <!-- Package 1 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column">
+                    <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column" data-aos="fade">
                         <div class="package-img">
                             <img src="assets/card_1.jpg" alt="Lithaniya - Santa Cruza"
                                 class="w-100 h-100 object-fit-cover">
@@ -645,7 +653,7 @@
 
                 <!-- Package 2 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column">
+                    <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column" data-aos="fade">
                         <div class="package-img">
                             <img src="assets/card_2.jpg" alt="Velouria - Monte Sienna"
                                 class="w-100 h-100 object-fit-cover">
@@ -675,7 +683,7 @@
 
                 <!-- Package 3 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column">
+                    <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column" data-aos="fade">
                         <div class="package-img">
                             <img src="assets/card_3.jpg" alt="Elvarra - Costa Lumia"
                                 class="w-100 h-100 object-fit-cover">
@@ -716,7 +724,7 @@
       
 
     <!-- Special Offer Section -->
-    <section class="special-offer-section  my-5 overflow-hidden">
+    <section class="special-offer-section  my-5 overflow-hidden" data-aos="fade">
         <div class="container-fluid px-0">
             <div class="row align-items-center g-0">
                 <!-- Left Image -->
@@ -765,14 +773,14 @@
 
     <!-- Testimonial Section -->
     <section class="testimonial-section py-5">
-        <div class="container text-center mb-5 mt-3">
+        <div class="container text-center mb-5 mt-3" data-aos="fade">
             <h2 class="section-title">What Our Client Say</h2>
         </div>
         <div class="container pb-5">
             <div class="owl-carousel testimonial-carousel mt-5">
                 <!-- Testimonial Item 1 -->
                 <div class="item">
-                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100">
+                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100" data-aos="fade">
                         <div class="testimonial-img-wrapper position-absolute top-0 start-50 translate-middle">
                             <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User 1" class="rounded-circle border border-white border-4 shadow-sm">
                         </div>
@@ -796,7 +804,7 @@
                 </div>
                 <!-- Testimonial Item 2 -->
                 <div class="item">
-                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100">
+                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100" data-aos="fade">
                         <div class="testimonial-img-wrapper position-absolute top-0 start-50 translate-middle">
                             <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="User 2" class="rounded-circle border border-white border-4 shadow-sm">
                         </div>
@@ -820,7 +828,7 @@
                 </div>
                 <!-- Testimonial Item 3 -->
                 <div class="item">
-                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100">
+                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100" data-aos="fade">
                         <div class="testimonial-img-wrapper position-absolute top-0 start-50 translate-middle">
                             <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="User 3" class="rounded-circle border border-white border-4 shadow-sm">
                         </div>
@@ -844,7 +852,7 @@
                 </div>
                 <!-- Testimonial Item 4 -->
                 <div class="item">
-                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100">
+                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100" data-aos="fade">
                         <div class="testimonial-img-wrapper position-absolute top-0 start-50 translate-middle">
                             <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User 4" class="rounded-circle border border-white border-4 shadow-sm">
                         </div>
@@ -870,7 +878,7 @@
         </div>
     </section>
 
-    <section class="gallery-section py-0 mt-5">
+    <section class="gallery-section py-0 mt-5" data-aos="fade">
         <div class="owl-carousel gallery-carousel">
             <div class="item">
                 <a href="assets/dest_amsterdam.jpg" data-fancybox="gallery">
@@ -906,7 +914,7 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="footer-section text-white py-5 ">
+    <footer class="footer-section text-white py-5 " >
         <div class="container py-4">
             <div class="row g-4 gy-5">
                 <!-- Left Column: Logo & Description -->
@@ -949,8 +957,8 @@ Crafting Seamless Real Estate Experiences
                         </div>
                         <div class="col-md-4">
                             <h5 class="nav-heading mb-4">Contact Us</h5>
-                            <p class="mb-2 opacity-75">Globalfam Realty FZE LLC Business Center, SPC, Muwaileh, Sharjah</p>
-                            <p class="mb-0 opacity-75">Email: info@globalfam.in</p>
+                            <p class="mb-2 opacity-75">Govolo Tours</p>
+                            <p class="mb-0 opacity-75">Email: info@Govolo.in</p>
                         </div>
                     </div>
                 </div>
@@ -960,7 +968,7 @@ Crafting Seamless Real Estate Experiences
 
             <div class="row align-items-center gy-3 text-center text-md-start">
                 <div class="col-md-6">
-                    <p class="copyright mb-0 opacity-75">Globalfamrealty &copy; 2025. All Rights Reserved.</p>
+                    <p class="copyright mb-0 opacity-75">Govolo Tours &copy; 2025. All Rights Reserved.</p>
                 </div>
                 <div class="col-md-6">
                     <div class="d-flex justify-content-center justify-content-md-end gap-4 footer-legal-links">
@@ -980,9 +988,17 @@ Crafting Seamless Real Estate Experiences
     <!-- Fancybox JS -->
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
     <!-- Bootstrap 5 JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
+
+
+        <script>
+  AOS.init();
+</script>
+
 </body>
 
 </html>

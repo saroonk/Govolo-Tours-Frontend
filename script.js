@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* --- Slider Configuration (Crossfade, Vertical Indicators) --- */
     const bgContainer = document.querySelector('.slider-bg-container');
     const trackIndicator = document.querySelector('.track-indicator');
 
