@@ -1,9 +1,9 @@
 /* Color Variables */
 :root {
     --primary-blue: #0077FF;
-    --navbar-bg: #ffffff;
+    --navbar-bg: #fff9f9c6;
     --pure-white: #FFFFFF;
-    --hover-blue: #0062d1;
+    --hover-blue: #2f8bf5;
     --light-gray: #f8f9fa;
     --text-dark: #212529;
 }
@@ -84,7 +84,10 @@ h6 {
 
 
 .custom-navbar {
-    background-color: var(--navbar-bg);
+    /* background-color: var(--navbar-bg); */
+    background-color: transparent;
+
+    backdrop-filter: blur(20px);
     border-radius: 12px;
     margin: 1.5rem auto;
     width: 95%;
@@ -92,6 +95,28 @@ h6 {
     padding: 0.6rem 0.5rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
+    
+}
+
+/* Scrolled Navbar Style */
+.custom-navbar.navbar-scrolled {
+    background-color: #ffffff !important;
+    backdrop-filter: none !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.custom-navbar.navbar-scrolled .nav-link {
+    color: #000000 !important;
+}
+
+.custom-navbar.navbar-scrolled .navbar-toggler-icon {
+    filter: none !important;
+}
+
+/* Ensure default toggler is white */
+.navbar-toggler-icon {
+    filter: invert(1) brightness(200%);
+    transition: filter 0.3s ease;
 }
 
 @media (max-width: 991px) {
@@ -103,15 +128,19 @@ h6 {
 }
 
 .navbar-nav .nav-link {
-    color: #000000;
+    color: #ffffff;
     font-weight: 400;
     font-size: 1rem;
-    transition: color 0.2s ease-in-out;
+    transition: color 0.5s ease-in-out;
 }
 
-.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:hover{
+    color: var(--primary-blue) !important;
+
+}
 .navbar-nav .nav-link.active {
-    color: var(--primary-blue);
+    color: var(--primary-blue) !important;
+    font-size: 1.1rem;
 }
 
 .govolo-brand {
@@ -193,6 +222,9 @@ h6 {
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
     background-color: var(--pure-white);
+    /* background-color: transparent; */
+    backdrop-filter: blur(20px);
+
 }
 
 .custom-mobile-drawer .nav-link {
@@ -283,6 +315,23 @@ h6 {
     pointer-events: none;
 }
 
+
+
+/* .slider-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;   
+
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+    pointer-events: none;
+} */
+
 .slider-bg::after {
     content: '';
     position: absolute;
@@ -290,7 +339,7 @@ h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.4) 100%);
+    background: linear-gradient(0deg, rgba(13, 13, 13, 0.5) 0%, rgba(39, 39, 39, 0.392) 50%, rgba(31, 30, 30, 0.529) 100%);
     z-index: 1;
 }
 
@@ -1114,6 +1163,7 @@ h6 {
 .footer-desc {
     font-size: 1.1rem;
     line-height: 1.6;
+    color: #fff;
 }
 
 .nav-heading {

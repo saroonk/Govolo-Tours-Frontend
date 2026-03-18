@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Background images
     const images = [
         'assets/aa6bf5a56bd2c407d13505c5448ac0e37666d40a.jpg',
+        // 'assets/videos/3542112-uhd_3840_2160_30fps.mp4',
+        // 'assets/videos/3015510-hd_1920_1080_24fps.mp4',
+        //   'assets/videos/3542112-uhd_3840_2160_30fps.mp4',
+        
+
         'assets/slider_img_2_1773465808651.png',
         'assets/slider_img_3_1773465830830.png'
     ];
@@ -25,6 +30,30 @@ document.addEventListener('DOMContentLoaded', () => {
         bgContainer.appendChild(slide);
         slides.push(slide);
     });
+
+
+
+//     images.forEach((vid, index) => {
+//     const slide = document.createElement('video');
+
+//     slide.classList.add('slider-bg');
+//     slide.src = vid;
+//     slide.autoplay = true;
+//     slide.muted = true;
+//     slide.loop = true;
+//     // slide.playsInline = true;
+//     // slide.preload = "auto"; 
+
+//     if (index === 0) {
+//         slide.classList.add('active');
+//         slide.style.opacity = '1';
+//     } else {
+//         slide.style.opacity = '0';
+//     }
+
+//     bgContainer.appendChild(slide);
+//     slides.push(slide);
+// });
 
     const totalSlides = slides.length;
     if (totalSlides === 0) return;
@@ -108,15 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navbar) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                // Add stronger blur and background when scrolled
-                navbar.style.backgroundColor = 'rgba(217, 217, 217, 0.98)';
-                navbar.style.backdropFilter = 'blur(15px)';
-                navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                navbar.classList.add('navbar-scrolled');
             } else {
-                // Return to normal
-                navbar.style.backgroundColor = 'var(--navbar-bg)';
-                navbar.style.backdropFilter = 'blur(10px)';
-                navbar.style.boxShadow = '0 4px 15px rgba(0,0,0,0.05)';
+                navbar.classList.remove('navbar-scrolled');
             }
         });
     }
