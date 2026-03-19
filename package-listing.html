@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>package-listing | Govolo Tours</title>
-    <!-- Bootstrap 5 CSS -->
+    <title>Package Listing | Govolo Tours</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -14,27 +13,13 @@
     <!-- Clash Grotesk Font -->
     <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600,700&display=swap" rel="stylesheet">
 
-    <!-- Owl Carousel CSS -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <!-- Fancybox CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
-
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="package-listing.css">
 </head>
 
-<body class="contact-page">
-    <!-- Hidden hooks for existing script.js (prevents null errors on non-home pages) -->
-    <div class="slider-bg-container" aria-hidden="true"
-        style="position:absolute;width:0;height:0;overflow:hidden;opacity:0;"></div>
-    <div class="track-indicator" aria-hidden="true"
-        style="position:absolute;width:0;height:0;overflow:hidden;opacity:0;"></div>
-
-    <!-- Desktop & Mobile Navbar -->
+<body class="package-listing-page">
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
         <div class="container-fluid px-3">
             <!-- Brand -->
@@ -154,202 +139,111 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
-<section class="package-hero d-flex align-items-center text-white">
-    <div class="container text-center">
-        <h1 class="hero-title mb-3">Explore Our Travel Packages</h1>
-        <p class="hero-subtitle mb-4">
-            Find the perfect journey tailored to your budget, destination, and travel style.
-        </p>
-        <button class="btn btn-primary rounded-pill px-4 nav-explore-btn d-flex align-items-center justify-content-center mx-auto d-block" type="button">Customize Your Trip <i
-                class="bi bi-arrow-right ms-2  arrow-right"></i></button>
-
-    </div>
-</section>
+    <!-- Hero Section -->
+    <section class="package-hero d-flex align-items-center text-white">
+        <div class="container text-center">
+            <h1 class="hero-title mb-3">Explore Our Travel Packages</h1>
+            <p class="hero-subtitle mb-4">Discover the perfect journey tailored to your style and budget.</p>
+        </div>
+    </section>
 
     <!-- ====== DESKTOP FILTER BAR ====== -->
     <section class="products-filter-bar d-none d-md-block">
         <div class="container">
-            <div class="filter-bar-inner d-flex align-items-center justify-content-between">
-                <!-- Left: Filter Dropdowns -->
-                <div class="filter-left d-flex align-items-center gap-4">
-                    <span class="filter-label">Filter:</span>
+            <form action="" method="GET" class="filter-form">
+                <div class="filter-bar-inner d-flex align-items-center justify-content-between">
+                    <div class="filter-left d-flex align-items-center gap-3">
+                        <span class="filter-label me-2"><i class="bi bi-funnel"></i> Filter:</span>
 
-                    <!-- Availability Dropdown -->
-                    <div class="filter-dropdown">
-                        <button class="filter-dropdown-btn" id="availabilityBtn">
-                            Availability <i class="bi bi-chevron-down"></i>
-                        </button>
-                        <div class="filter-dropdown-menu" id="availabilityMenu">
-                            <label class="filter-check-item">
-                                <input type="checkbox" value="in-stock"> In Stock
-                            </label>
-                            <label class="filter-check-item">
-                                <input type="checkbox" value="out-of-stock"> Out Of Stock
-                            </label>
+                        <!-- Destination -->
+                        <div class="unified-dropdown" id="destDropdown">
+                            <div class="unified-drop-btn">
+                                <span class="selected-text">Destination</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </div>
+                            <div class="unified-drop-menu scrollable-menu">
+                                <div class="unified-option active" data-value="">All Countries</div>
+                                <div class="unified-option" data-value="india">India</div>
+                                <div class="unified-option" data-value="vietnam">Vietnam</div>
+                                <div class="unified-option" data-value="usa">USA</div>
+                                <div class="unified-option" data-value="bhutan">Bhutan</div>
+                                <div class="unified-option" data-value="nepal">Nepal</div>
+                                <div class="unified-option" data-value="thailand">Thailand</div>
+                            </div>
+                            <input type="hidden" name="country" value="">
                         </div>
-                    </div>
 
-                    <!-- Price Dropdown -->
-                    <div class="filter-dropdown">
-                        <button class="filter-dropdown-btn" id="priceBtn">
-                            Price <i class="bi bi-chevron-down"></i>
-                        </button>
-                        <div class="filter-dropdown-menu" id="priceMenu">
-                            <label class="filter-check-item">
-                                <input type="checkbox" value="0-500"> RS 0 – RS 500
-                            </label>
-                            <label class="filter-check-item">
-                                <input type="checkbox" value="500-1000"> RS 500 – RS 1,000
-                            </label>
-                            <label class="filter-check-item">
-                                <input type="checkbox" value="1000+"> RS 1,000+
-                            </label>
+                        <!-- Duration -->
+                        <div class="unified-dropdown" id="durationDropdown">
+                            <div class="unified-drop-btn">
+                                <span class="selected-text">Duration</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </div>
+                            <div class="unified-drop-menu">
+                                <div class="unified-option active" data-value="">Any Duration</div>
+                                <div class="unified-option" data-value="1-3">1-3 Days</div>
+                                <div class="unified-option" data-value="4-7">4-7 Days</div>
+                                <div class="unified-option" data-value="8+">8+ Days</div>
+                            </div>
+                            <input type="hidden" name="duration" value="">
                         </div>
-                    </div>
 
-
-
-                    <!-- <div class="filter-dropdown">
-                        <button class="filter-dropdown-btn" id="destBtn">
-                            Destination <i class="bi bi-chevron-down"></i>
-                        </button>
-                        <div class="filter-dropdown-menu" id="destMenu">
-                            <label class="filter-check-item">
-                                <input type="checkbox" value="0-500"> RS 0 – RS 500
-                            </label>
-                            <label class="filter-check-item">
-                                <input type="checkbox" value="500-1000"> RS 500 – RS 1,000
-                            </label>
-                            <label class="filter-check-item">
-                                <input type="checkbox" value="1000+"> RS 1,000+
-                            </label>
+                        <!-- Price Range (Simple Dropdown) -->
+                        <div class="unified-dropdown" id="priceDropdown">
+                            <div class="unified-drop-btn">
+                                <span class="selected-text">Price Range</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </div>
+                            <div class="unified-drop-menu">
+                                <div class="unified-option active" data-value="">Any Price</div>
+                                <div class="unified-option" data-value="0-5000">Under ₹5,000</div>
+                                <div class="unified-option" data-value="5000-10000">₹5,000 – ₹10,000</div>
+                                <div class="unified-option" data-value="10000-20000">₹10,000 – ₹20,000</div>
+                                <div class="unified-option" data-value="20000+">₹20,000+</div>
+                            </div>
+                            <input type="hidden" name="price" value="">
                         </div>
-                    </div> -->
 
+                        <!-- Sort (Moved Inside Filters) -->
+                        <div class="unified-dropdown" id="sortDropdown">
+                            <div class="unified-drop-btn">
+                                <span class="selected-text">Sort By</span>
+                                <i class="bi bi-chevron-down"></i>
+                            </div>
+                            <div class="unified-drop-menu">
+                                <div class="unified-option active" data-value="newest">Newest</div>
+                                <div class="unified-option" data-value="price-asc">Price: Low to High</div>
+                                <div class="unified-option" data-value="price-desc">Price: High to Low</div>
+                                <div class="unified-option" data-value="popular">Most Popular</div>
+                            </div>
+                            <input type="hidden" name="sort" value="newest">
+                        </div>
 
-
-                    <div class="filter-dropdown">
-                      
-                    <div class="sort-group d-flex align-items-center gap-2">
-                        <!-- <span class="sort-label">Country:</span> -->
-                        <select class="sort-select filter-dropdown-btn">
-                            <option value="">All Countries</option>
-
-                            <option value="india">India</option>
-                            <option value="usa">USA</option>
-                            <option value="new-zealand">New Zealand</option>
-                            <option value="australia">Australia</option>
-                            <option value="canada">Canada</option>
-                            <option value="thailand">Thailand</option>
-                            <option value="malaysia">Malaysia</option>
-                            <option value="singapore">Singapore</option>
-                            <option value="philippines">Philippines</option>
-                            <option value="indonesia">Indonesia</option>
-                            <option value="vietnam">Vietnam</option>
-                            <option value="myanmar">Myanmar</option>
-                            <option value="brunei">Brunei</option>
-                            <option value="pakistan">Pakistan</option>
-                            <option value="srilanka">Srilanka</option>
-                            <option value="bhutan">Bhutan</option>
-                            <option value="nepal">Nepal</option>
-                            <option value="bhutan">Bhutan</option>
-                            <option value="bhutan">Bhutan</option>
-                        </select>
-                    </div>
+                        <button type="submit" class="btn btn-primary rounded-pill px-4 ms-2">Apply</button>
+                        <a href="package-listing.html" class="text-decoration-none text-muted small ms-3 fw-medium">Clear All</a>
                     </div>
 
-
-
-
-                <div class="filter-dropdown">
-                      
-                    <div class="sort-group d-flex align-items-center gap-2">
-                        <!-- <span class="sort-label">Country:</span> -->
-                        <select class="sort-select filter-dropdown-btn">
-                            <option value="">Days</option>
-
-                            <option value="india">1 Day</option>
-                            <option value="usa">2 Days</option>
-                            <option value="new-zealand">3 Days</option>
-                            <option value="australia">4 Days</option>
-           
-                        </select>
+                    <div class="filter-right">
+                        <span class="products-count fw-medium text-muted small"><span class="text-primary fw-bold">20</span> Packages Found</span>
                     </div>
                 </div>
-
-
-                
-                <div class="filter-dropdown">
-                      
-                    <div class="sort-group d-flex align-items-center gap-2">
-                        <!-- <span class="sort-label">Country:</span> -->
-                        <select class="sort-select filter-dropdown-btn">
-
-                            <option value="india">Package Type</option>
-                            <option value="usa">Solo</option>
-                            <option value="new-zealand">Family</option>
-                            <option value="australia">Couple</option>
-                            <option value="australia">Group</option>
-
-           
-                        </select>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-            </div>
-
-
-                
-
-                <!-- Right: Sort + Count -->
-                <div class="filter-right d-flex align-items-center gap-3">
-                    <div class="sort-group d-flex align-items-center gap-2">
-                        <span class="sort-label">Sort by:</span>
-                        <select class="sort-select">
-                            <option value="newest">Newest</option>
-                            <option value="price-asc">Price: Low to High</option>
-                            <option value="price-desc">Price: High to Low</option>
-                            <option value="oldest">Oldest</option>
-                        </select>
-                    </div>
-                    <span class="products-count">20 Packages</span>
-                </div>
-
-            </div>
+            </form>
         </div>
     </section>
 
 
-    <!-- ====== MOBILE FILTER BAR (Shows filter button + count) ====== -->
+
+
+
+    <!-- ====== MOBILE FILTER BAR ====== -->
     <section class="products-filter-bar-mobile d-md-none">
         <div class="container">
             <div class="mobile-filter-bar d-flex align-items-center justify-content-between">
                 <button class="mobile-filter-btn" id="mobileFilterBtn">
-                    <i class="bi bi-sliders"></i> Filter and sort
+                    <i class="bi bi-sliders"></i> Filter & Sort
                 </button>
-                <span class="products-count">20 Packages</span>
+                <span class="products-count small fw-bold"><span class="text-primary fw-bold">20</span> Packages</span>
             </div>
         </div>
     </section>
@@ -357,274 +251,103 @@
     <!-- ====== MOBILE FILTER DRAWER ====== -->
     <div class="mobile-filter-overlay" id="mobileFilterOverlay"></div>
     <div class="mobile-filter-drawer" id="mobileFilterDrawer">
-        <div class="drawer-header">
-            <div>
-                <p class="drawer-title">Filter and sort</p>
-                <p class="drawer-count">20 Packages</p>
+        <form action="" method="GET" class="h-100 d-flex flex-column">
+            <div class="drawer-header p-4 border-bottom d-flex align-items-center justify-content-between">
+                <h5 class="fw-bold mb-0">Filters</h5>
+                <button type="button" class="btn-close" id="drawerCloseBtn"></button>
             </div>
-            <button class="drawer-close-btn" id="drawerCloseBtn">
-                <i class="bi bi-x-lg"></i>
-            </button>
-        </div>
+            <div class="drawer-body p-4 flex-grow-1 overflow-auto">
+                <!-- Mobile Destination -->
+                <div class="mobile-filter-group mb-4">
+                    <label class="fw-bold text-muted text-uppercase d-block mb-2 small">Destination</label>
+                    <div class="unified-dropdown w-100">
+                        <div class="unified-drop-btn w-100 justify-content-between">
+                            <span class="selected-text">All Countries</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </div>
+                        <div class="unified-drop-menu scrollable-menu w-100">
+                            <div class="unified-option active" data-value="">All Countries</div>
+                            <div class="unified-option" data-value="india">India</div>
+                            <div class="unified-option" data-value="vietnam">Vietnam</div>
+                            <div class="unified-option" data-value="usa">USA</div>
+                            <div class="unified-option" data-value="bhutan">Bhutan</div>
+                        </div>
+                        <input type="hidden" name="country" value="">
+                    </div>
+                </div>
 
-        <div class="drawer-body">
+                <!-- Mobile Duration -->
+                <div class="mobile-filter-group mb-4">
+                    <label class="fw-bold text-muted text-uppercase d-block mb-2 small">Duration</label>
+                    <div class="unified-dropdown w-100">
+                        <div class="unified-drop-btn w-100 justify-content-between">
+                            <span class="selected-text">Any Duration</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </div>
+                        <div class="unified-drop-menu w-100">
+                            <div class="unified-option active" data-value="">Any Duration</div>
+                            <div class="unified-option" data-value="1-3">1-3 Days</div>
+                            <div class="unified-option" data-value="4-7">4-7 Days</div>
+                            <div class="unified-option" data-value="8+">8+ Days</div>
+                        </div>
+                        <input type="hidden" name="duration" value="">
+                    </div>
+                </div>
 
+                <!-- Mobile Price -->
+                <div class="mobile-filter-group mb-4">
+                    <label class="fw-bold text-muted text-uppercase d-block mb-2 small">Price Range</label>
+                    <div class="unified-dropdown w-100">
+                        <div class="unified-drop-btn w-100 justify-content-between">
+                            <span class="selected-text">Any Price</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </div>
+                        <div class="unified-drop-menu w-100">
+                            <div class="unified-option active" data-value="">Any Price</div>
+                            <div class="unified-option" data-value="0-5000">Under ₹5,000</div>
+                            <div class="unified-option" data-value="5000-10000">₹5,000 – ₹10,000</div>
+                            <div class="unified-option" data-value="10000-20000">₹10,000 – ₹20,000</div>
+                            <div class="unified-option" data-value="20000+">₹20,000+</div>
+                        </div>
+                        <input type="hidden" name="price" value="">
+                    </div>
+                </div>
 
-
-                        <div class="drawer-section">
-                <div class="drawer-sort-row">
-                    <span class="drawer-sort-label">Countries:</span>
-
-                    <select class="sort-select drawer-sort-select">
-                            <option value="">All Countries</option>
-
-                            <option value="india">India</option>
-                            <option value="usa">USA</option>
-                            <option value="new-zealand">New Zealand</option>
-                            <option value="australia">Australia</option>
-                            <option value="canada">Canada</option>
-                            <option value="thailand">Thailand</option>
-                            <option value="malaysia">Malaysia</option>
-                            <option value="singapore">Singapore</option>
-                            <option value="philippines">Philippines</option>
-                            <option value="indonesia">Indonesia</option>
-                            <option value="vietnam">Vietnam</option>
-                            <option value="myanmar">Myanmar</option>
-                            <option value="brunei">Brunei</option>
-                            <option value="pakistan">Pakistan</option>
-                            <option value="srilanka">Srilanka</option>
-                            <option value="bhutan">Bhutan</option>
-                            <option value="nepal">Nepal</option>
-            
-                        </select>
+                <!-- Mobile Sort -->
+                <div class="mobile-filter-group mb-4">
+                    <label class="fw-bold text-muted text-uppercase d-block mb-2 small">Sort By</label>
+                    <div class="unified-dropdown w-100">
+                        <div class="unified-drop-btn w-100 justify-content-between">
+                            <span class="selected-text">Newest</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </div>
+                        <div class="unified-drop-menu w-100">
+                            <div class="unified-option active" data-value="newest">Newest</div>
+                            <div class="unified-option" data-value="price-asc">Price: Low to High</div>
+                            <div class="unified-option" data-value="price-desc">Price: High to Low</div>
+                            <div class="unified-option" data-value="popular">Most Popular</div>
+                        </div>
+                        <input type="hidden" name="sort" value="newest">
+                    </div>
                 </div>
             </div>
-
-
-
-            <!-- Availability -->
-            <div class="drawer-section">
-                <button class="drawer-section-btn" data-target="drawerAvailability">
-                    Availability <i class="bi bi-chevron-down"></i>
-                </button>
-                <div class="drawer-section-content" id="drawerAvailability">
-                    <label class="filter-check-item">
-                        <input type="checkbox" value="in-stock"> In Stock
-                    </label>
-                    <label class="filter-check-item">
-                        <input type="checkbox" value="out-of-stock"> Out Of Stock
-                    </label>
-                </div>
+            <div class="drawer-footer p-4 border-top bg-white d-flex gap-3">
+                <a href="package-listing.html" class="btn btn-outline-secondary rounded-pill flex-grow-1 py-3 text-uppercase fw-bold small">Clear All</a>
+                <button type="submit" class="btn btn-primary rounded-pill flex-grow-1 py-3 text-uppercase fw-bold small">Apply Filters</button>
             </div>
-
-            <!-- Price -->
-            <div class="drawer-section">
-                <button class="drawer-section-btn" data-target="drawerPrice">
-                    Price <i class="bi bi-chevron-down"></i>
-                </button>
-                <div class="drawer-section-content" id="drawerPrice">
-                    <label class="filter-check-item">
-                        <input type="checkbox" value="0-500"> RS 0 – RS 500
-                    </label>
-                    <label class="filter-check-item">
-                        <input type="checkbox" value="500-1000"> RS 500 – RS 1,000
-                    </label>
-                    <label class="filter-check-item">
-                        <input type="checkbox" value="1000+"> RS 1,000+
-                    </label>
-                </div>
-            </div>
-
-
-
-
-
-
-                        <div class="drawer-section">
-                <div class="drawer-sort-row">
-                    <span class="drawer-sort-label">Days:</span>
-
-                    <select class="sort-select drawer-sort-select">
-
-                            <option value="india">1 Day</option>
-                            <option value="usa">2 Days</option>
-                            <option value="new-zealand">3 Days</option>
-                            <option value="australia">4 Days</option>
-           
-                        </select>
-                </div>
-            </div>
-
-
-
-                        <div class="drawer-section">
-                <div class="drawer-sort-row">
-                    <span class="drawer-sort-label">Package Type:</span>
-
-                    <select class="sort-select drawer-sort-select">
-
-                            <option value="usa">Solo</option>
-                            <option value="new-zealand">Family</option>
-                            <option value="australia">Couple</option>
-                            <option value="australia">Group</option>
-
-           
-                        </select>
-                </div>
-            </div>
-
-
-
-
-
-
-            <!-- Sort By -->
-            <div class="drawer-section">
-                <div class="drawer-sort-row">
-                    <span class="drawer-sort-label">Sort by:</span>
-                    <select class="sort-select drawer-sort-select">
-                        <option value="newest">Newest</option>
-                        <option value="price-asc">Price: Low to High</option>
-                        <option value="price-desc">Price: High to Low</option>
-                        <option value="oldest">Oldest</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div class="drawer-footer">
-            <button class="drawer-remove-btn" id="drawerRemoveAll">Remove all</button>
-            <button class="drawer-apply-btn" id="drawerApply">Apply</button>
-        </div>
+        </form>
     </div>
 
 
 
 
 
-    <section class="products-grid-section py-5">
+
+
+    <section class="products-grid-section py-5 mb-5">
         <div class="container">
-            <div class="row g-md-4 g-3">
-
-                                <div class="col-lg-4 col-md-6">
-                    <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column" data-aos="fade">
-                        <div class="package-img">
-                            <img src="assets/card_2.jpg" alt="Velouria - Monte Sienna"
-                                class="w-100 h-100 object-fit-cover">
-                        </div>
-                        <div class="package-content p-4 flex-grow-1 d-flex flex-column">
-                            <h4 class="package-title fw-bold mb-1 fs-5">Velouria – Monte Sienna</h4>
-                            <p class="package-location text-muted mb-2 pb-2" style="font-size: 0.95rem;">Location:
-                                Bhutan</p>
-
-                            <div class="package-meta d-flex justify-content-between mb-4 py-4 border-bottom border-top text-muted"
-                                style="font-size: 0.9rem;">
-                                <span><i class="bi bi-calendar3 me-1"></i> 6 Days</span>
-                                <span><i class="bi bi-moon me-1"></i> 3 Nights</span>
-                                <span><i class="bi bi-globe me-1"></i> 08 Country</span>
-                            </div>
-
-                            <div class="package-footer mt-auto d-flex justify-content-between align-items-center">
-                                <div>
-                                    <p class="text-muted mb-0" style="font-size: 0.8rem;">Starting From</p>
-                                    <h5 class="text-primary price mb-0 fs-4">$859</h5>
-                                </div>
-                                <a href="#" class="btn btn-primary rounded-pill px-4 py-2 package-btn">View Tour</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                                                <div class="col-lg-4 col-md-6">
-                    <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column" data-aos="fade">
-                        <div class="package-img">
-                            <img src="assets/card_3.jpg" alt="Elvarra - Costa Lumia"
-                                class="w-100 h-100 object-fit-cover">
-                        </div>
-                        <div class="package-content p-4 flex-grow-1 d-flex flex-column">
-                            <h4 class="package-title fw-bold mb-1 fs-5">Elvarra – Costa Lumia</h4>
-                            <p class="package-location text-muted mb-2 pb-2 " style="font-size: 0.95rem;">Location:
-                                Morroco</p>
-
-                            <div class="package-meta d-flex justify-content-between mb-4 py-4 border-bottom border-top text-muted"
-                                style="font-size: 0.9rem;">
-                                <span><i class="bi bi-calendar3 me-1"></i> 5 Days</span>
-                                <span><i class="bi bi-moon me-1"></i> 2 Nights</span>
-                                <span><i class="bi bi-globe me-1"></i> 08 Country</span>
-                            </div>
-
-                            <div class="package-footer mt-auto d-flex justify-content-between align-items-center">
-                                <div>
-                                    <p class="text-muted mb-0" style="font-size: 0.8rem;">Starting From</p>
-                                    <h5 class="text-primary price mb-0 fs-4">$689</h5>
-                                </div>
-                                <a href="#" class="btn btn-primary rounded-pill px-4 py-2 package-btn">View Tour</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                                <div class="col-lg-4 col-md-6">
-                    <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column" data-aos="fade">
-                        <div class="package-img">
-                            <img src="assets/card_2.jpg" alt="Velouria - Monte Sienna"
-                                class="w-100 h-100 object-fit-cover">
-                        </div>
-                        <div class="package-content p-4 flex-grow-1 d-flex flex-column">
-                            <h4 class="package-title fw-bold mb-1 fs-5">Velouria – Monte Sienna</h4>
-                            <p class="package-location text-muted mb-2 pb-2" style="font-size: 0.95rem;">Location:
-                                Bhutan</p>
-
-                            <div class="package-meta d-flex justify-content-between mb-4 py-4 border-bottom border-top text-muted"
-                                style="font-size: 0.9rem;">
-                                <span><i class="bi bi-calendar3 me-1"></i> 6 Days</span>
-                                <span><i class="bi bi-moon me-1"></i> 3 Nights</span>
-                                <span><i class="bi bi-globe me-1"></i> 08 Country</span>
-                            </div>
-
-                            <div class="package-footer mt-auto d-flex justify-content-between align-items-center">
-                                <div>
-                                    <p class="text-muted mb-0" style="font-size: 0.8rem;">Starting From</p>
-                                    <h5 class="text-primary price mb-0 fs-4">$859</h5>
-                                </div>
-                                <a href="#" class="btn btn-primary rounded-pill px-4 py-2 package-btn">View Tour</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                                <div class="col-lg-4 col-md-6">
-                    <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column" data-aos="fade">
-                        <div class="package-img">
-                            <img src="assets/card_2.jpg" alt="Velouria - Monte Sienna"
-                                class="w-100 h-100 object-fit-cover">
-                        </div>
-                        <div class="package-content p-4 flex-grow-1 d-flex flex-column">
-                            <h4 class="package-title fw-bold mb-1 fs-5">Velouria – Monte Sienna</h4>
-                            <p class="package-location text-muted mb-2 pb-2" style="font-size: 0.95rem;">Location:
-                                Bhutan</p>
-
-                            <div class="package-meta d-flex justify-content-between mb-4 py-4 border-bottom border-top text-muted"
-                                style="font-size: 0.9rem;">
-                                <span><i class="bi bi-calendar3 me-1"></i> 6 Days</span>
-                                <span><i class="bi bi-moon me-1"></i> 3 Nights</span>
-                                <span><i class="bi bi-globe me-1"></i> 08 Country</span>
-                            </div>
-
-                            <div class="package-footer mt-auto d-flex justify-content-between align-items-center">
-                                <div>
-                                    <p class="text-muted mb-0" style="font-size: 0.8rem;">Starting From</p>
-                                    <h5 class="text-primary price mb-0 fs-4">$859</h5>
-                                </div>
-                                <a href="#" class="btn btn-primary rounded-pill px-4 py-2 package-btn">View Tour</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
+            <div class="row g-4" id="packageGrid">
+                <!-- Card 1 -->
                 <div class="col-lg-4 col-md-6">
                     <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column" data-aos="fade">
                         <div class="package-img">
@@ -653,8 +376,8 @@
                         </div>
                     </div>
                 </div>
-
-                                <div class="col-lg-4 col-md-6">
+                <!-- Card 2 -->
+                <div class="col-lg-4 col-md-6">
                     <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column" data-aos="fade">
                         <div class="package-img">
                             <img src="assets/card_2.jpg" alt="Velouria - Monte Sienna"
@@ -682,45 +405,40 @@
                         </div>
                     </div>
                 </div>
-
-
-                                <div class="col-lg-4 col-md-6">
+                <!-- Card 3 -->
+                <div class="col-lg-4 col-md-6">
                     <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column" data-aos="fade">
                         <div class="package-img">
-                            <img src="assets/card_2.jpg" alt="Velouria - Monte Sienna"
+                            <img src="assets/card_1.jpg" alt="Lithaniya - Santa Cruza"
                                 class="w-100 h-100 object-fit-cover">
                         </div>
                         <div class="package-content p-4 flex-grow-1 d-flex flex-column">
-                            <h4 class="package-title fw-bold mb-1 fs-5">Velouria – Monte Sienna</h4>
-                            <p class="package-location text-muted mb-2 pb-2" style="font-size: 0.95rem;">Location:
-                                Bhutan</p>
+                            <h4 class="package-title mb-1 fs-5">Lithaniya – Santa Cruza</h4>
+                            <p class="package-location text-muted mb-2 pb-2" style="font-size: 0.95rem;">Location: Roman
+                            </p>
 
                             <div class="package-meta d-flex justify-content-between mb-4 py-4 border-bottom border-top text-muted"
                                 style="font-size: 0.9rem;">
-                                <span><i class="bi bi-calendar3 me-1"></i> 6 Days</span>
-                                <span><i class="bi bi-moon me-1"></i> 3 Nights</span>
+                                <span><i class="bi bi-calendar3 me-1"></i> 4 Days</span>
+                                <span><i class="bi bi-moon me-1"></i> 4 Nights</span>
                                 <span><i class="bi bi-globe me-1"></i> 08 Country</span>
                             </div>
 
                             <div class="package-footer mt-auto d-flex justify-content-between align-items-center">
                                 <div>
                                     <p class="text-muted mb-0" style="font-size: 0.8rem;">Starting From</p>
-                                    <h5 class="text-primary price mb-0 fs-4">$859</h5>
+                                    <h5 class="text-primary price mb-0 fs-4">$359</h5>
                                 </div>
                                 <a href="#" class="btn btn-primary rounded-pill px-4 py-2 package-btn">View Tour</a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
 
-
-
-            </div><!-- /.row -->
-
-
-                        <div class="pagination-wrapper">
+            <div class="pagination-wrapper">
                 <nav aria-label="Blog pagination">
                     <ul class="pagination">
                         <li class="page-item disabled">
@@ -741,35 +459,21 @@
             </div>
 
 
-        </div><!-- /.container -->
+        </div>
     </section>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Footer Section -->
-    <footer class="footer-section text-white py-5 ">
+     <footer class="footer-section text-white py-5 " >
         <div class="container py-4">
             <div class="row g-4 gy-5">
                 <!-- Left Column: Logo & Description -->
                 <div class="col-lg-5">
                     <div class="footer-logo mb-4">
-                        <img src="assets/footerlogo.png" alt="Govolo Tours Logo" class="img-fluid  rounded-2"
-                            style="max-height: 120px;">
+                        <img src="assets/footerlogo.png" alt="Govolo Tours Logo" class="img-fluid  rounded-2" style="max-height: 120px;">
                     </div>
                     <p class="footer-desc text-white pe-lg-5 mb-5 opacity-75">
-                        Crafting Seamless Real Estate Experiences
+Crafting Seamless Real Estate Experiences
                     </p>
                     <!-- Social Icons -->
                     <div class="social-links d-flex gap-3 mt-4">
@@ -803,9 +507,8 @@
                         </div>
                         <div class="col-md-4">
                             <h5 class="nav-heading mb-4">Contact Us</h5>
-                            <p class="mb-2 opacity-75">Globalfam Realty FZE LLC Business Center, SPC, Muwaileh, Sharjah
-                            </p>
-                            <p class="mb-0 opacity-75">Email: info@globalfam.in</p>
+                            <p class="mb-2 opacity-75">Govolo Tours</p>
+                            <p class="mb-0 opacity-75">Email: info@Govolo.in</p>
                         </div>
                     </div>
                 </div>
@@ -815,7 +518,7 @@
 
             <div class="row align-items-center gy-3 text-center text-md-start">
                 <div class="col-md-6">
-                    <p class="copyright mb-0 opacity-75">Globalfamrealty &copy; 2025. All Rights Reserved.</p>
+                    <p class="copyright mb-0 opacity-75">Govolo Tours &copy; 2025. All Rights Reserved.</p>
                 </div>
                 <div class="col-md-6">
                     <div class="d-flex justify-content-center justify-content-md-end gap-4 footer-legal-links">
@@ -828,96 +531,93 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <!-- Fancybox JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
-    <!-- Bootstrap 5 JS Bundle with Popper -->
+
+    <!-- JS Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 
-
-        <script>
-
+    <script>
 
 
-        // ---- Desktop filter dropdowns ----
-        document.querySelectorAll('.filter-dropdown-btn').forEach(btn => {
-            btn.addEventListener('click', function (e) {
-                e.stopPropagation();
-                const menu = this.nextElementSibling;
-                const isOpen = menu.classList.contains('open');
-                // close all
-                document.querySelectorAll('.filter-dropdown-menu').forEach(m => m.classList.remove('open'));
-                document.querySelectorAll('.filter-dropdown-btn').forEach(b => b.classList.remove('active'));
-                if (!isOpen) {
-                    menu.classList.add('open');
-                    this.classList.add('active');
-                }
+            const navbar = document.querySelector('.custom-navbar');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+    }
+
+
+
+        const dropdowns = document.querySelectorAll('.unified-dropdown');
+
+        dropdowns.forEach(dropdown => {
+            const btn = dropdown.querySelector('.unified-drop-btn');
+            const options = dropdown.querySelectorAll('.unified-option');
+            const hiddenInput = dropdown.querySelector('input[type="hidden"]');
+            const selectedText = dropdown.querySelector('.selected-text');
+
+            if (btn) {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    // Close others
+                    dropdowns.forEach(other => {
+                        if (other !== dropdown) other.classList.remove('active');
+                    });
+                    dropdown.classList.toggle('active');
+                });
+            }
+
+            options.forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const val = option.getAttribute('data-value');
+                    const text = option.textContent.trim();
+                    
+                    if (hiddenInput) hiddenInput.value = val;
+                    if (selectedText) selectedText.textContent = text;
+
+                    options.forEach(opt => opt.classList.remove('active'));
+                    option.classList.add('active');
+                    dropdown.classList.remove('active');
+                });
             });
         });
-        document.addEventListener('click', () => {
-            document.querySelectorAll('.filter-dropdown-menu').forEach(m => m.classList.remove('open'));
-            document.querySelectorAll('.filter-dropdown-btn').forEach(b => b.classList.remove('active'));
+
+        // Close dropdowns on click outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.unified-dropdown')) {
+                dropdowns.forEach(d => d.classList.remove('active'));
+            }
         });
 
-
-
-        // for form auto submit
-        // document.querySelectorAll(".filter-dropdown-menu input").forEach(checkbox => {
-        //     checkbox.addEventListener("change", () => {
-        //         document.querySelector(".filter-bar-inner form").submit();
-        //     });
-        // });
-
-        // document.querySelectorAll('.filter-check-item input')
-        //     .forEach(input => {
-        //         input.addEventListener('change', () => {
-        //             input.closest('form').submit();
-        //         });
-        //     });
-
-        // ---- Mobile filter drawer ----
+        // ====== MOBILE FILTER DRAWER LOGIC ======
         const mobileFilterBtn = document.getElementById('mobileFilterBtn');
-        const mobileFilterOverlay = document.getElementById('mobileFilterOverlay');
         const mobileFilterDrawer = document.getElementById('mobileFilterDrawer');
+        const mobileFilterOverlay = document.getElementById('mobileFilterOverlay');
         const drawerCloseBtn = document.getElementById('drawerCloseBtn');
-        const drawerApply = document.getElementById('drawerApply');
-        const drawerRemoveAll = document.getElementById('drawerRemoveAll');
 
         function openDrawer() {
             mobileFilterDrawer.classList.add('open');
-            mobileFilterOverlay.classList.add('open');
+            mobileFilterOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
         function closeDrawer() {
             mobileFilterDrawer.classList.remove('open');
-            mobileFilterOverlay.classList.remove('open');
+            mobileFilterOverlay.classList.remove('active');
             document.body.style.overflow = '';
         }
 
-        mobileFilterBtn.addEventListener('click', openDrawer);
-        mobileFilterOverlay.addEventListener('click', closeDrawer);
-        drawerCloseBtn.addEventListener('click', closeDrawer);
-        drawerApply.addEventListener('click', closeDrawer);
-        drawerRemoveAll.addEventListener('click', function () {
-            document.querySelectorAll('#mobileFilterDrawer input[type="checkbox"]').forEach(cb => cb.checked = false);
-        });
-
-        // ---- Drawer accordion sections ----
-        document.querySelectorAll('.drawer-section-btn').forEach(btn => {
-            btn.addEventListener('click', function () {
-                const targetId = this.getAttribute('data-target');
-                const content = document.getElementById(targetId);
-                const icon = this.querySelector('i');
-                content.classList.toggle('open');
-                icon.classList.toggle('bi-chevron-up');
-                icon.classList.toggle('bi-chevron-down');
-            });
-        });
-        </script>
+        if (mobileFilterBtn) mobileFilterBtn.addEventListener('click', openDrawer);
+        if (mobileFilterOverlay) mobileFilterOverlay.addEventListener('click', closeDrawer);
+        if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
+    </script>
 </body>
 
 </html>
