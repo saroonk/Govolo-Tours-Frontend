@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Govolo Tours</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Clash Grotesk Font -->
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600,700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog.css">
+</head>
+
+<body>
+
+    <!-- Desktop & Mobile Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+        <div class="container-fluid px-3">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/Group_1.png" alt="Govolo Tours">
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none d-lg-none p-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#mobileDrawer" aria-controls="mobileDrawer">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="desktopNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item dropdown hover-dropdown">
+                        <a class="nav-link" href="#" role="button" aria-expanded="false">
+                            Day Tours <i class="bi bi-chevron-down ms-1 small dropdown-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">City Tours</a></li>
+                            <li><a class="dropdown-item" href="#">Nature Walks</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Special Offers</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Car Rentals</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-primary rounded-pill px-4 nav-explore-btn" type="button">Explore Tours <i
+                            class="bi bi-arrow-right ms-2 align-text-bottom"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Custom Mobile Drawer -->
+    <div class="offcanvas offcanvas-start custom-mobile-drawer border-0 shadow-sm" tabindex="-1" id="mobileDrawer"
+        aria-labelledby="mobileDrawerLabel">
+        <div class="offcanvas-header border-bottom-0 mt-2 px-4">
+            <h5 class="offcanvas-title" id="mobileDrawerLabel">
+                <img src="assets/Group_1.png" alt="Govolo Tours" style="height: 36px; width: auto;">
+            </h5>
+            <button type="button" class="btn-close shadow-none p-2" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body px-4 pt-1">
+            <div class="accordion accordion-flush mobile-nav-accordion" id="mobileNavAccordion">
+                <div class="nav-item mb-3">
+                    <a class="nav-link fs-5" href="index.html">Home</a>
+                </div>
+                <div class="nav-item mb-3">
+                    <a class="nav-link fs-5" href="#">About</a>
+                </div>
+                <div class="accordion-item border-0 mb-3 bg-transparent">
+                    <h2 class="accordion-header" id="headingDayTours">
+                        <button class="accordion-button collapsed px-0 py-0 shadow-none bg-transparent fs-5"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseDayTours"
+                            aria-expanded="false" aria-controls="collapseDayTours">
+                            Day Tours
+                        </button>
+                    </h2>
+                    <div id="collapseDayTours" class="accordion-collapse collapse" aria-labelledby="headingDayTours"
+                        data-bs-parent="#mobileNavAccordion">
+                        <div class="accordion-body px-3 py-2 mt-2 border-start border-2 border-light">
+                            <ul class="list-unstyled mb-0 d-flex flex-column gap-3">
+                                <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink">City Tours</a></li>
+                                <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink">Nature Walks</a></li>
+                                <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink">Special Offers</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item mb-3">
+                    <a class="nav-link fs-5" href="#">Destinations</a>
+                </div>
+                <div class="nav-item mb-3">
+                    <a class="nav-link fs-5" href="#">Car Rentals</a>
+                </div>
+            </div>
+            <button class="btn btn-primary rounded-pill w-100 py-3 mt-4 fs-6 d-flex align-items-center justify-content-center mobile-explore-btn"
+                type="button">
+                Explore Tours <i class="bi bi-arrow-right ms-2"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Blog Hero Section -->
+    <header class="blog-hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/dest_water.jpg');">
+        <div class="container" data-aos="fade-up">
+            <h1 class="display-3">Explore Our Blogs</h1>
+            <p class="lead">Discover stories, tips, and guides for your next adventure</p>
+        </div>
+    </header>
+
+    <!-- Category Filter Tabs -->
+    <div class="container py-5">
+        <div class="blog-tabs" data-aos="fade-up" data-aos-delay="100">
+            <button class="tab-btn active" data-filter="all">All</button>
+            <button class="tab-btn" data-filter="destinations">Destinations</button>
+            <button class="tab-btn" data-filter="travel-tips">Travel Tips</button>
+            <button class="tab-btn" data-filter="adventure">Adventure</button>
+            <button class="tab-btn" data-filter="culture">Culture</button>
+        </div>
+    </div>
+
+    <!-- Blog Listing Section -->
+    <section class="blog-listing-section">
+        <div class="container">
+            <div class="row g-4" id="blogGrid">
+                <!-- Blog Card 1 -->
+                <div class="col-lg-4 col-md-6 blog-item" data-category="destinations" data-aos="fade-up">
+                    <div class="blog-card">
+                        <div class="blog-card-img">
+                            <img src="assets/dest_vietnam.jpg" alt="Vietnam">
+                            <span class="category-badge">Destinations</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <h3>Uncovering the Hidden Gems of Vietnam</h3>
+                            <p>From the bustling streets of Hanoi to the tranquil waters of Ha Long Bay, Vietnam offers a rich tapestry of experiences...</p>
+                            <a href="blog-detail.html" class="read-more-btn">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 2 -->
+                <div class="col-lg-4 col-md-6 blog-item" data-category="travel-tips" data-aos="fade-up" data-aos-delay="100">
+                    <div class="blog-card">
+                        <div class="blog-card-img">
+                            <img src="assets/cat_hiking.jpg" alt="Travel Tips">
+                            <span class="category-badge">Travel Tips</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <h3>10 Essential Tips for Solo Travelers</h3>
+                            <p>Traveling solo can be one of life's most rewarding experiences. Here are our top tips to stay safe and make the most of it...</p>
+                            <a href="blog-detail.html" class="read-more-btn">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3 -->
+                <div class="col-lg-4 col-md-6 blog-item" data-category="adventure" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-card">
+                        <div class="blog-card-img">
+                            <img src="assets/cat_wildlife.png" alt="Adventure">
+                            <span class="category-badge">Adventure</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <h3>Mountain Trekking: A Beginner's Guide</h3>
+                            <p>Scale new heights and breathe in the fresh mountain air. Our guide covers everything from gear to the best trails for beginners...</p>
+                            <a href="blog-detail.html" class="read-more-btn">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 4 -->
+                <div class="col-lg-4 col-md-6 blog-item" data-category="culture" data-aos="fade-up">
+                    <div class="blog-card">
+                        <div class="blog-card-img">
+                            <img src="assets/dest_paris.jpg" alt="Culture">
+                            <span class="category-badge">Culture</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <h3>A Culinary Journey Through France</h3>
+                            <p>Experience the heart of French culture through its world-renowned cuisine. From baguettes to gourmet dining...</p>
+                            <a href="blog-detail.html" class="read-more-btn">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 5 -->
+                <div class="col-lg-4 col-md-6 blog-item" data-category="destinations" data-aos="fade-up" data-aos-delay="100">
+                    <div class="blog-card">
+                        <div class="blog-card-img">
+                            <img src="assets/dest_greece.jpg" alt="Greece">
+                            <span class="category-badge">Destinations</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <h3>Island Hopping in the Greek Cyclades</h3>
+                            <p>Blue-domed churches, white-washed walls, and crystal-clear Aegean waters await you in this island paradise...</p>
+                            <a href="blog-detail.html" class="read-more-btn">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 6 -->
+                <div class="col-lg-4 col-md-6 blog-item" data-category="travel-tips" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-card">
+                        <div class="blog-card-img">
+                            <img src="assets/cat_walking.png" alt="Travel Tips">
+                            <span class="category-badge">Travel Tips</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <h3>How to Pack Light for a 2-Week Trip</h3>
+                            <p>Say goodbye to heavy luggage. Learn the art of minimalist packing without compromising on your travel essentials...</p>
+                            <a href="blog-detail.html" class="read-more-btn">Read More <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination-wrapper">
+                <ul class="custom-pagination" data-aos="fade-up">
+                    <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section text-white py-5">
+        <div class="container py-4">
+            <div class="row g-4 gy-5">
+                <div class="col-lg-5">
+                    <div class="footer-logo mb-4">
+                        <img src="assets/footerlogo.png" alt="Govolo Tours Logo" class="img-fluid rounded-2" style="max-height: 120px;">
+                    </div>
+                    <p class="footer-desc text-white pe-lg-5 mb-5 opacity-75">
+                        Crafting Seamless Real Estate Experiences
+                    </p>
+                    <div class="social-links d-flex gap-3 mt-4">
+                        <a href="#" class="social-icon text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <h5 class="nav-heading mb-4">Company</h5>
+                            <ul class="list-unstyled footer-links">
+                                <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">About Us</a></li>
+                                <li><a href="terms-and-conditions.html" class="text-white text-decoration-none">Terms of service</a></li>
+                                <li><a href="blog.html" class="text-white text-decoration-none">Blog</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="nav-heading mb-4">Resources</h5>
+                            <ul class="list-unstyled footer-links">
+                                <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Career</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Videos</a></li>
+                                <li><a href="#" class="text-white text-decoration-none">Our Homes</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="nav-heading mb-4">Contact Us</h5>
+                            <p class="mb-2 opacity-75">Govolo Tours</p>
+                            <p class="mb-0 opacity-75">Email: info@Govolo.in</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider my-5">
+
+            <div class="row align-items-center gy-3 text-center text-md-start">
+                <div class="col-md-6">
+                    <p class="copyright mb-0 opacity-75">Govolo Tours &copy; 2025. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-center justify-content-md-end gap-4 footer-legal-links">
+                        <a href="privacy-policy.html" class="text-white text-decoration-none small opacity-75">Privacy</a>
+                        <a href="terms-and-conditions.html" class="text-white text-decoration-none small opacity-75">Terms of Agreement</a>
+                        <a href="#" class="text-white text-decoration-none small opacity-75">Licenses</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        AOS.init();
+
+        // Sticky Navbar Logic (from index/script.js)
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 50) {
+                $('.custom-navbar').addClass('navbar-scrolled');
+            } else {
+                $('.custom-navbar').removeClass('navbar-scrolled');
+            }
+        });
+
+        // Tab Filtering Logic
+        $(document).ready(function() {
+            $('.tab-btn').click(function() {
+                const filter = $(this).attr('data-filter');
+                
+                // Update active tab
+                $('.tab-btn').removeClass('active');
+                $(this).addClass('active');
+                
+                // Filter items
+                if (filter === 'all') {
+                    $('.blog-item').show(300);
+                } else {
+                    $('.blog-item').hide(300);
+                    $(`.blog-item[data-category="${filter}"]`).show(300);
+                }
+
+                // Refresh AOS to handle newly visible items
+                setTimeout(function() {
+                    AOS.refresh();
+                }, 400);
+            });
+        });
+    </script>
+</body>
+
+</html>
