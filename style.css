@@ -1284,13 +1284,26 @@ h6 {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ===== Full-Screen Customize Overlay ===== */
 .customize-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     background: #f8fbff;
     z-index: 9999;
     display: none;
