@@ -1,138 +1,87 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // ==========================================
+    // Hero Background Slider
+    // ==========================================
     const bgContainer = document.querySelector('.slider-bg-container');
     const trackIndicator = document.querySelector('.track-indicator');
 
-    // Background images
-    const images = [
-        'assets/aa6bf5a56bd2c407d13505c5448ac0e37666d40a.jpg',
-        // 'assets/videos/3542112-uhd_3840_2160_30fps.mp4',
-        // 'assets/videos/3015510-hd_1920_1080_24fps.mp4',
-        //   'assets/videos/3542112-uhd_3840_2160_30fps.mp4',
-        
+    if (bgContainer) {
+        const images = [
+            'assets/aa6bf5a56bd2c407d13505c5448ac0e37666d40a.jpg',
+            'assets/slider_img_2_1773465808651.png',
+            'assets/slider_img_3_1773465830830.png'
+        ];
 
-        'assets/slider_img_2_1773465808651.png',
-        'assets/slider_img_3_1773465830830.png'
-    ];
+        let currentIndex = 0;
+        const slides = [];
 
-    let currentIndex = 0;
-    const slides = [];
-
-    // Initialize slides with opacity 0 except the first one
-    images.forEach((img, index) => {
-        const slide = document.createElement('div');
-        slide.classList.add('slider-bg');
-        if (index === 0) {
-            slide.classList.add('active'); // First slide is visible immediately
-            slide.style.opacity = '1';
-        }
-        slide.style.backgroundImage = `url('${img}')`;
-        bgContainer.appendChild(slide);
-        slides.push(slide);
-    });
-
-
-
-//     images.forEach((vid, index) => {
-//     const slide = document.createElement('video');
-
-//     slide.classList.add('slider-bg');
-//     slide.src = vid;
-//     slide.autoplay = true;
-//     slide.muted = true;
-//     slide.loop = true;
-//     // slide.playsInline = true;
-//     // slide.preload = "auto"; 
-
-//     if (index === 0) {
-//         slide.classList.add('active');
-//         slide.style.opacity = '1';
-//     } else {
-//         slide.style.opacity = '0';
-//     }
-
-//     bgContainer.appendChild(slide);
-//     slides.push(slide);
-// });
-
-    const totalSlides = slides.length;
-    if (totalSlides === 0) return;
-
-    // Track indicator calculation logic (for vertical layout)
-    function updateIndicator(index) {
-        if (!trackIndicator) return;
-        trackIndicator.style.top = `${(index / totalSlides) * 100}%`;
-    }
-
-    updateIndicator(currentIndex);
-
-    let autoSlideInterval;
-
-    /**
-     * Updates classes for 'active' smoothly 
-     */
-    function updateClasses(activeIndex) {
-        slides.forEach((slide, index) => {
-            if (index === activeIndex) {
+        images.forEach((img, index) => {
+            const slide = document.createElement('div');
+            slide.classList.add('slider-bg');
+            if (index === 0) {
                 slide.classList.add('active');
                 slide.style.opacity = '1';
-            } else {
-                slide.classList.remove('active');
-                slide.style.opacity = '0';
             }
+            slide.style.backgroundImage = `url('${img}')`;
+            bgContainer.appendChild(slide);
+            slides.push(slide);
         });
-        updateIndicator(activeIndex);
-    }
 
-    /**
-     * Controls the slider direction logic 
-     */
-    function slideTo(direction) {
-        if (direction === 'next') {
-            // Move to the next index
-            currentIndex = (currentIndex + 1) % totalSlides;
-        } else if (direction === 'prev') {
-            // Move to previous index
-            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        const totalSlides = slides.length;
+
+        function updateIndicator(index) {
+            if (!trackIndicator) return;
+            trackIndicator.style.top = `${(index / totalSlides) * 100}%`;
         }
-        updateClasses(currentIndex);
-    }
 
-    // Controls Buttons (Top / Bottom Arrows)
-    const btnNext = document.querySelector('.slide-next');
-    const btnPrev = document.querySelector('.slide-prev');
+        updateIndicator(0);
 
-    if (btnNext) {
-        btnNext.addEventListener('click', () => {
-            slideTo('next');
-            resetAutoSlide();
-        });
-    }
+        let autoSlideInterval;
 
-    if (btnPrev) {
-        btnPrev.addEventListener('click', () => {
-            slideTo('prev');
-            resetAutoSlide();
-        });
-    }
+        function updateClasses(activeIndex) {
+            slides.forEach((slide, index) => {
+                if (index === activeIndex) {
+                    slide.classList.add('active');
+                    slide.style.opacity = '1';
+                } else {
+                    slide.classList.remove('active');
+                    slide.style.opacity = '0';
+                }
+            });
+            updateIndicator(activeIndex);
+        }
 
-    /* Auto Sliding */
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(() => {
-            slideTo('next');
-        }, 6000); // 6 seconds interval
-    }
+        function slideTo(direction) {
+            if (direction === 'next') {
+                currentIndex = (currentIndex + 1) % totalSlides;
+            } else {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            }
+            updateClasses(currentIndex);
+        }
 
-    function resetAutoSlide() {
-        clearInterval(autoSlideInterval);
+        const btnNext = document.querySelector('.slide-next');
+        const btnPrev = document.querySelector('.slide-prev');
+
+        if (btnNext) btnNext.addEventListener('click', () => { slideTo('next'); resetAutoSlide(); });
+        if (btnPrev) btnPrev.addEventListener('click', () => { slideTo('prev'); resetAutoSlide(); });
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => slideTo('next'), 6000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
         startAutoSlide();
     }
 
-    // Start auto slide initially
-    startAutoSlide();
-
-
-    /* --- Navbar Scroll Effect --- */
+    // ==========================================
+    // Navbar Scroll Effect
+    // ==========================================
     const navbar = document.querySelector('.custom-navbar');
     if (navbar) {
         window.addEventListener('scroll', () => {
@@ -143,179 +92,619 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    /* --- Custom Filter Dropdown Selection --- */
+
+    // ==========================================
+    // Filter Dropdowns
+    // ==========================================
     const filterDropdownItems = document.querySelectorAll('.custom-filter-dropdown .dropdown-item');
     filterDropdownItems.forEach(item => {
         item.addEventListener('click', function (e) {
             e.preventDefault();
             const text = this.innerText;
             const dropdown = this.closest('.custom-filter-dropdown');
-            const selectedValue = dropdown.querySelector('.selected-value');
-            if (selectedValue) {
-                selectedValue.innerText = text;
+            const selectedValue = dropdown ? dropdown.querySelector('.selected-value') : null;
+            if (selectedValue) selectedValue.innerText = text;
+        });
+    });
+
+    // ==========================================
+    // Tour Categories Arch Carousel
+    // ==========================================
+    const archCarouselEl = document.querySelector('.custom-arch-carousel');
+    if (archCarouselEl && typeof $.fn.owlCarousel !== 'undefined') {
+        const archCarousel = $(archCarouselEl);
+        const dotsContainer = $('.custom-arch-dots');
+        const totalItems = archCarousel.children('.item').length;
+
+        dotsContainer.empty();
+        for (let i = 0; i < totalItems; i++) {
+            const activeClass = i === 0 ? 'active' : '';
+            dotsContainer.append(`<button class="custom-dot ${activeClass}" data-index="${i}" aria-label="Slide ${i + 1}"></button>`);
+        }
+
+        function updateArchStyles(e) {
+            const items = archCarousel.find('.owl-item');
+            items.removeClass('item-center item-left-1 item-left-2 item-right-1 item-right-2');
+            let centerItem;
+            let relativeIndex = 0;
+            if (e && e.item && e.item.index != null) {
+                centerItem = items.eq(e.item.index);
+                if (e.relatedTarget) {
+                    relativeIndex = e.relatedTarget.relative(e.item.index);
+                }
+            } else {
+                centerItem = archCarousel.find('.owl-item.center');
+                if (centerItem.length) {
+                    relativeIndex = centerItem.index() % totalItems;
+                }
+            }
+            if (centerItem && centerItem.length) {
+                centerItem.addClass('item-center');
+                centerItem.prev().addClass('item-left-1');
+                centerItem.prev().prev().addClass('item-left-2');
+                centerItem.next().addClass('item-right-1');
+                centerItem.next().next().addClass('item-right-2');
+            }
+            if (e && e.relatedTarget) {
+                $('.custom-dot').removeClass('active');
+                $(`.custom-dot[data-index="${relativeIndex}"]`).addClass('active');
+            }
+        }
+
+        archCarousel.on('translate.owl.carousel initialized.owl.carousel', updateArchStyles);
+
+        archCarousel.owlCarousel({
+            center: true,
+            items: 5,
+            loop: true,
+            margin: 15,
+            nav: false,
+            dots: false,
+            smartSpeed: 800,
+            autoplay: true,
+            autoplayTimeout: 4000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: { items: 1.5, center: true, margin: 10 },
+                576: { items: 3, center: true, margin: 15 },
+                992: { items: 5, center: true, margin: 15 },
+                1200: { items: 5, center: true, margin: 15 }
+            }
+        });
+
+        dotsContainer.on('click', '.custom-dot', function () {
+            const index = $(this).data('index');
+            archCarousel.trigger('to.owl.carousel', [index, 800]);
+        });
+    }
+
+    // ==========================================
+    // Testimonial Carousel
+    // ==========================================
+    if (document.querySelector('.testimonial-carousel') && typeof $.fn.owlCarousel !== 'undefined') {
+        $('.testimonial-carousel').owlCarousel({
+            loop: true,
+            margin: 20,
+            nav: false,
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 4000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: { items: 1, margin: 10 },
+                768: { items: 2, margin: 15 },
+                992: { items: 3, margin: 20 }
+            }
+        });
+    }
+
+    // ==========================================
+    // Gallery Carousel
+    // ==========================================
+    if (document.querySelector('.gallery-carousel') && typeof $.fn.owlCarousel !== 'undefined') {
+        $('.gallery-carousel').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: false,
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: { items: 3 },
+                768: { items: 3 },
+                1200: { items: 5 }
+            }
+        });
+    }
+
+    // ==========================================
+    // Fancybox
+    // ==========================================
+    if (typeof Fancybox !== 'undefined') {
+        Fancybox.bind("[data-fancybox]", { Hash: false });
+    }
+
+
+
+    
+
+    // ==========================================
+    // Customize Your Trip Overlay Logic
+    // ==========================================
+    const overlay = document.getElementById('customize-trip-overlay');
+    if (!overlay) return; // Guard: overlay must exist
+
+    const startBtns = document.querySelectorAll('.start-planning-btn');
+    const closeBtn = document.querySelector('.btn-close-overlay');
+    const nextBtn = document.querySelector('.next-step-btn');
+    const prevBtn = document.querySelector('.prev-step-btn');
+    const formSteps = document.querySelectorAll('.form-step');
+    const navItems = document.querySelectorAll('.step-nav-item');
+    const progressBar = document.getElementById('overlay-progress-bar');
+    const totalSteps = formSteps.length;
+    let currentStepIdx = 1;
+
+    // ── Destination Carousel (inside overlay, initialized lazily) ──
+    let destCarouselInitialized = false;
+
+    function initDestCarousel() {
+        if (destCarouselInitialized) return;
+        const destCarouselEl = document.querySelector('.destination-selection-carousel');
+        if (destCarouselEl && typeof $.fn.owlCarousel !== 'undefined') {
+            $(destCarouselEl).owlCarousel({
+                loop: false,
+                margin: 20,
+                nav: true,
+                dots: false,
+                autoplay: false,
+                mouseDrag: true,
+                touchDrag: true,
+                navText: [
+                    '<i class="fa-solid fa-chevron-left"></i>',
+                    '<i class="fa-solid fa-chevron-right"></i>'
+                ],
+                responsive: {
+                    0: { items: 1 },
+                    576: { items: 2 },
+                    992: { items: 3 }
+                }
+            });
+            destCarouselInitialized = true;
+        }
+    }
+
+    // ── Step Update Function ──
+    function updateStep() {
+        // Show only the active step
+        formSteps.forEach(step => {
+            step.classList.remove('active');
+        });
+
+        const currentStepEl = document.querySelector(`.form-step[data-step="${currentStepIdx}"]`);
+        if (currentStepEl) currentStepEl.classList.add('active');
+
+        // Update nav items
+        navItems.forEach(item => {
+            const step = parseInt(item.dataset.step);
+            item.classList.toggle('active', step === currentStepIdx);
+        });
+
+        // Update progress bar
+        if (progressBar) {
+            const progress = (currentStepIdx / totalSteps) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Manage Prev button
+        if (prevBtn) {
+            const hidePrev = currentStepIdx === 1 || currentStepIdx === totalSteps;
+            prevBtn.classList.toggle('opacity-0', hidePrev);
+            prevBtn.disabled = hidePrev;
+        }
+
+        // Manage Next button
+        if (nextBtn) {
+            if (currentStepIdx === 7 || currentStepIdx === 8) {
+                // Step 7 = "Build Itinerary" CTA, Step 8 = form — hide Next button
+                nextBtn.classList.add('d-none');
+            } else if (currentStepIdx === totalSteps) {
+                // Last step (itinerary output) — show Close button
+                nextBtn.innerHTML = 'Close <i class="bi bi-check-lg ms-2"></i>';
+                nextBtn.classList.remove('d-none');
+            } else {
+                nextBtn.innerHTML = 'Next <i class="bi bi-chevron-right ms-2"></i>';
+                nextBtn.classList.remove('d-none');
+            }
+        }
+
+        // Lazy-init destination carousel on step 2
+        if (currentStepIdx === 2) {
+            setTimeout(initDestCarousel, 100);
+        }
+
+        // Generate city fields on step 6
+        if (currentStepIdx === 6) {
+            generateDayPlanningFields();
+        }
+    }
+
+    // ── Open Overlay ──
+    function openOverlay() {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        currentStepIdx = 1;
+        updateStep();
+    }
+
+    // ── Close Overlay ──
+    function closeOverlay() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // ── Button Listeners ──
+    startBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openOverlay();
+        });
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeOverlay);
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            if (currentStepIdx === totalSteps) {
+                closeOverlay();
+                return;
+            }
+            if (currentStepIdx < totalSteps) {
+                currentStepIdx++;
+                updateStep();
+            }
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (currentStepIdx > 1) {
+                currentStepIdx--;
+                updateStep();
+            }
+        });
+    }
+
+    // ── Escape key closes overlay ──
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) {
+            closeOverlay();
+        }
+    });
+
+    // ==========================================
+    // Step 1: Travelers — Dynamic Member Input
+    // ==========================================
+    const travelerRadios = document.querySelectorAll('.traveler-type-radio');
+    const memberWrapper = document.getElementById('member-count-wrapper');
+    const memberInput = document.getElementById('member-count-input');
+
+    // Also visually highlight selected card
+    travelerRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            const val = radio.value;
+            if (!memberWrapper || !memberInput) return;
+
+            if (val === 'Solo') {
+                memberWrapper.classList.add('d-none');
+                memberInput.value = 1;
+            } else if (val === 'Couple') {
+                memberWrapper.classList.add('d-none');
+                memberInput.value = 2;
+            } else {
+                // Family or Friends — show input
+                memberWrapper.classList.remove('d-none');
+                memberInput.value = (val === 'Family') ? 4 : 5;
+                memberInput.focus();
             }
         });
     });
 
-
-
-
-
-
+    // ==========================================
+    // Step 4: Airport Selection
+    // ==========================================
+    const airportItems = document.querySelectorAll('.airport-item');
+    airportItems.forEach(item => {
+        item.addEventListener('click', () => {
+            airportItems.forEach(i => i.classList.remove('selected'));
+            item.classList.add('selected');
+            const step4 = document.querySelector('.form-step[data-step="4"]');
+            if (step4) step4.dataset.selectedAirport = item.dataset.value;
+        });
+    });
 
     // ==========================================
-    // Tour Categories Arch Carousel Logic
+    // Step 6: City Planning — Duration → Days → Multi-select Cities
     // ==========================================
-    var archCarousel = $('.custom-arch-carousel');
+    const citiesByDestination = {
+        'Vietnam': ['Hanoi', 'Ho Chi Minh City', 'Da Nang', 'Ha Long Bay', 'Hoi An', 'Nha Trang', 'Hue', 'Sapa'],
+        'Bali': ['Ubud', 'Seminyak', 'Kuta', 'Nusa Dua', 'Canggu', 'Uluwatu', 'Jimbaran', 'Sanur'],
+        'Thailand': ['Bangkok', 'Phuket', 'Chiang Mai', 'Pattaya', 'Krabi', 'Hua Hin', 'Koh Samui', 'Ayutthaya'],
+        'Maldives': ['Male', 'Maafushi', 'Hulhumale', 'Ari Atoll', 'Baa Atoll', 'Villingili']
+    };
 
-    // Dynamically generate navigation dots based on the actual number of items
-    var dotsContainer = $('.custom-arch-dots');
-    var totalItems = archCarousel.children('.item').length;
-
-    dotsContainer.empty();
-    for (var i = 0; i < totalItems; i++) {
-        var activeClass = i === 0 ? 'active' : '';
-        dotsContainer.append('<button class="custom-dot ' + activeClass + '" data-index="' + i + '" aria-label="Slide ' + (i + 1) + '"></button>');
+    function getDurationMaxDays() {
+        const checked = document.querySelector('input[name="duration"]:checked');
+        const val = checked ? checked.value : '3-5';
+        if (val === '3-5')  return 5;
+        if (val === '6-8')  return 8;
+        if (val === '9-10') return 10;
+        if (val === '10-12') return 12;
+        return 5;
     }
 
-    function updateArchStyles(e) {
-        var items = archCarousel.find('.owl-item');
-        items.removeClass('item-center item-left-1 item-left-2 item-right-1 item-right-2');
+    function generateDayPlanningFields() {
+        const container = document.getElementById('city-planning-container');
+        if (!container) return;
 
-        var centerItem;
-        var relativeIndex = 0;
+        const maxDays = getDurationMaxDays();
+        const checkedDest = document.querySelector('input[name="destination"]:checked');
+        const dest = checkedDest ? checkedDest.value : 'Bali';
+        const cities = citiesByDestination[dest] || citiesByDestination['Bali'];
 
-        if (e && e.item && e.item.index != null) {
-            centerItem = items.eq(e.item.index);
-            // Get relative index (0 to 4) using owl carousel API if available
-            if (e.relatedTarget) {
-                relativeIndex = e.relatedTarget.relative(e.item.index);
-            }
+        container.innerHTML = ''; // Clear previous fields
+
+        for (let i = 1; i <= maxDays; i++) {
+            const col = document.createElement('div');
+            col.className = 'col-md-6 mb-1';
+            col.innerHTML = `
+                <div class="day-plan-card">
+                    <span class="day-label">Day ${i}</span>
+                    <div class="city-multi-select" id="day-${i}-select" role="button" tabindex="0">
+                        <span class="text-muted placeholder-text">Select cities...</span>
+                    </div>
+                    <div class="city-dropdown-menu" id="day-${i}-menu">
+                        ${cities.map(city => `<div class="city-option" data-city="${city}">${city}</div>`).join('')}
+                    </div>
+                    <input type="hidden" name="day_${i}_cities" id="day-${i}-input">
+                </div>
+            `;
+            container.appendChild(col);
+
+            const selectDiv = col.querySelector('.city-multi-select');
+            const menuDiv = col.querySelector('.city-dropdown-menu');
+            const hiddenInput = col.querySelector('input[type="hidden"]');
+            let selectedCities = [];
+
+            // Toggle dropdown
+            selectDiv.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Close all other dropdowns
+                document.querySelectorAll('.city-dropdown-menu').forEach(m => {
+                    if (m !== menuDiv) m.classList.remove('active');
+                });
+                menuDiv.classList.toggle('active');
+            });
+
+            // City option selection
+            menuDiv.querySelectorAll('.city-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const city = option.dataset.city;
+                    if (selectedCities.includes(city)) {
+                        selectedCities = selectedCities.filter(c => c !== city);
+                        option.classList.remove('selected');
+                    } else {
+                        selectedCities.push(city);
+                        option.classList.add('selected');
+                    }
+                    updateSelectUI(selectDiv, selectedCities, hiddenInput);
+                });
+            });
+        }
+    }
+
+    function updateSelectUI(selectDiv, selectedCities, hiddenInput) {
+        if (selectedCities.length === 0) {
+            selectDiv.innerHTML = '<span class="text-muted placeholder-text">Select cities...</span>';
         } else {
-            // Fallback for initialization before fully set
-            centerItem = archCarousel.find('.owl-item.center');
-            if (centerItem.length) {
-                // Estimate index
-                relativeIndex = centerItem.index() % totalItems;
-            }
-        }
+            selectDiv.innerHTML = selectedCities.map(city =>
+                `<span class="selected-city-tag" data-city="${city}">
+                    ${city}
+                    <button type="button" class="city-tag-remove" title="Remove ${city}">&times;</button>
+                </span>`
+            ).join('');
 
-        if (centerItem.length) {
-            centerItem.addClass('item-center');
-            centerItem.prev().addClass('item-left-1');
-            centerItem.prev().prev().addClass('item-left-2');
-            centerItem.next().addClass('item-right-1');
-            centerItem.next().next().addClass('item-right-2');
+            // Attach remove handlers to each × button
+            selectDiv.querySelectorAll('.city-tag-remove').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const city = btn.closest('.selected-city-tag').dataset.city;
+                    // Remove from array
+                    const idx = selectedCities.indexOf(city);
+                    if (idx > -1) selectedCities.splice(idx, 1);
+                    // Deselect the matching option in the dropdown
+                    const card = selectDiv.closest('.day-plan-card');
+                    if (card) {
+                        const opt = card.querySelector(`.city-option[data-city="${city}"]`);
+                        if (opt) opt.classList.remove('selected');
+                    }
+                    updateSelectUI(selectDiv, selectedCities, hiddenInput);
+                });
+            });
         }
-
-        // Update custom dots visually synchronously
-        if (e && e.relatedTarget) {
-            $('.custom-dot').removeClass('active');
-            $('.custom-dot[data-index="' + relativeIndex + '"]').addClass('active');
-        }
+        if (hiddenInput) hiddenInput.value = selectedCities.join(',');
     }
 
-    // Bind on translate to start CSS class changes simultaneously with the animation
-    archCarousel.on('translate.owl.carousel initialized.owl.carousel', updateArchStyles);
 
-    // Initialize Owl Carousel
-    archCarousel.owlCarousel({
-        center: true,
-        items: 5,
-        loop: true,
-        margin: 15, // brought items slightly closer for premium effect
-        nav: false,
-        dots: false, // Using custom dots instead to guarantee precise desktop rendering
-        smartSpeed: 800,
-        autoplay: true,
-        autoplayTimeout: 4000,
-        autoplayHoverPause: true,
-        responsive: {
-            0: {
-                items: 1.5,
-                center: true,
-                margin: 10
-            },
-            576: {
-                items: 3,
-                center: true,
-                margin: 15
-            },
-            992: {
-                items: 5,
-                center: true,
-                margin: 15
-            },
-            1200: {
-                items: 5,
-                center: true,
-                margin: 15
-            }
-        }
-    });
-
-    // Custom dots click event using modern event delegation to support dynamically injected elements
-    $('.custom-arch-dots').on('click', '.custom-dot', function () {
-        var index = $(this).data('index');
-        archCarousel.trigger('to.owl.carousel', [index, 800]);
+    // Close city dropdowns when clicking outside
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.city-dropdown-menu').forEach(m => m.classList.remove('active'));
     });
 
     // ==========================================
-    // Testimonial Carousel Auto Slider
+    // Step 7: Build Itinerary CTA Button
     // ==========================================
-    $('.testimonial-carousel').owlCarousel({
-        loop: true,
-        margin: 20,
-        nav: false,
-        dots: false, // Since standard dots weren't shown in the reference exactly, but slider works (we can enable if needed)
-        autoplay: true,
-        autoplayTimeout: 4000,
-        autoplayHoverPause: true,
-        responsive: {
-            0: {
-                items: 1,      /* Mobile: 1 card */
-                margin: 10
-            },
-            768: {
-                items: 2,      /* Tablet: 2 cards */
-                margin: 15
-            },
-            992: {
-                items: 3,      /* Desktop: 3 cards */
-                margin: 20
-            }
-        }
-    });
+    const buildItineraryBtn = document.querySelector('.build-itinerary-btn');
+    if (buildItineraryBtn) {
+        buildItineraryBtn.addEventListener('click', () => {
+            currentStepIdx = 8;
+            updateStep();
+        });
+    }
 
     // ==========================================
-    // Gallery Carousel with Lightbox
+    // Step 8: Form Submit → Generate Itinerary Output (Step 9)
     // ==========================================
-    $('.gallery-carousel').owlCarousel({
-        loop: true,
-        margin: 0,
-        nav: false,
-        dots: false,
-        autoplay: true,
-        autoplayTimeout: 3000,
-        autoplayHoverPause: true,
-        responsive: {
-            0: {
-                items: 3      /* Mobile: 2 images */
-            },
-            768: {
-                items: 3      /* Tablet: 3 images */
-            },
-            1200: {
-                items: 5      /* Desktop: 5 images */
-            }
-        }
-    });
+    const tripForm = document.getElementById('customize-trip-form');
+    if (tripForm) {
+        tripForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(tripForm);
+            const data = Object.fromEntries(formData.entries());
+            const output = document.getElementById('itinerary-output');
+            if (!output) return;
 
-    // Initialize Fancybox (v5)
-    Fancybox.bind("[data-fancybox]", {
-        // Custom options for premium feel
-        Hash: false,
-    });
+            const dayCards = document.querySelectorAll('.day-plan-card');
+            const totalDays = dayCards.length;
+
+            // Build day-wise itinerary blocks
+            let dayItineraryHTML = '';
+            dayCards.forEach((card, idx) => {
+                const i = idx + 1;
+                const citiesRaw = formData.get(`day_${i}_cities`) || '';
+                const cityList = citiesRaw ? citiesRaw.split(',').map(c => c.trim()).filter(Boolean) : [];
+
+                dayItineraryHTML += `
+                    <div class="itin-day-card">
+                        <div class="itin-day-header">
+                            <span class="itin-day-badge">Day ${i}</span>
+                        </div>
+                        <ul class="itin-city-list">
+                            ${cityList.length
+                                ? cityList.map(c => `<li><i class="bi bi-geo-alt-fill"></i>${c}</li>`).join('')
+                                : '<li class="no-city"><i class="bi bi-dash"></i>No cities planned</li>'
+                            }
+                        </ul>
+                    </div>
+                `;
+            });
+
+            // Format travel date
+            const rawDate = data.travel_date || '';
+            const formattedDate = rawDate
+                ? new Date(rawDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })
+                : '—';
+
+            const travelerCount = data.travelers || data.member_count || '1';
+            const travelerType  = data.traveler_type || '';
+            const travelersLabel = travelerType
+                ? `${travelerCount} (${travelerType})`
+                : travelerCount;
+
+            const departure    = data.selectedAirport || document.querySelector('.airport-item.selected')?.dataset?.value || '—';
+            const destination  = data.destination || 'Not Selected';
+            const durationLabel = `${totalDays} Days`;
+
+            output.innerHTML = `
+                <div class="itin-document mx-auto">
+
+                    <!-- Header Banner -->
+                    <div class="itin-header">
+                        <div class="itin-logo-line">
+                            <img src="assets/Group_1.png" alt="Govolo Tours" class="itin-logo">
+                            <span class="itin-tag">Travel Itinerary</span>
+                        </div>
+                        <h1 class="itin-destination-name">${destination}</h1>
+                        <div class="itin-meta-pills">
+                            <span><i class="bi bi-calendar3"></i> ${formattedDate}</span>
+                            <span><i class="bi bi-clock"></i> ${durationLabel}</span>
+                            <span><i class="bi bi-people"></i> ${travelersLabel}</span>
+                        </div>
+                    </div>
+
+                    <div class="itin-divider-dashed"></div>
+
+                    <!-- Trip Overview Card (Boarding Pass Style) -->
+                    <div class="itin-overview-card">
+                        <div class="itin-from-to">
+                            <div class="itin-from-col">
+                                <span class="itin-label">FROM</span>
+                                <span class="itin-value">${departure}</span>
+                            </div>
+                            <div class="itin-plane-icon">
+                                <i class="bi bi-airplane-fill"></i>
+                            </div>
+                            <div class="itin-to-col">
+                                <span class="itin-label">TO</span>
+                                <span class="itin-value">${destination}</span>
+                            </div>
+                        </div>
+                        <div class="itin-overview-details">
+                            <div>
+                                <span class="itin-label">TRAVELER</span>
+                                <span class="itin-value">${data.first_name || ''} ${data.last_name || ''}</span>
+                            </div>
+                            <div>
+                                <span class="itin-label">DATE</span>
+                                <span class="itin-value">${formattedDate}</span>
+                            </div>
+                            <div>
+                                <span class="itin-label">DURATION</span>
+                                <span class="itin-value">${durationLabel}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day-wise Itinerary -->
+                    <div class="itin-section">
+                        <h3 class="itin-section-title">
+                            <i class="bi bi-map"></i> Day-by-Day Plan
+                        </h3>
+                        <div class="itin-days-grid">
+                            ${dayItineraryHTML}
+                        </div>
+                    </div>
+
+                    <!-- Contact Details -->
+                    <div class="itin-section">
+                        <h3 class="itin-section-title">
+                            <i class="bi bi-person-circle"></i> Traveler Details
+                        </h3>
+                        <div class="itin-traveler-details">
+                            <div class="itin-detail-row">
+                                <span class="itin-label">Name</span>
+                                <span class="itin-value">${data.first_name || ''} ${data.last_name || ''}</span>
+                            </div>
+                            <div class="itin-detail-row">
+                                <span class="itin-label">Email</span>
+                                <span class="itin-value">${data.email || '—'}</span>
+                            </div>
+                            <div class="itin-detail-row">
+                                <span class="itin-label">Phone</span>
+                                <span class="itin-value">${data.phone || '—'}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="itin-footer">
+                        <p class="itin-footer-note">
+                            Our travel experts will be in touch within 24 hours to confirm your itinerary.
+                        </p>
+                        <button type="button" class="btn itin-download-btn">
+                            <i class="bi bi-download me-2"></i>Download PDF
+                        </button>
+                    </div>
+
+                </div>
+            `;
+            currentStepIdx = 9;
+            updateStep();
+        });
+    }
+
 
 });
-
