@@ -92,6 +92,11 @@
     object-fit: cover;
     transition: transform 0.5s ease;
 }
+   
+
+
+
+
 
 .blog-card:hover .blog-card-img img {
     transform: scale(1.1);
