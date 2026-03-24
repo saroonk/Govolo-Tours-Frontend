@@ -42,24 +42,31 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#" >
+                            Packages
+                        </a>
+                    </li>
                     <li class="nav-item dropdown hover-dropdown">
                         <a class="nav-link" href="#" role="button" aria-expanded="false">
-                            Day Tours <i class="bi bi-chevron-down ms-1 small dropdown-icon"></i>
+                            Destinations <i class="bi bi-chevron-down ms-1 small dropdown-icon"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">City Tours</a></li>
-                            <li><a class="dropdown-item" href="#">Nature Walks</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="#">Domestic</a></li>
+                            <li class="dropdown-submenu hover-dropdown-submenu">
+                                <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
+                                    International <i class="bi bi-chevron-right small"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Asia</a></li>
+                                    <li><a class="dropdown-item" href="#">Europe</a></li>
+                                    <li><a class="dropdown-item" href="#">Africa</a></li>
+                                </ul>
                             </li>
-                            <li><a class="dropdown-item" href="#">Special Offers</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Destinations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Car Rentals</a>
+                        <a class="nav-link" href="#">Testimonials</a>
                     </li>
                 </ul>
                 <div class="d-flex align-items-center">
@@ -88,30 +95,52 @@
                 <div class="nav-item mb-3">
                     <a class="nav-link fs-5" href="#">About</a>
                 </div>
+                <div class="nav-item mb-3">
+                    <a class="nav-link active fs-5" href="#">Packages</a>
+                </div>
                 <div class="accordion-item border-0 mb-3 bg-transparent">
-                    <h2 class="accordion-header" id="headingDayTours">
+                    <h2 class="accordion-header" id="headingDestinations">
                         <button class="accordion-button collapsed px-0 py-0 shadow-none bg-transparent fs-5"
-                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseDayTours"
-                            aria-expanded="false" aria-controls="collapseDayTours">
-                            Day Tours
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseDestinations"
+                            aria-expanded="false" aria-controls="collapseDestinations">
+                            Destinations
                         </button>
                     </h2>
-                    <div id="collapseDayTours" class="accordion-collapse collapse" aria-labelledby="headingDayTours"
+                    <div id="collapseDestinations" class="accordion-collapse collapse" aria-labelledby="headingDestinations"
                         data-bs-parent="#mobileNavAccordion">
                         <div class="accordion-body px-3 py-2 mt-2 border-start border-2 border-light">
                             <ul class="list-unstyled mb-0 d-flex flex-column gap-3">
-                                <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink">City Tours</a></li>
-                                <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink">Nature Walks</a></li>
-                                <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink">Special Offers</a></li>
+                                <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink">Domestic</a></li>
+                                <li>
+                                    <!-- Nested Accordion for International -->
+                                    <div class="accordion accordion-flush" id="nestedNavAccordionInt">
+                                        <div class="accordion-item border-0 bg-transparent">
+                                            <h2 class="accordion-header" id="headingInt">
+                                                <button class="accordion-button collapsed px-0 py-0 shadow-none bg-transparent text-muted"
+                                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseInt"
+                                                    aria-expanded="false" aria-controls="collapseInt">
+                                                    International
+                                                </button>
+                                            </h2>
+                                            <div id="collapseInt" class="accordion-collapse collapse" aria-labelledby="headingInt"
+                                                data-bs-parent="#nestedNavAccordionInt">
+                                                <div class="accordion-body px-3 py-2 mt-2 border-start border-1 border-secondary">
+                                                    <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                                                        <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink" style="font-size: 0.9rem;">Asia</a></li>
+                                                        <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink" style="font-size: 0.9rem;">Europe</a></li>
+                                                        <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink" style="font-size: 0.9rem;">Africa</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="nav-item mb-3">
-                    <a class="nav-link fs-5" href="#">Destinations</a>
-                </div>
-                <div class="nav-item mb-3">
-                    <a class="nav-link fs-5" href="#">Car Rentals</a>
+                    <a class="nav-link fs-5" href="#">Testimonials</a>
                 </div>
             </div>
             <button class="btn btn-primary rounded-pill w-100 py-3 mt-4 fs-6 d-flex align-items-center justify-content-center mobile-explore-btn"

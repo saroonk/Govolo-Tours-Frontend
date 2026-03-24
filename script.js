@@ -8,9 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (bgContainer) {
         const images = [
-            'assets/aa6bf5a56bd2c407d13505c5448ac0e37666d40a.jpg',
-            'assets/slider_img_2_1773465808651.png',
-            'assets/slider_img_3_1773465830830.png'
+            'assets/pexels-miles-hardacre-1263314-2404370.jpg',
+            'assets/pexels-hcdigital-3405484.jpg',
+            'assets/pexels-publophoto-33000366.jpg',
+            'assets/pexels-francesco-ungaro-2325447.jpg',
+            'assets/pexels-tieugiang007-35696879.jpg',
+            'assets/pexels-jithinmurali-8462313.jpg',
         ];
 
         let currentIndex = 0;

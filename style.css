@@ -154,17 +154,31 @@ h6 {
 }
 
 @media (min-width: 992px) {
-    .hover-dropdown:hover .dropdown-menu {
+    .hover-dropdown:hover > .dropdown-menu {
         display: block;
         margin-top: 0;
         animation: fadeIn 0.15s ease-in-out;
     }
 
-    .hover-dropdown:hover .dropdown-icon {
+    .hover-dropdown-submenu > .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+    }
+
+    .hover-dropdown-submenu:hover > .dropdown-menu {
+        display: block;
+        animation: fadeIn 0.15s ease-in-out;
+    }
+
+    .hover-dropdown:hover > .nav-link .dropdown-icon {
         transform: rotate(180deg);
     }
 }
 
+.dropdown-submenu {
+    position: relative;
+}
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -2314,3 +2328,108 @@ h6 {
     }
 }
 
+/* --- Custom Trip Form Redesign --- */
+
+/* Duration Cards */
+.duration-card {
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 2px solid transparent !important;
+    transition: all 0.3s ease;
+}
+
+.duration-card:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+    transform: translateY(-5px);
+}
+
+.duration-img {
+    transition: transform 0.5s ease;
+}
+
+.duration-card:hover .duration-img {
+    transform: scale(1.1);
+}
+
+input[name="duration"]:checked ~ img {
+    transform: scale(1.1);
+}
+
+input[name="duration"]:checked ~ .card-overlay {
+    background: rgba(78, 148, 254, 0.85) !important;
+}
+
+input[name="duration"]:checked ~ .card-overlay .icon-animate {
+    transform: scale(1.2);
+}
+
+.duration-card .card-overlay {
+    transition: all 0.3s ease;
+}
+
+.duration-card:hover .card-overlay {
+    background: rgba(0,0,0,0.4) !important;
+}
+
+.icon-animate {
+    transition: transform 0.3s ease;
+}
+
+/* Airport Location Cards */
+.airport-card {
+    border: 2px solid transparent !important;
+    transition: all 0.3s ease;
+}
+
+.airport-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12) !important;
+}
+
+.airport-bg {
+    transition: transform 0.6s ease;
+}
+
+.airport-card:hover .airport-bg {
+    transform: scale(1.1) rotate(2deg);
+}
+
+.airport-overlay {
+    background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+    transition: all 0.3s ease;
+}
+
+.airport-card:hover .airport-overlay {
+    background: linear-gradient(90deg, rgba(13, 110, 253, 0.9) 0%, rgba(13, 110, 253, 0.4) 100%);
+}
+
+.airport-card.selected {
+    border-color: var(--primary-blue) !important;
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.2) !important;
+}
+
+.airport-card.selected .check-circle {
+    opacity: 0 !important;
+    transform: scale(1.1);
+}
+
+.airport-card.selected .airport-overlay {
+    background: linear-gradient(90deg, rgba(13, 110, 253, 0.95) 0%, rgba(13, 110, 253, 0.6) 100%);
+}
+
+/* Date Picker Premium */
+.bg-gradient-dark {
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+.date-input-premium {
+    font-size: 1.1rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    background-color: #f8f9fa;
+}
+
+.date-input-premium:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+    background-color: #ffffff;
+}

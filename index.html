@@ -50,24 +50,32 @@
                         <a class="nav-link" href="#">About</a>
                     </li>
                     <!-- Dropdown on Hover for Desktop -->
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#" >
+                            Packages
+                        </a>
+                    </li>
+                    <!-- Multi-level Dropdown for Destinations -->
                     <li class="nav-item dropdown hover-dropdown">
                         <a class="nav-link" href="#" role="button" aria-expanded="false">
-                            Day Tours <i class="bi bi-chevron-down ms-1 small dropdown-icon"></i>
+                            Destinations <i class="bi bi-chevron-down ms-1 small dropdown-icon"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">City Tours</a></li>
-                            <li><a class="dropdown-item" href="#">Nature Walks</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="#">Domestic</a></li>
+                            <li class="dropdown-submenu hover-dropdown-submenu position-relative">
+                                <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
+                                    International <i class="bi bi-chevron-right small ms-2"></i>
+                                </a>
+                                <ul class="dropdown-menu submenu-right position-absolute">
+                                    <li><a class="dropdown-item" href="#">Asia</a></li>
+                                    <li><a class="dropdown-item" href="#">Europe</a></li>
+                                    <li><a class="dropdown-item" href="#">Africa</a></li>
+                                </ul>
                             </li>
-                            <li><a class="dropdown-item" href="#">Special Offers</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Destinations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Car Rentals</a>
+                        <a class="nav-link" href="#">Testimonials</a>
                     </li>
                 </ul>
                 <div class="d-flex align-items-center">
@@ -100,34 +108,50 @@
                     <a class="nav-link  fs-5" href="#">About</a>
                 </div>
                 <!-- Accordion for Mobile Dropdown (Clean/Modern integration) -->
+                <div class="nav-item mb-3">
+                    <a class="nav-link active fs-5" href="#">Packages</a>
+                </div>
+                <!-- Nested Accordion for Destinations Mobile Dropdown -->
                 <div class="accordion-item border-0 mb-3 bg-transparent">
-                    <h2 class="accordion-header" id="headingDayTours">
-                        <button class="accordion-button collapsed px-0 py-0 shadow-none bg-transparent  fs-5"
-                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseDayTours"
-                            aria-expanded="false" aria-controls="collapseDayTours">
-                            Day Tours
+                    <h2 class="accordion-header" id="headingDestinations">
+                        <button class="accordion-button collapsed px-0 py-0 shadow-none bg-transparent fs-5"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseDestinations"
+                            aria-expanded="false" aria-controls="collapseDestinations">
+                            Destinations
                         </button>
                     </h2>
-                    <div id="collapseDayTours" class="accordion-collapse collapse" aria-labelledby="headingDayTours"
+                    <div id="collapseDestinations" class="accordion-collapse collapse" aria-labelledby="headingDestinations"
                         data-bs-parent="#mobileNavAccordion">
                         <div class="accordion-body px-3 py-2 mt-2 border-start border-2 border-light">
                             <ul class="list-unstyled mb-0 d-flex flex-column gap-3">
-                                <li><a href="#" class="text-decoration-none text-muted  py-1 d-block nav-sublink">City
-                                        Tours</a></li>
-                                <li><a href="#" class="text-decoration-none text-muted  py-1 d-block nav-sublink">Nature
-                                        Walks</a></li>
-                                <li><a href="#"
-                                        class="text-decoration-none text-muted  py-1 d-block nav-sublink">Special
-                                        Offers</a></li>
+                                <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink">Domestic</a></li>
+                                <li class="accordion accordion-flush" id="nestedNavAccordionInt">
+                                    <div class="accordion-item border-0 bg-transparent mb-0">
+                                        <h2 class="accordion-header" id="headingInt">
+                                            <button class="accordion-button collapsed px-0 py-1 shadow-none bg-transparent text-muted nav-sublink"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseInt"
+                                                aria-expanded="false" aria-controls="collapseInt" style="font-size: 1rem;">
+                                                International
+                                            </button>
+                                        </h2>
+                                        <div id="collapseInt" class="accordion-collapse collapse" aria-labelledby="headingInt"
+                                            data-bs-parent="#nestedNavAccordionInt">
+                                            <div class="accordion-body px-3 py-1 mt-1 border-start border-1 border-light">
+                                                <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                                                    <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink" style="font-size: 0.95rem;">Asia</a></li>
+                                                    <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink" style="font-size: 0.95rem;">Europe</a></li>
+                                                    <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink" style="font-size: 0.95rem;">Africa</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="nav-item mb-3">
-                    <a class="nav-link  fs-5" href="#">Destinations</a>
-                </div>
-                <div class="nav-item mb-3">
-                    <a class="nav-link  fs-5" href="#">Car Rentals</a>
+                    <a class="nav-link  fs-5" href="#">Testimonials</a>
                 </div>
             </div>
 
@@ -247,14 +271,14 @@
                                 class="btn px-0 py-2 border-0 shadow-none dropdown-toggle d-flex align-items-center justify-content-between w-100 text-muted fw-medium"
                                 type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="selected-value text-truncate d-inline-block text-start"
-                                    style="max-width: 120px;">Activity</span>
+                                    style="max-width: 120px;">Tour Type</span>
                                 <i class="fa-solid fa-chevron-down ms-2" style="font-size: 0.70rem;"></i>
                             </button>
                             <ul class="dropdown-menu border-0 shadow rounded-4 py-2 mt-3 w-100">
-                                <li><a class="dropdown-item fw-medium" href="#">Activity</a></li>
-                                <li><a class="dropdown-item fw-medium" href="#">Sightseeing</a></li>
-                                <li><a class="dropdown-item fw-medium" href="#">Hiking & Trekking</a></li>
-                                <li><a class="dropdown-item fw-medium" href="#">Relaxing</a></li>
+                                <li><a class="dropdown-item fw-medium" href="#">Solo</a></li>
+                                <li><a class="dropdown-item fw-medium" href="#">Family</a></li>
+                                <li><a class="dropdown-item fw-medium" href="#">Couple</a></li>
+                                <li><a class="dropdown-item fw-medium" href="#">Friends</a></li>
                             </ul>
                         </div>
                     </div>
@@ -267,13 +291,13 @@
                                 class="btn px-0 py-2 border-0 shadow-none dropdown-toggle d-flex align-items-center justify-content-between w-100 text-muted fw-medium"
                                 type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="selected-value text-truncate d-inline-block text-start"
-                                    style="max-width: 140px;">0 Days - 6 Days</span>
+                                    style="max-width: 140px;">Select Duration</span>
                                 <i class="fa-solid fa-chevron-down ms-2" style="font-size: 0.70rem;"></i>
                             </button>
                             <ul class="dropdown-menu border-0 shadow rounded-4 py-2 mt-3 w-100">
-                                <li><a class="dropdown-item fw-medium" href="#">0 Days - 6 Days</a></li>
-                                <li><a class="dropdown-item fw-medium" href="#">7 Days - 14 Days</a></li>
-                                <li><a class="dropdown-item fw-medium" href="#">15+ Days</a></li>
+                                <li><a class="dropdown-item fw-medium" href="#">3 Days</a></li>
+                                <li><a class="dropdown-item fw-medium" href="#">5 Days</a></li>
+                                <li><a class="dropdown-item fw-medium" href="#">7 Days</a></li>
                             </ul>
                         </div>
                     </div>
@@ -352,19 +376,20 @@
                     </div>
                     <div class="mb-4">
                         <label class="form-label text-muted small fw-medium text-uppercase mb-2"><i
-                                class="bi bi-bicycle text-primary me-1"></i> Activity</label>
+                                class="bi bi-bicycle text-primary me-1"></i> Tour Type</label>
                         <div class="dropdown custom-filter-dropdown">
                             <button
                                 class="btn btn-light bg-light rounded-3 text-dark fw-medium d-flex align-items-center justify-content-between py-2 px-3 w-100 shadow-none border-0"
                                 type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="selected-value fs-6">All Activities</span>
+                                <span class="selected-value fs-6">Select Tour Type</span>
                                 <i class="fa-solid fa-chevron-down text-muted" style="font-size: 0.75rem;"></i>
                             </button>
                             <ul class="dropdown-menu border-0 shadow-sm mt-1 rounded-3 py-2 w-100 bg-white">
-                                <li><a class="dropdown-item py-2 fw-medium" href="#">All Activities</a></li>
-                                <li><a class="dropdown-item py-2 fw-medium" href="#">Sightseeing</a></li>
-                                <li><a class="dropdown-item py-2 fw-medium" href="#">Hiking & Trekking</a></li>
-                                <li><a class="dropdown-item py-2 fw-medium" href="#">Relaxing</a></li>
+                                <li><a class="dropdown-item py-2 fw-medium" href="#">All Type</a></li>
+                                <li><a class="dropdown-item py-2 fw-medium" href="#">Solo</a></li>
+                                <li><a class="dropdown-item py-2 fw-medium" href="#">Couple</a></li>
+                                <li><a class="dropdown-item py-2 fw-medium" href="#">Family</a></li>
+                                <li><a class="dropdown-item py-2 fw-medium" href="#">Friends</a></li>
                             </ul>
                         </div>
                     </div>
@@ -375,13 +400,13 @@
                             <button
                                 class="btn btn-light bg-light rounded-3 text-dark fw-medium d-flex align-items-center justify-content-between py-2 px-3 w-100 shadow-none border-0"
                                 type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="selected-value fs-6">0 Days - 6 Days</span>
+                                <span class="selected-value fs-6">Select Duration</span>
                                 <i class="fa-solid fa-chevron-down text-muted" style="font-size: 0.75rem;"></i>
                             </button>
                             <ul class="dropdown-menu border-0 shadow-sm mt-1 rounded-3 py-2 w-100 bg-white">
-                                <li><a class="dropdown-item py-2 fw-medium" href="#">0 Days - 6 Days</a></li>
-                                <li><a class="dropdown-item py-2 fw-medium" href="#">7 Days - 14 Days</a></li>
-                                <li><a class="dropdown-item py-2 fw-medium" href="#">15+ Days</a></li>
+                                <li><a class="dropdown-item py-2 fw-medium" href="#">3 Days</a></li>
+                                <li><a class="dropdown-item py-2 fw-medium" href="#">5 Days</a></li>
+                                <li><a class="dropdown-item py-2 fw-medium" href="#">7 Days</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1144,74 +1169,119 @@
                 </div>
 
                 <!-- Step 3: Trip Duration -->
-                <div class="form-step" data-step="3">
+                <div class="form-step py-md-5 py-2" data-step="3">
                     <h2 class="text-center mb-5">What's the duration of your holiday?</h2>
                     <div class="row g-4 justify-content-center">
-                        <div class="col-6 col-md-2">
-                            <label class="selection-card text-center p-4">
+                        <div class="col-6 col-md-3">
+                            <label class="selection-card duration-card text-center p-0 overflow-hidden position-relative rounded-4 shadow-sm border w-100">
                                 <input type="radio" name="duration" value="3-5" class="d-none">
-                                <div class="card-content">
-                                    <div class="mb-3 fs-2"><i class="bi bi-briefcase"></i></div>
-                                    <h4>3-5 Days</h4>
+                                <img src="assets/plan_trip_1.jpg" alt="3-5 Days" class="img-fluid w-100 object-fit-cover transition-transform duration-img" style="height: 220px;">
+                                <div class="card-overlay position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-white transition-all">
+                                    <div class="mb-2 fs-2 icon-animate"><i class="bi bi-briefcase"></i></div>
+                                    <h4 class="fw-bold mb-0">3-5 Days</h4>
+                                    <span class="small opacity-75 mt-1">Quick Getaway</span>
                                 </div>
                             </label>
                         </div>
-                        <div class="col-6 col-md-2">
-                            <label class="selection-card text-center p-4">
+                        <div class="col-6 col-md-3">
+                            <label class="selection-card duration-card text-center p-0 overflow-hidden position-relative rounded-4 shadow-sm border w-100">
                                 <input type="radio" name="duration" value="6-8" class="d-none">
-                                <div class="card-content">
-                                    <div class="mb-3 fs-2"><i class="bi bi-briefcase-fill"></i></div>
-                                    <h4>6-8 Days</h4>
+                                <img src="assets/plan_trip_2.jpg" alt="6-8 Days" class="img-fluid w-100 object-fit-cover transition-transform duration-img" style="height: 220px;">
+                                <div class="card-overlay position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-white transition-all">
+                                    <div class="mb-2 fs-2 icon-animate"><i class="bi bi-briefcase-fill"></i></div>
+                                    <h4 class="fw-bold mb-0">6-8 Days</h4>
+                                    <span class="small opacity-75 mt-1">Standard Holiday</span>
                                 </div>
                             </label>
                         </div>
-                        <div class="col-6 col-md-2">
-                            <label class="selection-card text-center p-4">
+                        <div class="col-6 col-md-3">
+                            <label class="selection-card duration-card text-center p-0 overflow-hidden position-relative rounded-4 shadow-sm border w-100">
                                 <input type="radio" name="duration" value="9-10" class="d-none">
-                                <div class="card-content">
-                                    <div class="mb-3 fs-2"><i class="bi bi-luggage"></i></div>
-                                    <h4>9-10 Days</h4>
+                                <img src="assets/plan_trip_3.jpg" alt="9-10 Days" class="img-fluid w-100 object-fit-cover transition-transform duration-img" style="height: 220px;">
+                                <div class="card-overlay position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-white transition-all">
+                                    <div class="mb-2 fs-2 icon-animate"><i class="bi bi-luggage"></i></div>
+                                    <h4 class="fw-bold mb-0">9-10 Days</h4>
+                                    <span class="small opacity-75 mt-1">Extended Trip</span>
                                 </div>
                             </label>
                         </div>
-                        <div class="col-6 col-md-2">
-                            <label class="selection-card text-center p-4">
+                        <div class="col-6 col-md-3">
+                            <label class="selection-card duration-card text-center p-0 overflow-hidden position-relative rounded-4 shadow-sm border w-100">
                                 <input type="radio" name="duration" value="10-12" class="d-none">
-                                <div class="card-content">
-                                    <div class="mb-3 fs-2"><i class="bi bi-luggage-fill"></i></div>
-                                    <h4>10-12 Days</h4>
+                                <img src="assets/card_1.jpg" alt="10-12 Days" class="img-fluid w-100 object-fit-cover transition-transform duration-img" style="height: 220px;">
+                                <div class="card-overlay position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-white transition-all">
+                                    <div class="mb-2 fs-2 icon-animate"><i class="bi bi-luggage-fill"></i></div>
+                                    <h4 class="fw-bold mb-0">10-12 Days</h4>
+                                    <span class="small opacity-75 mt-1">Grand Adventure</span>
                                 </div>
                             </label>
                         </div>
-
                     </div>
                 </div>
 
                 <!-- Step 4: Departure Location -->
                 <div class="form-step" data-step="4">
                     <h2 class="text-center mb-5">Where are you travelling from?</h2>
-                    <!-- <div class="search-container mb-4 mx-auto" style="max-width: 600px;">
-                        <div class="input-group rounded-pill border overflow-hidden bg-white px-3 py-2">
-                            <span class="input-group-text bg-transparent border-0"><i class="bi bi-search text-primary"></i></span>
-                            <input type="text" class="form-control border-0 shadow-none" placeholder="Search airports">
+                    <div class="airport-list row g-3 justify-content-center mx-auto" style="max-width: 800px;">
+                        <div class="col-md-6">
+                            <div class="airport-item airport-card p-0 rounded-4 overflow-hidden position-relative shadow-sm border cursor-pointer" data-value="Bengaluru, BLR">
+                                <img src="assets/cityofwater.jpg" alt="Bengaluru" class="w-100 object-fit-cover opacity-75 airport-bg transition-transform" style="height: 120px;">
+                                <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center px-4 text-white airport-overlay transition-all">
+                                    <i class="bi bi-airplane fs-2 me-3 airport-icon"></i>
+                                    <div class="text-start">
+                                        <h5 class="mb-0 ">Bengaluru</h5>
+                                        <span class="small opacity-75">BLR Airport</span>
+                                    </div>
+                                    <div class="check-circle ms-auto bg-primary text-white rounded-circle d-flex align-items-center justify-content-center opacity-0 transition-all" style="width: 28px; height: 28px;">
+                                        <i class="bi bi-check"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div> -->
-                    <div class="airport-list mx-auto" style="max-width: 600px;">
-                        <div class="airport-item p-3 border-bottom d-flex align-items-center gap-3" data-value="Bengaluru, BLR">
-                            <i class="bi bi-airplane"></i>
-                            <span>Bengaluru, BLR</span>
+                        <div class="col-md-6">
+                            <div class="airport-item airport-card p-0 rounded-4 overflow-hidden position-relative shadow-sm border cursor-pointer" data-value="Chennai, MAA">
+                                <img src="assets/dest_greece.jpg" alt="Chennai" class="w-100 object-fit-cover opacity-75 airport-bg transition-transform" style="height: 120px;">
+                                <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center px-4 text-white airport-overlay transition-all">
+                                    <i class="bi bi-airplane fs-2 me-3 airport-icon"></i>
+                                    <div class="text-start">
+                                        <h5 class="mb-0 ">Chennai</h5>
+                                        <span class="small opacity-75">MAA Airport</span>
+                                    </div>
+                                    <div class="check-circle ms-auto bg-primary text-white rounded-circle d-flex align-items-center justify-content-center opacity-0 transition-all" style="width: 28px; height: 28px;">
+                                        <i class="bi bi-check"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="airport-item p-3 border-bottom d-flex align-items-center gap-3" data-value="Chennai, MAA">
-                            <i class="bi bi-airplane"></i>
-                            <span>Chennai, MAA</span>
+                        <div class="col-md-6">
+                            <div class="airport-item airport-card p-0 rounded-4 overflow-hidden position-relative shadow-sm border cursor-pointer" data-value="New Delhi, DEL">
+                                <img src="assets/dest_amsterdam.jpg" alt="New Delhi" class="w-100 object-fit-cover opacity-75 airport-bg transition-transform" style="height: 120px;">
+                                <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center px-4 text-white airport-overlay transition-all">
+                                    <i class="bi bi-airplane fs-2 me-3 airport-icon"></i>
+                                    <div class="text-start">
+                                        <h5 class="mb-0 ">New Delhi</h5>
+                                        <span class="small opacity-75">DEL Airport</span>
+                                    </div>
+                                    <div class="check-circle ms-auto bg-primary text-white rounded-circle d-flex align-items-center justify-content-center opacity-0 transition-all" style="width: 28px; height: 28px;">
+                                        <i class="bi bi-check"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="airport-item p-3 border-bottom d-flex align-items-center gap-3" data-value="New Delhi, DEL">
-                            <i class="bi bi-airplane"></i>
-                            <span>New Delhi, DEL</span>
-                        </div>
-                        <div class="airport-item p-3 border-bottom d-flex align-items-center gap-3" data-value="Mumbai, BOM">
-                            <i class="bi bi-airplane"></i>
-                            <span>Mumbai, BOM</span>
+                        <div class="col-md-6">
+                            <div class="airport-item airport-card p-0 rounded-4 overflow-hidden position-relative shadow-sm border cursor-pointer" data-value="Mumbai, BOM">
+                                <img src="assets/dest_paris.jpg" alt="Mumbai" class="w-100 object-fit-cover opacity-75 airport-bg transition-transform" style="height: 120px;">
+                                <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center px-4 text-white airport-overlay transition-all">
+                                    <i class="bi bi-airplane fs-2 me-3 airport-icon"></i>
+                                    <div class="text-start">
+                                        <h5 class="mb-0 ">Mumbai</h5>
+                                        <span class="small opacity-75">BOM Airport</span>
+                                    </div>
+                                    <div class="check-circle ms-auto bg-primary text-white rounded-circle d-flex align-items-center justify-content-center opacity-0 transition-all" style="width: 28px; height: 28px;">
+                                        <i class="bi bi-check"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1219,8 +1289,29 @@
                 <!-- Step 5: Departure Date -->
                 <div class="form-step" data-step="5">
                     <h2 class="text-center mb-5">When do you plan to travel?</h2>
-                    <div class="datepicker-wrapper">
-                        <input type="date" name="travel_date" class="form-control">
+                    <div class="row justify-content-center mt-4">
+                        <div class="col-md-8">
+                            <div class="card border-0 shadow-lg rounded-5 overflow-hidden">
+                                <div class="row g-0">
+                                    <div class="col-md-5 d-none d-md-block position-relative">
+                                        <img src="assets/plan_trip_3.jpg" alt="Calendar" class="img-fluid w-100 h-100 object-fit-cover" style="min-height: 250px;">
+                                        <div class="position-absolute bottom-0 start-0 w-100 p-4 bg-gradient-dark text-white">
+                                            <p class="mb-0 fw-medium">Start planning the best days of your life.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7 d-flex align-items-center p-5 bg-white">
+                                        <div class="w-100 text-start">
+                                            <div class="text-primary mb-3 fs-1"><i class="bi bi-calendar2-heart"></i></div>
+                                            <h3 class="fw-bold mb-2">Select Your Dates</h3>
+                                            <p class="text-muted mb-4 small">Choose when you want to start your exciting journey.</p>
+                                            <div class="datepicker-wrapper position-relative">
+                                                <input type="date" name="travel_date" class="form-control form-control-lg rounded-pill px-4 shadow-sm border-light transition-all date-input-premium">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
