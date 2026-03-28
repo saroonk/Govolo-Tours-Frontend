@@ -168,7 +168,7 @@ background: linear-gradient(135deg, #aacef2 0%, #ffffff 100%);
 
 /* Blur */
 .itinerary-wrapper.locked .itinerary-content {
-    filter: blur(3px);
+    filter: blur(6px);
 }
 
 /* Overlay */
@@ -189,7 +189,11 @@ background: linear-gradient(135deg, #aacef2 0%, #ffffff 100%);
         rgba(255,255,255,0.95),
         rgba(255, 255, 255, 0.7),
         transparent
+
     );
+
+
+
 }
 
 /* Unlock */
@@ -214,9 +218,9 @@ background: linear-gradient(135deg, #aacef2 0%, #ffffff 100%);
 /* Title */
 .overlay-title {
     font-size: 2.2rem;
-    font-weight: 800;
+    font-weight: 900 !important;
     color:var(--primary-blue);
-    text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Subtitle */
