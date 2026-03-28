@@ -2975,25 +2975,31 @@ input[name="duration"]:checked~.card-overlay .icon-animate {
 
 
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
 .whatsapp-float {
-    top: 84%;
-    right: 20px;
+width: 40px;
+    height: 40px;
+    font-size: 20px;
+
   
 }
 
 .telephone-float {
-    top: 93%;
-    right: 20px;
+width: 40px;
+    height: 40px;
+    font-size: 20px;
+
   
 }
 
 .email-float {
-    top: 75%;
-    right: 20px;
+width: 40px;
+    height: 40px;
+    font-size: 20px;
+
   
 }
-} */
+}
 
 
 
