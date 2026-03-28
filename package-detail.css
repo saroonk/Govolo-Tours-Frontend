@@ -153,6 +153,106 @@ background: linear-gradient(135deg, #aacef2 0%, #ffffff 100%);
     padding-left: 40px;
 }
 
+
+
+
+
+
+
+/* Wrapper controls height */
+.itinerary-wrapper {
+    max-height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Blur */
+.itinerary-wrapper.locked .itinerary-content {
+    filter: blur(3px);
+}
+
+/* Overlay */
+.itinerary-overlay {
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    width: 100%;
+    height: 60%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 25px;
+
+    background: linear-gradient(
+        to top,
+        rgba(255,255,255,0.95),
+        rgba(255,255,255,0.7),
+        transparent
+    );
+}
+
+/* Unlock */
+.itinerary-wrapper.unlocked {
+    max-height: none;
+}
+
+.itinerary-wrapper.unlocked .itinerary-content {
+    filter: none;
+}
+
+.itinerary-wrapper.unlocked .itinerary-overlay {
+    display: none;
+}
+
+
+/* Overlay content */
+.overlay-content {
+    max-width: 400px;
+}
+
+/* Title */
+.overlay-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: black;
+}
+
+/* Subtitle */
+.overlay-subtitle {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+/* Button */
+.unlock-btn {
+    background: linear-gradient(135deg, #0d6efd, #4dabf7);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.unlock-btn:hover {
+    transform: translateY(-2px);
+    color: #fff !important;
+
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .itinerary-timeline::before {
     content: '';
     position: absolute;
@@ -267,4 +367,55 @@ transition: all 0.4s cubic-bezier(0.465, 0.84, 0.44, 1);
     .price-tag {
         font-size: 2rem;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Modal */
+.modal-content {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.modal-title{
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+}
+
+/* Input */
+.custom-input {
+    border-radius: 10px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    transition: 0.2s;
+}
+
+.custom-input:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 2px rgba(13,110,253,0.1);
+}
+
+/* Submit button */
+.submit-btn {
+    background: linear-gradient(135deg, #0d6efd, #4dabf7);
+    color: #fff;
+    border-radius: 30px;
+    padding: 12px;
+    font-weight: 600;
+    border: none;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    color: white !important;
+    box-shadow: 0 10px 25px rgba(13,110,253,0.3);
 }

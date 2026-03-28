@@ -16,15 +16,31 @@
 
     <!-- Owl Carousel CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" />
+
     <!-- Fancybox CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+
+    <a href="" target="_blank" rel="noopener noreferrer" class="whatsapp-float">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <a href="" target="_blank" rel="noopener noreferrer" class="telephone-float">
+        <i class="bi bi-telephone"></i>
+    </a>
+
+    <a href="mailto:[EMAIL_ADDRESS]" target="_blank" rel="noopener noreferrer" class="email-float">
+        <i class="bi bi-envelope"></i>
+    </a>
 
     <!-- Desktop & Mobile Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
@@ -49,30 +65,77 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>
-                    <!-- Dropdown on Hover for Desktop -->
+
+                    <!-- Multi-level Dropdown for Destinations -->
+                    <li class="nav-item mega-parent ">
+                        <a class="nav-link mega-trigger" href="#">
+                            International
+                            <i class="bi bi-chevron-down ms-1 small dropdown-icon"></i>
+                        </a>
+
+                        <!-- FULL WIDTH WRAPPER -->
+                        <div class="mega-menu mt-2">
+
+                            <!-- INNER CONTAINER (IMPORTANT) -->
+                            <div class="container">
+                                <div class="row">
+
+                                    <!-- Asia -->
+                                    <div class="col-lg-4">
+                                        <h6 class="mega-heading">Asia</h6>
+                                        <ul class="mega-list">
+                                            <li>Bali </li>
+                                            <li>Maldives </li>
+                                            <li>Thailand <span class="badge badge-budget">BUDGET</span></li>
+                                            <li>Dubai</li>
+                                            <li>Vietnam</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Europe -->
+                                    <div class="col-lg-4">
+                                        <h6 class="mega-heading">Europe</h6>
+                                        <ul class="mega-list">
+                                            <li>France</li>
+                                            <li>Switzerland</li>
+                                            <li>Spain<span class="badge badge-trending">TRENDING</span></li>
+                                            <li>Italy</li>
+                                            <li>Germany</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Africa -->
+                                    <div class="col-lg-4">
+                                        <h6 class="mega-heading">Africa</h6>
+                                        <ul class="mega-list">
+                                            <li>Kenya</li>
+                                            <li>South Africa</li>
+                                            <li>Egypt <span class="badge badge-trending">TRENDING</span></li>
+                                            <li>Morocco</li>
+
+                                            <!-- SINGLE VIEW ALL -->
+                                            <li class="mt-3">
+                                                <a href="/destinations/" class="view-all">
+                                                    Explore 40+ Destinations →
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="#" >
-                            Packages
+                        <a class="nav-link" href="#">
+                            Domestic
                         </a>
                     </li>
-                    <!-- Multi-level Dropdown for Destinations -->
-                    <li class="nav-item dropdown hover-dropdown">
-                        <a class="nav-link" href="#" role="button" aria-expanded="false">
-                            Destinations <i class="bi bi-chevron-down ms-1 small dropdown-icon"></i>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">
+                            Packages
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Domestic</a></li>
-                            <li class="dropdown-submenu hover-dropdown-submenu position-relative">
-                                <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
-                                    International <i class="bi bi-chevron-right small ms-2"></i>
-                                </a>
-                                <ul class="dropdown-menu submenu-right position-absolute">
-                                    <li><a class="dropdown-item" href="#">Asia</a></li>
-                                    <li><a class="dropdown-item" href="#">Europe</a></li>
-                                    <li><a class="dropdown-item" href="#">Africa</a></li>
-                                </ul>
-                            </li>
-                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Testimonials</a>
@@ -108,48 +171,149 @@
                     <a class="nav-link  fs-5" href="#">About</a>
                 </div>
                 <!-- Accordion for Mobile Dropdown (Clean/Modern integration) -->
-                <div class="nav-item mb-3">
-                    <a class="nav-link active fs-5" href="#">Packages</a>
-                </div>
+
                 <!-- Nested Accordion for Destinations Mobile Dropdown -->
                 <div class="accordion-item border-0 mb-3 bg-transparent">
                     <h2 class="accordion-header" id="headingDestinations">
                         <button class="accordion-button collapsed px-0 py-0 shadow-none bg-transparent fs-5"
                             type="button" data-bs-toggle="collapse" data-bs-target="#collapseDestinations"
                             aria-expanded="false" aria-controls="collapseDestinations">
-                            Destinations
+                            International
                         </button>
                     </h2>
-                    <div id="collapseDestinations" class="accordion-collapse collapse" aria-labelledby="headingDestinations"
-                        data-bs-parent="#mobileNavAccordion">
+                    <div id="collapseDestinations" class="accordion-collapse collapse"
+                        aria-labelledby="headingDestinations" data-bs-parent="#mobileNavAccordion">
                         <div class="accordion-body px-3 py-2 mt-2 border-start border-2 border-light">
                             <ul class="list-unstyled mb-0 d-flex flex-column gap-3">
-                                <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink">Domestic</a></li>
                                 <li class="accordion accordion-flush" id="nestedNavAccordionInt">
                                     <div class="accordion-item border-0 bg-transparent mb-0">
                                         <h2 class="accordion-header" id="headingInt">
-                                            <button class="accordion-button collapsed px-0 py-1 shadow-none bg-transparent text-muted nav-sublink"
+                                            <button
+                                                class="accordion-button collapsed px-0 py-1 shadow-none bg-transparent text-muted nav-sublink"
                                                 type="button" data-bs-toggle="collapse" data-bs-target="#collapseInt"
-                                                aria-expanded="false" aria-controls="collapseInt" style="font-size: 1rem;">
-                                                International
+                                                aria-expanded="false" aria-controls="collapseInt"
+                                                style="font-size: 1rem;">
+                                                Asia
                                             </button>
                                         </h2>
-                                        <div id="collapseInt" class="accordion-collapse collapse" aria-labelledby="headingInt"
-                                            data-bs-parent="#nestedNavAccordionInt">
-                                            <div class="accordion-body px-3 py-1 mt-1 border-start border-1 border-light">
+                                        <div id="collapseInt" class="accordion-collapse collapse"
+                                            aria-labelledby="headingInt" data-bs-parent="#nestedNavAccordionInt">
+                                            <div
+                                                class="accordion-body px-3 py-1 mt-1 border-start border-1 border-light">
                                                 <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
-                                                    <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink" style="font-size: 0.95rem;">Asia</a></li>
-                                                    <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink" style="font-size: 0.95rem;">Europe</a></li>
-                                                    <li><a href="#" class="text-decoration-none text-muted py-1 d-block nav-sublink" style="font-size: 0.95rem;">Africa</a></li>
+                                                    <li><a href="#"
+                                                            class="text-decoration-none text-muted py-1 d-block nav-sublink"
+                                                            style="font-size: 0.95rem;">Bali</a></li>
+                                                    <li><a href="#"
+                                                            class="text-decoration-none text-muted py-1 d-block nav-sublink"
+                                                            style="font-size: 0.95rem;">Maldives</a></li>
+                                                    <li><a href="#"
+                                                            class="text-decoration-none text-muted py-1 d-block nav-sublink"
+                                                            style="font-size: 0.95rem;">Thailand</a></li>
+                                                    <li><a href="#"
+                                                            class="text-decoration-none text-muted py-1 d-block nav-sublink"
+                                                            style="font-size: 0.95rem;">Vietnam</a></li>
+
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
+
+
+
+                                    <div class="accordion-item border-0 bg-transparent mb-0">
+                                        <h2 class="accordion-header" id="headingInt">
+                                            <button
+                                                class="accordion-button collapsed px-0 py-1 shadow-none bg-transparent text-muted nav-sublink"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseeuro"
+                                                aria-expanded="false" aria-controls="collapseInt"
+                                                style="font-size: 1rem;">
+                                                Europe
+                                            </button>
+                                        </h2>
+                                        <div id="collapseeuro" class="accordion-collapse collapse"
+                                            aria-labelledby="headingInt" data-bs-parent="#nestedNavAccordionInt">
+                                            <div
+                                                class="accordion-body px-3 py-1 mt-1 border-start border-1 border-light">
+                                                <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                                                    <li><a href="#"
+                                                            class="text-decoration-none text-muted py-1 d-block nav-sublink"
+                                                            style="font-size: 0.95rem;">France</a></li>
+                                                    <li><a href="#"
+                                                            class="text-decoration-none text-muted py-1 d-block nav-sublink"
+                                                            style="font-size: 0.95rem;">Switzerland</a></li>
+                                                    <li><a href="#"
+                                                            class="text-decoration-none text-muted py-1 d-block nav-sublink"
+                                                            style="font-size: 0.95rem;">Italy</a></li>
+                                                    <li><a href="#"
+                                                            class="text-decoration-none text-muted py-1 d-block nav-sublink"
+                                                            style="font-size: 0.95rem;">Spain</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="accordion-item border-0 bg-transparent mb-0">
+                                        <h2 class="accordion-header" id="headingInt">
+                                            <button
+                                                class="accordion-button collapsed px-0 py-1 shadow-none bg-transparent text-muted nav-sublink"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseafr"
+                                                aria-expanded="false" aria-controls="collapseInt"
+                                                style="font-size: 1rem;">
+                                                Africa
+                                            </button>
+                                        </h2>
+                                        <div id="collapseafr" class="accordion-collapse collapse"
+                                            aria-labelledby="headingInt" data-bs-parent="#nestedNavAccordionInt">
+                                            <div
+                                                class="accordion-body px-3 py-1 mt-1 border-start border-1 border-light">
+                                                <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                                                    <li><a href="#"
+                                                            class="text-decoration-none text-muted py-1 d-block nav-sublink"
+                                                            style="font-size: 0.95rem;">Kenya</a></li>
+                                                    <li><a href="#"
+                                                            class="text-decoration-none text-muted py-1 d-block nav-sublink"
+                                                            style="font-size: 0.95rem;">South Africa</a></li>
+                                                    <li><a href="#"
+                                                            class="text-decoration-none text-muted py-1 d-block nav-sublink"
+                                                            style="font-size: 0.95rem;">Egypt</a></li>
+                                                    <li><a href="#"
+                                                            class="text-decoration-none text-muted py-1 d-block nav-sublink"
+                                                            style="font-size: 0.95rem;">Morocco</a></li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
                                 </li>
+
+
+
+
                             </ul>
                         </div>
                     </div>
                 </div>
+
+
+
+                <div class="nav-item mb-3">
+                    <a class="nav-link active fs-5" href="#">Domestic</a>
+                </div>
+
+
+
+
+                <div class="nav-item mb-3">
+                    <a class="nav-link active fs-5" href="#">Packages</a>
+                </div>
+
+
                 <div class="nav-item mb-3">
                     <a class="nav-link  fs-5" href="#">Testimonials</a>
                 </div>
@@ -178,34 +342,29 @@
             <!-- Content layout -->
             <div class="row h-100 align-items-center justify-content-center justify-content-lg-start">
                 <div class="col-lg-8 col-md-10 text-white hero-content-box mt-4 mt-lg-5 pt-4 text-center text-lg-start">
-                    <p class="mb-3 text-light hero-subtitle" data-aos="fade" 
-  data-aos-duration="400"
-  data-aos-delay="50"
-  data-aos-offset="200"
-  data-aos-easing="ease-in-out"
-  >Get unforgettable memories with us</p>
-                    <h1 class="display-4 mb-4 pe-lg-5 hero-title" style="line-height: 1.1;" data-aos="fade" 
-  data-aos-duration="500"
-  data-aos-delay="100"
-  data-aos-offset="200"
-  data-aos-easing="ease-in-out">Explore beauty of<br
-                            class="d-none d-sm-block"> the whole world</h1>
+                    <p class="mb-3 text-light hero-subtitle" data-aos="fade" data-aos-duration="400" data-aos-delay="50"
+                        data-aos-offset="200" data-aos-easing="ease-in-out">Get unforgettable memories with us</p>
+                    <h1 class="display-4 mb-4 pe-lg-5 hero-title" style="line-height: 1.1;" data-aos="fade"
+                        data-aos-duration="500" data-aos-delay="100" data-aos-offset="200"
+                        data-aos-easing="ease-in-out">Explore beauty of<br class="d-none d-sm-block"> the whole world
+                    </h1>
 
                     <div
                         class="d-flex flex-nowrap flex-lg-wrap justify-content-center justify-content-lg-start gap-2 gap-lg-3 mt-4 mt-lg-5">
-                        <button
-                            class="btn btn-primary rounded-pill px-3 px-lg-5 py-2 py-lg-3 action-btn shadow-sm fs-6" data-aos="fade">Explore
+                        <button class="btn btn-primary rounded-pill px-3 px-lg-5 py-2 py-lg-3 action-btn shadow-sm fs-6"
+                            data-aos="fade">Explore
                             Tours <i class="bi bi-arrow-right ms-1 ms-lg-2"></i> </button>
                         <button
-                            class="btn btn-outline-light rounded-pill px-3 px-lg-4 py-2 py-lg-3 action-btn bg-transparent text-white border-white hover-fill fs-6" data-aos="fade">Our
+                            class="btn btn-outline-light rounded-pill px-3 px-lg-4 py-2 py-lg-3 action-btn bg-transparent text-white border-white hover-fill fs-6"
+                            data-aos="fade">Our
                             Services <i class="bi bi-arrow-right ms-1 ms-lg-2"></i></button>
                     </div>
                 </div>
             </div>
 
             <!-- Desktop Right-side Vertical Navigation Arrows -->
-            <div class="slider-controls d-none d-lg-flex flex-column align-items-center justify-content-center position-absolute top-50 end-0 translate-middle-y z-3 pe-5 me-2 pointer-events-none" 
-                style="height: 300px;" >
+            <div class="slider-controls d-none d-lg-flex flex-column align-items-center justify-content-center position-absolute top-50 end-0 translate-middle-y z-3 pe-5 me-2 pointer-events-none"
+                style="height: 300px;">
                 <button
                     class="btn btn-link pointer-events-auto text-white text-decoration-none p-0 mb-3 slider-btn slide-prev"
                     aria-label="Previous Slide">
@@ -239,7 +398,7 @@
 
 
             <div
-                class="filter-bar-wrapper d-none d-md-flex position-absolute start-50 translate-middle-x z-3 w-100 px-4 justify-content-center" >
+                class="filter-bar-wrapper d-none d-md-flex position-absolute start-50 translate-middle-x z-3 w-100 px-4 justify-content-center">
                 <div class="filter-bar bg-white rounded-pill shadow-lg d-flex align-items-center w-100 mx-auto"
                     style="max-width: 1080px; padding: 0.6rem 0.6rem 0.6rem 1.5rem;">
 
@@ -443,16 +602,21 @@
         <div class="container bg-white rounded-5 shadow-sm overflow-hidden border">
             <div class="row align-items-center">
                 <div class="col-lg-7 p-4 p-md-5">
-                    <p class="section-subtitle mb-2 text-primary text-uppercase" style="letter-spacing: 2px;">Tailor Your Adventure</p>
+                    <p class="section-subtitle mb-2 text-primary text-uppercase" style="letter-spacing: 2px;">Tailor
+                        Your Adventure</p>
                     <h2 class="section-title mb-4  ">Customize Your<br>Dream Trip</h2>
-                    <p class="mb-5 text-muted fs-5 leading-relaxed">Pick your destinations, date of travel, and cities to build a personalized itinerary that fits your style and budget. Our experts are here to help you every step of the way.</p>
-                    <button type="button" class="btn btn-primary rounded-pill px-5 py-3 fs-5 shadow-sm start-planning-btn transition-all">
+                    <p class="mb-5 text-muted fs-5 leading-relaxed">Pick your destinations, date of travel, and cities
+                        to build a personalized itinerary that fits your style and budget. Our experts are here to help
+                        you every step of the way.</p>
+                    <button type="button"
+                        class="btn btn-primary rounded-pill px-5 py-3 fs-5 shadow-sm start-planning-btn transition-all">
                         Start Planning <i class="bi bi-arrow-right ms-2"></i>
                     </button>
                 </div>
                 <div class="col-lg-5 h-100 mt-2">
                     <div class="cta-image-wrapper h-100">
-                        <img src="assets/travel_cta.png" alt="Premium Travel" class="img-fluid w-100 h-100 object-fit-cover" style="min-height: 450px;">
+                        <img src="assets/travel_cta.png" alt="Premium Travel"
+                            class="img-fluid w-100 h-100 object-fit-cover" style="min-height: 450px;">
                     </div>
                 </div>
             </div>
@@ -462,7 +626,7 @@
 
     <!-- Tour Categories Section -->
     <section class="tour-categories-section py-5 bg-white overflow-hidden mt-5" data-aos="fade">
-        <div class="container text-center mb-5 mt-4" >
+        <div class="container text-center mb-5 mt-4">
             <p class="section-subtitle">Wonderful Place For You</p>
             <h2 class="section-title">Tour Categories</h2>
         </div>
@@ -491,7 +655,8 @@
                 <!-- Item 3 -->
                 <div class="item">
                     <div class="category-card mx-2">
-                        <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98" alt="SoloTravel" class="img-fluid">
+                        <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98" alt="SoloTravel"
+                            class="img-fluid">
                         <h4 class="category-title mt-4 mb-2">Solo Travel</h4>
                         <a href="#" class="category-link">See More</a>
                     </div>
@@ -500,7 +665,8 @@
                 <!-- Item 4 -->
                 <div class="item">
                     <div class="category-card mx-2">
-                        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429" alt="Adventure/Wildlife/Trekking" class="img-fluid">
+                        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429"
+                            alt="Adventure/Wildlife/Trekking" class="img-fluid">
                         <h4 class="category-title mt-4 mb-2">Adventure/Wildlife/Trekking</h4>
                         <a href="#" class="category-link">See More</a>
                     </div>
@@ -509,7 +675,8 @@
                 <!-- Item 5 -->
                 <div class="item">
                     <div class="category-card mx-2">
-                        <img src="https://images.unsplash.com/photo-1508964942454-1a56651d54ac" alt="Pilgrimage-HolyLandTours" class="img-fluid">
+                        <img src="https://images.unsplash.com/photo-1508964942454-1a56651d54ac"
+                            alt="Pilgrimage-HolyLandTours" class="img-fluid">
                         <h4 class="category-title mt-4 mb-2">Pilgrimage-HolyLand Tours</h4>
                         <a href="#" class="category-link">See More</a>
                     </div>
@@ -518,7 +685,8 @@
                 <!-- Item 6 -->
                 <div class="item">
                     <div class="category-card mx-2">
-                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac" alt="GroupTours" class="img-fluid">
+                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac" alt="GroupTours"
+                            class="img-fluid">
                         <h4 class="category-title mt-4 mb-2">Group Tours</h4>
                         <a href="#" class="category-link">See More</a>
                     </div>
@@ -660,7 +828,7 @@
             </div>
         </div>
     </section>
-  
+
 
     <!-- Recent Packages Section -->
     <section class="recent-packages-section py-5">
@@ -679,7 +847,8 @@
             <div class="row g-4 mt-2">
                 <!-- Package 1 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column" data-aos="fade">
+                    <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column"
+                        data-aos="fade">
                         <div class="package-img">
                             <img src="assets/card_1.jpg" alt="Lithaniya - Santa Cruza"
                                 class="w-100 h-100 object-fit-cover">
@@ -709,7 +878,8 @@
 
                 <!-- Package 2 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column" data-aos="fade">
+                    <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column"
+                        data-aos="fade">
                         <div class="package-img">
                             <img src="assets/card_2.jpg" alt="Velouria - Monte Sienna"
                                 class="w-100 h-100 object-fit-cover">
@@ -739,7 +909,8 @@
 
                 <!-- Package 3 -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column" data-aos="fade">
+                    <div class="package-card bg-white rounded-4 overflow-hidden h-100 d-flex flex-column"
+                        data-aos="fade">
                         <div class="package-img">
                             <img src="assets/card_3.jpg" alt="Elvarra - Costa Lumia"
                                 class="w-100 h-100 object-fit-cover">
@@ -777,7 +948,7 @@
 
 
 
-      
+
 
     <!-- Special Offer Section -->
     <section class="special-offer-section  my-5 overflow-hidden" data-aos="fade">
@@ -785,28 +956,33 @@
             <div class="row align-items-center g-0">
                 <!-- Left Image -->
                 <div class="col-lg-4 col-md-4 z-1 position-relative p-0">
-                    <img src="assets/Mask_Group.png" alt="Special Offer Left" class=" object-fit-cover special-offer-img ">
+                    <img src="assets/Mask_Group.png" alt="Special Offer Left"
+                        class=" object-fit-cover special-offer-img ">
                 </div>
-                
+
                 <!-- Center Content -->
-                <div class="col-lg-3 col-md-4 text-center position-relative my-4 my-md-0 d-flex flex-column align-items-center justify-content-center h-100" style="min-height: 280px;">
+                <div class="col-lg-3 col-md-4 text-center position-relative my-4 my-md-0 d-flex flex-column align-items-center justify-content-center h-100"
+                    style="min-height: 280px;">
                     <div class="center-content-wrapper position-relative">
                         <h2 class="section-title text-primary mb-3 px-3">Get Special Offer</h2>
-                        
+
                         <!-- Wrapper for relative position to anchor the absolute airplane -->
                         <div class="offer-img-wrapper position-relative d-inline-block px-3">
-                            <img src="assets/6356fa03683c353e7b30ad8b16ea499b184aa536.png" alt="40% OFF" class="img-fluid offer-img z-2 pb-md-3">
+                            <img src="assets/6356fa03683c353e7b30ad8b16ea499b184aa536.png" alt="40% OFF"
+                                class="img-fluid offer-img z-2 pb-md-3">
                             <!-- Decorative Airplane - Bottom-Right of the 40% image -->
-                            <img src="assets/2b26656ec65f170e100a25654ad848869e2c3472.png" alt="Airplane" class="position-absolute airplane-icon-fixed z-3">
+                            <img src="assets/2b26656ec65f170e100a25654ad848869e2c3472.png" alt="Airplane"
+                                class="position-absolute airplane-icon-fixed z-3">
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Right Image -->
                 <div class="col-lg-5 col-md-4 z-1 position-relative special-offer-right">
                     <!-- Main Base Image -->
-                    <img src="assets/Mask_Group_copy.png" alt="Special Offer Right Base" class=" object-fit-cover special-offer-img ">
-                    
+                    <img src="assets/Mask_Group_copy.png" alt="Special Offer Right Base"
+                        class=" object-fit-cover special-offer-img ">
+
                     <!-- Tilted Gallery Overlay - 5-6 Images -->
                     <div class="tilted-gallery-container position-absolute z-2">
                         <div class="gallery-item item-1"><img src="assets/dest_amsterdam.jpg" alt="Gallery"></div>
@@ -836,19 +1012,24 @@
             <div class="owl-carousel testimonial-carousel mt-5">
                 <!-- Testimonial Item 1 -->
                 <div class="item">
-                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100" data-aos="fade">
+                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100"
+                        data-aos="fade">
                         <div class="testimonial-img-wrapper position-absolute top-0 start-50 translate-middle">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User 1" class="rounded-circle border border-white border-4 shadow-sm">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User 1"
+                                class="rounded-circle border border-white border-4 shadow-sm">
                         </div>
-                        <div class="card-body-content mt-4 pt-4 flex-grow-1 d-flex flex-column justify-content-between h-100">
+                        <div
+                            class="card-body-content mt-4 pt-4 flex-grow-1 d-flex flex-column justify-content-between h-100">
                             <div>
                                 <h5 class="fw-bold mb-1">John Doe</h5>
                                 <p class="text-secondary small mb-3">Traveler</p>
                                 <p class="text-muted mb-0 mx-auto testimonial-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor, justo eget tincidunt fermentum, sapien.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor, justo eget
+                                    tincidunt fermentum, sapien.
                                 </p>
                             </div>
-                            <div class="stars-area text-warning fs-5 mt-3 d-flex align-items-center justify-content-center">
+                            <div
+                                class="stars-area text-warning fs-5 mt-3 d-flex align-items-center justify-content-center">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -860,11 +1041,14 @@
                 </div>
                 <!-- Testimonial Item 2 -->
                 <div class="item">
-                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100" data-aos="fade">
+                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100"
+                        data-aos="fade">
                         <div class="testimonial-img-wrapper position-absolute top-0 start-50 translate-middle">
-                            <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="User 2" class="rounded-circle border border-white border-4 shadow-sm">
+                            <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="User 2"
+                                class="rounded-circle border border-white border-4 shadow-sm">
                         </div>
-                        <div class="card-body-content mt-4 pt-4 flex-grow-1 d-flex flex-column justify-content-between h-100">
+                        <div
+                            class="card-body-content mt-4 pt-4 flex-grow-1 d-flex flex-column justify-content-between h-100">
                             <div>
                                 <h5 class="fw-bold mb-1">Michael Smith</h5>
                                 <p class="text-secondary small mb-3">Traveler</p>
@@ -872,7 +1056,8 @@
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris.
                                 </p>
                             </div>
-                            <div class="stars-area text-warning fs-5 mt-3 d-flex align-items-center justify-content-center">
+                            <div
+                                class="stars-area text-warning fs-5 mt-3 d-flex align-items-center justify-content-center">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -884,19 +1069,24 @@
                 </div>
                 <!-- Testimonial Item 3 -->
                 <div class="item">
-                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100" data-aos="fade">
+                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100"
+                        data-aos="fade">
                         <div class="testimonial-img-wrapper position-absolute top-0 start-50 translate-middle">
-                            <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="User 3" class="rounded-circle border border-white border-4 shadow-sm">
+                            <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="User 3"
+                                class="rounded-circle border border-white border-4 shadow-sm">
                         </div>
-                        <div class="card-body-content mt-4 pt-4 flex-grow-1 d-flex flex-column justify-content-between h-100">
+                        <div
+                            class="card-body-content mt-4 pt-4 flex-grow-1 d-flex flex-column justify-content-between h-100">
                             <div>
                                 <h5 class="fw-bold mb-1">James Cameron</h5>
                                 <p class="text-secondary small mb-3">Traveler</p>
                                 <p class="text-muted mb-0 mx-auto testimonial-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vestibulum diam id orci vehicula tristique.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vestibulum diam id
+                                    orci vehicula tristique.
                                 </p>
                             </div>
-                            <div class="stars-area text-warning fs-5 mt-3 d-flex align-items-center justify-content-center">
+                            <div
+                                class="stars-area text-warning fs-5 mt-3 d-flex align-items-center justify-content-center">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -908,11 +1098,14 @@
                 </div>
                 <!-- Testimonial Item 4 -->
                 <div class="item">
-                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100" data-aos="fade">
+                    <div class="testimonial-card bg-white p-4 rounded-4 shadow-sm text-center position-relative mx-2 my-1 h-100"
+                        data-aos="fade">
                         <div class="testimonial-img-wrapper position-absolute top-0 start-50 translate-middle">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User 4" class="rounded-circle border border-white border-4 shadow-sm">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User 4"
+                                class="rounded-circle border border-white border-4 shadow-sm">
                         </div>
-                        <div class="card-body-content mt-4 pt-4 flex-grow-1 d-flex flex-column justify-content-between h-100">
+                        <div
+                            class="card-body-content mt-4 pt-4 flex-grow-1 d-flex flex-column justify-content-between h-100">
                             <div>
                                 <h5 class="fw-bold mb-1">Emily Davis</h5>
                                 <p class="text-secondary small mb-3">Traveler</p>
@@ -920,7 +1113,8 @@
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris.
                                 </p>
                             </div>
-                            <div class="stars-area text-warning fs-5 mt-3 d-flex align-items-center justify-content-center">
+                            <div
+                                class="stars-area text-warning fs-5 mt-3 d-flex align-items-center justify-content-center">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -970,13 +1164,14 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="footer-section text-white py-5 " >
+    <footer class="footer-section text-white py-5 ">
         <div class="container py-4">
             <div class="row g-4 gy-5">
                 <!-- Left Column: Logo & Description -->
                 <div class="col-lg-5">
                     <div class="footer-logo mb-4">
-                        <img src="assets/footerlogo.png" alt="Govolo Tours Logo" class="img-fluid  rounded-2" style="max-height: 120px;">
+                        <img src="assets/footerlogo.png" alt="Govolo Tours Logo" class="img-fluid  rounded-2"
+                            style="max-height: 120px;">
                     </div>
                     <p class="footer-desc text-white pe-lg-5 mb-5 opacity-75">
                         Crafting seamless travel experiences for your dream vacations.
@@ -1041,7 +1236,7 @@
 
     <!-- Full-Screen Customize Trip Overlay -->
     <div id="customize-trip-overlay" class="customize-overlay">
-        <div class="overlay-header d-flex justify-content-between align-items-center px-4 py-3 bg-white shadow-sm">
+        <div class="overlay-header d-flex justify-content-between align-items-center px-4 py-3  shadow-sm mx-4 my-2">
             <div class="overlay-logo">
                 <a href="index.html">
                     <img src="assets/Group_1.png" alt="Govolo Tours" style="height: 40px;">
@@ -1060,56 +1255,69 @@
             </button>
         </div>
 
-        <div class="progress-container">
+        <div class="progress-container mx-4 ms-5">
             <div class="progress-bar-custom" id="overlay-progress-bar" style="width: 11%;"></div>
         </div>
 
         <div class="overlay-body container py-5">
             <form id="customize-trip-form">
                 <!-- Step 1: Travelers Count -->
-                <div class="form-step active" data-step="1">
-                    <h2 class="text-center mb-5">Who's joining you on this trip?</h2>
-                    <div class="row g-4 justify-content-center">
+                <div class="form-step active step-travelers" data-step="1">
+                    <div class="text-center mb-5 mx-auto" style="max-width: 900px;">
+                        <h2 class="mb-2">Who’s joining you on this <br> <span class="text-primary">journey?</span> </h2>
+                        <p class="text-muted mb-0" style="font-size: 1rem;">Choose your travel style to help us personalize your itinerary.</p>
+                    </div>
+
+                    <div class="traveler-cards-wrap mx-auto">
+                        <div class="row g-4 justify-content-center traveler-cards-row">
                         <div class="col-6 col-md-3">
                             <label class="traveler-selection-card">
-                                <input type="radio" name="traveler_type" value="Solo" class="d-none traveler-type-radio" required>
+                                <input type="radio" name="traveler_type" value="Solo" class="d-none traveler-type-radio"
+                                    required>
                                 <div class="card-img-wrapper">
                                     <img src="assets/traveler_solo.png" alt="Solo">
                                     <div class="card-overlay">
-                                        <h4>Solo</h4>
+                                        <div class="trip-meta-icon"><i class="bi bi-person-fill"></i></div>
+                                        <h4>Solo Trip</h4>
                                     </div>
                                 </div>
                             </label>
                         </div>
                         <div class="col-6 col-md-3">
                             <label class="traveler-selection-card">
-                                <input type="radio" name="traveler_type" value="Couple" class="d-none traveler-type-radio">
+                                <input type="radio" name="traveler_type" value="Couple"
+                                    class="d-none traveler-type-radio">
                                 <div class="card-img-wrapper">
                                     <img src="assets/traveler_couple.png" alt="Couple">
                                     <div class="card-overlay">
-                                        <h4>Couple</h4>
+                                        <div class="trip-meta-icon"><i class="bi bi-heart-fill"></i></div>
+                                        <h4>Couple Trip</h4>
                                     </div>
                                 </div>
                             </label>
                         </div>
                         <div class="col-6 col-md-3">
                             <label class="traveler-selection-card">
-                                <input type="radio" name="traveler_type" value="Family" class="d-none traveler-type-radio">
+                                <input type="radio" name="traveler_type" value="Family"
+                                    class="d-none traveler-type-radio">
                                 <div class="card-img-wrapper">
                                     <img src="assets/traveler_family.png" alt="Family">
                                     <div class="card-overlay">
-                                        <h4>Family</h4>
+                                        <div class="trip-meta-icon"><i class="bi bi-people-fill"></i></div>
+                                        <h4>Family Trip</h4>
                                     </div>
                                 </div>
                             </label>
                         </div>
                         <div class="col-6 col-md-3">
                             <label class="traveler-selection-card">
-                                <input type="radio" name="traveler_type" value="Friends" class="d-none traveler-type-radio">
+                                <input type="radio" name="traveler_type" value="Friends"
+                                    class="d-none traveler-type-radio">
                                 <div class="card-img-wrapper">
                                     <img src="assets/traveler_friends.png" alt="Friends">
                                     <div class="card-overlay">
-                                        <h4>Friends</h4>
+                                        <div class="trip-meta-icon"><i class="bi bi-person-plus-fill"></i></div>
+                                        <h4>Friends Trip</h4>
                                     </div>
                                 </div>
                             </label>
@@ -1117,198 +1325,301 @@
                     </div>
 
                     <!-- Dynamic Member Input (Hidden by default) -->
-                    <div id="member-count-wrapper" class="mt-5 mx-auto d-none" style="max-width: 400px;">
-                        <label class="form-label  mb-3 d-block text-center">Enter total number of members</label>
-                        <div class="input-group input-group-lg shadow-sm rounded-4 overflow-hidden border">
-                            <span class="input-group-text bg-white border-0"><i class="bi bi-people text-primary"></i></span>
-                            <input type="number" name="travelers" id="member-count-input" class="form-control border-0 shadow-none ps-0" placeholder="e.g. 5" min="1">
+                    <div id="member-count-wrapper" class="d-none">
+                        <label class="form-label mb-2 d-block">Number of members</label>
+                        <div class="input-group input-group-lg overflow-hidden">
+                            <input type="number" name="travelers" id="member-count-input"
+                                class="form-control border-0 shadow-none" placeholder="4" min="1">
+                            <span class="member-help-text">Specify details<br>adults / children</span>
                         </div>
+                    </div>
                     </div>
 
                 </div>
 
                 <!-- Step 2: Destination Selection -->
-                <div class="form-step" data-step="2">
-                    <h2 class="text-center mb-5">What's your pick for your next vacation?</h2>
-                    <!-- <div class="search-container mb-5 mx-auto" style="max-width: 600px;">
-                        <div class="input-group rounded-pill border overflow-hidden bg-white px-3 py-1">
-                            <span class="input-group-text bg-transparent border-0"><i class="bi bi-search text-primary"></i></span>
-                            <input type="text" class="form-control border-0 shadow-none" placeholder="Pick your destination">
+                <div class="form-step py-md-4 py-2 step-destination" data-step="2">
+                    <!-- Header -->
+                    <div class="dest-header mb-5 mx-auto" style="max-width: 1060px;">
+                        <h2 class=" mb-1 dest-main-title ">Choose your dream<br><span class="text-primary">destination</span></h2>
+                        <div class="dest-note mt-3 d-flex align-items-start gap-2 justify-content-center">
+                            <i class="bi bi-stars text-primary mt-1" style="font-size:0.95rem; flex-shrink:0;"></i>
+                            <p class="mb-0" style="font-size:0.88rem; color:#6b7280; line-height:1.6;">Not sure? Choose any destination to start, you can always create new one later. We'll help you curate the perfect itinerary regardless of your choice.</p>
                         </div>
-                    </div> -->
-                    <div class="owl-carousel destination-selection-carousel mt-4">
-                        <div class="item">
-                            <label class="dest-select-card">
-                                <input type="radio" name="destination" value="Vietnam" class="d-none">
-                                <img src="assets/dest_vietnam.jpg" alt="Vietnam">
-                                <div class="dest-label">Vietnam</div>
-                            </label>
-                        </div>
-                        <div class="item">
-                            <label class="dest-select-card">
-                                <input type="radio" name="destination" value="Bali" class="d-none">
-                                <img src="assets/dest_amsterdam.jpg" alt="Bali">
-                                <div class="dest-label">Bali</div>
-                            </label>
-                        </div>
-                        <div class="item">
-                            <label class="dest-select-card">
-                                <input type="radio" name="destination" value="Thailand" class="d-none">
-                                <img src="assets/dest_water.jpg" alt="Thailand">
-                                <div class="dest-label">Thailand</div>
-                            </label>
-                        </div>
-                        <div class="item">
-                            <label class="dest-select-card">
-                                <input type="radio" name="destination" value="Maldives" class="d-none">
-                                <img src="assets/dest_oceana.jpg" alt="Maldives">
-                                <div class="dest-label">Maldives</div>
-                            </label>
-                        </div>
+                    </div>  
+
+                    <!-- Destination Cards Grid -->
+                    <div class="dest-cards-grid mx-auto" style="max-width: 1060px;">
+
+                        <label class="dest-grid-card" tabindex="0">
+                            <input type="radio" name="destination" value="Vietnam" class="d-none">
+                            <div class="dest-card-badge">Trending</div>
+                            <img src="assets/dest_vietnam.jpg" alt="Vietnam" class="dest-card-img">
+                            <div class="dest-card-overlay"></div>
+                            <div class="dest-card-check"><i class="bi bi-check2"></i></div>
+                            <div class="dest-card-info">
+                                <h4 class="dest-card-name">Vietnam</h4>
+                                <p class="dest-card-sub">Southeast Asia &bull; Cultural Gem</p>
+                            </div>
+                        </label>
+
+                        <label class="dest-grid-card" tabindex="0">
+                            <input type="radio" name="destination" value="Bali" class="d-none">
+                            <div class="dest-card-badge">Popular</div>
+                            <img src="assets/dest_amsterdam.jpg" alt="Bali" class="dest-card-img">
+                            <div class="dest-card-overlay"></div>
+                            <div class="dest-card-check"><i class="bi bi-check2"></i></div>
+                            <div class="dest-card-info">
+                                <h4 class="dest-card-name">Bali</h4>
+                                <p class="dest-card-sub">Indonesia &bull; Tropical Paradise</p>
+                            </div>
+                        </label>
+
+                        <label class="dest-grid-card" tabindex="0">
+                            <input type="radio" name="destination" value="Thailand" class="d-none">
+                            <div class="dest-card-badge">Luxury</div>
+                            <img src="assets/dest_water.jpg" alt="Thailand" class="dest-card-img">
+                            <div class="dest-card-overlay"></div>
+                            <div class="dest-card-check"><i class="bi bi-check2"></i></div>
+                            <div class="dest-card-info">
+                                <h4 class="dest-card-name">Thailand</h4>
+                                <p class="dest-card-sub">Southeast Asia &bull; Beach &amp; Culture</p>
+                            </div>
+                        </label>
+
+                        <label class="dest-grid-card" tabindex="0">
+                            <input type="radio" name="destination" value="Maldives" class="d-none">
+                            <div class="dest-card-badge">Exclusive</div>
+                            <img src="assets/dest_oceana.jpg" alt="Maldives" class="dest-card-img">
+                            <div class="dest-card-overlay"></div>
+                            <div class="dest-card-check"><i class="bi bi-check2"></i></div>
+                            <div class="dest-card-info">
+                                <h4 class="dest-card-name">Maldives</h4>
+                                <p class="dest-card-sub">Indian Ocean &bull; Private Island</p>
+                            </div>
+                        </label>
+
+                        <label class="dest-grid-card" tabindex="0">
+                            <input type="radio" name="destination" value="Greece" class="d-none">
+                            <div class="dest-card-badge">Trending</div>
+                            <img src="assets/dest_greece.jpg" alt="Greece" class="dest-card-img">
+                            <div class="dest-card-overlay"></div>
+                            <div class="dest-card-check"><i class="bi bi-check2"></i></div>
+                            <div class="dest-card-info">
+                                <h4 class="dest-card-name">Greece</h4>
+                                <p class="dest-card-sub">Europe &bull; Island Escape</p>
+                            </div>
+                        </label>
+
+                        <label class="dest-grid-card" tabindex="0">
+                            <input type="radio" name="destination" value="Paris" class="d-none">
+                            <div class="dest-card-badge">Classic</div>
+                            <img src="assets/dest_paris.jpg" alt="Paris" class="dest-card-img">
+                            <div class="dest-card-overlay"></div>
+                            <div class="dest-card-check"><i class="bi bi-check2"></i></div>
+                            <div class="dest-card-info">
+                                <h4 class="dest-card-name">Paris</h4>
+                                <p class="dest-card-sub">France &bull; City of Love</p>
+                            </div>
+                        </label>
+
                     </div>
                 </div>
 
                 <!-- Step 3: Trip Duration -->
-                <div class="form-step py-md-5 py-2" data-step="3">
-                    <h2 class="text-center mb-5">What's the duration of your holiday?</h2>
-                    <div class="row g-4 justify-content-center">
-                        <div class="col-6 col-md-3">
-                            <label class="selection-card duration-card text-center p-0 overflow-hidden position-relative rounded-4 shadow-sm border w-100">
-                                <input type="radio" name="duration" value="3-5" class="d-none">
-                                <img src="assets/plan_trip_1.jpg" alt="3-5 Days" class="img-fluid w-100 object-fit-cover transition-transform duration-img" style="height: 220px;">
-                                <div class="card-overlay position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-white transition-all">
-                                    <div class="mb-2 fs-2 icon-animate"><i class="bi bi-briefcase"></i></div>
-                                    <h4 class="fw-bold mb-0">3-5 Days</h4>
-                                    <span class="small opacity-75 mt-1">Quick Getaway</span>
+                <div class="form-step py-md-4 py-2 step-duration" data-step="3">
+                    <div class="text-start mb-5 mx-auto" style="max-width: 1100px;">
+                        <h2 class="fw-bold mb-2" style="font-size: 3rem; letter-spacing: -1.5px; color: #111;">How long is your <span class="text-primary">trip?</span></h2>
+                        <p class="text-muted mb-0" style="font-size: 1rem; font-weight: 400;">Every journey has its own rhythm. Tell us the duration so we can craft<br class="d-none d-md-block"> the perfect itinerary for your escape.</p>
+                    </div>
+
+                    <div class="row g-3 justify-content-center mb-5 mx-auto" style="max-width: 1100px;">
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <label class="duration-select-card position-relative w-100 d-flex flex-column align-items-center justify-content-center">
+                                <input type="radio" name="duration" value="5" class="d-none">
+                                <div class="duration-icon-box d-flex align-items-center justify-content-center mb-3">
+                                    <i class="bi bi-calendar-event"></i>
                                 </div>
+                                <h4 class="mb-0">5 Days</h4>
+                                <span class="duration-subtitle mt-1">Quick Escape</span>
+                                <div class="check-circle"><i class="bi bi-check2"></i></div>
                             </label>
                         </div>
-                        <div class="col-6 col-md-3">
-                            <label class="selection-card duration-card text-center p-0 overflow-hidden position-relative rounded-4 shadow-sm border w-100">
-                                <input type="radio" name="duration" value="6-8" class="d-none">
-                                <img src="assets/plan_trip_2.jpg" alt="6-8 Days" class="img-fluid w-100 object-fit-cover transition-transform duration-img" style="height: 220px;">
-                                <div class="card-overlay position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-white transition-all">
-                                    <div class="mb-2 fs-2 icon-animate"><i class="bi bi-briefcase-fill"></i></div>
-                                    <h4 class="fw-bold mb-0">6-8 Days</h4>
-                                    <span class="small opacity-75 mt-1">Standard Holiday</span>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <label class="duration-select-card position-relative w-100 d-flex flex-column align-items-center justify-content-center">
+                                <input type="radio" name="duration" value="8" class="d-none">
+                                <div class="duration-icon-box d-flex align-items-center justify-content-center mb-3">
+                                    <i class="fa-solid fa-plane-departure"></i>
                                 </div>
+                                <h4 class="mb-0">8 Days</h4>
+                                <span class="duration-subtitle mt-1">Balanced Week</span>
+                                <div class="check-circle"><i class="bi bi-check2"></i></div>
                             </label>
                         </div>
-                        <div class="col-6 col-md-3">
-                            <label class="selection-card duration-card text-center p-0 overflow-hidden position-relative rounded-4 shadow-sm border w-100">
-                                <input type="radio" name="duration" value="9-10" class="d-none">
-                                <img src="assets/plan_trip_3.jpg" alt="9-10 Days" class="img-fluid w-100 object-fit-cover transition-transform duration-img" style="height: 220px;">
-                                <div class="card-overlay position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-white transition-all">
-                                    <div class="mb-2 fs-2 icon-animate"><i class="bi bi-luggage"></i></div>
-                                    <h4 class="fw-bold mb-0">9-10 Days</h4>
-                                    <span class="small opacity-75 mt-1">Extended Trip</span>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <label class="duration-select-card position-relative w-100 d-flex flex-column align-items-center justify-content-center">
+                                <input type="radio" name="duration" value="10" class="d-none">
+                                <div class="duration-icon-box d-flex align-items-center justify-content-center mb-3">
+                                    <i class="bi bi-compass"></i>
                                 </div>
+                                <h4 class="mb-0">10 Days</h4>
+                                <span class="duration-subtitle mt-1">Deep Discovery</span>
+                                <div class="check-circle"><i class="bi bi-check2"></i></div>
                             </label>
                         </div>
-                        <div class="col-6 col-md-3">
-                            <label class="selection-card duration-card text-center p-0 overflow-hidden position-relative rounded-4 shadow-sm border w-100">
-                                <input type="radio" name="duration" value="10-12" class="d-none">
-                                <img src="assets/card_1.jpg" alt="10-12 Days" class="img-fluid w-100 object-fit-cover transition-transform duration-img" style="height: 220px;">
-                                <div class="card-overlay position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-white transition-all">
-                                    <div class="mb-2 fs-2 icon-animate"><i class="bi bi-luggage-fill"></i></div>
-                                    <h4 class="fw-bold mb-0">10-12 Days</h4>
-                                    <span class="small opacity-75 mt-1">Grand Adventure</span>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <label class="duration-select-card position-relative w-100 d-flex flex-column align-items-center justify-content-center">
+                                <input type="radio" name="duration" value="12" class="d-none">
+                                <div class="duration-icon-box d-flex align-items-center justify-content-center mb-3">
+                                    <i class="bi bi-map"></i>
                                 </div>
+                                <h4 class="mb-0">12 Days</h4>
+                                <span class="duration-subtitle mt-1">Grand Odyssey</span>
+                                <div class="check-circle"><i class="bi bi-check2"></i></div>
                             </label>
                         </div>
                     </div>
+<!-- 
+                    <div class="row align-items-center mx-auto mt-4" style="max-width: 1100px;">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <img src="assets/pexels-javon-swaby-197616-2797526.jpg" alt="Travel Planning" class="duration-info-img img-fluid w-100">
+                        </div>
+                        <div class="col-md-6 ps-md-4 text-start">
+                            <h4 class="duration-info-title">Travel Planning Simplified</h4>
+                            <p class="duration-info-text mb-0">Most voyagers find that 8 to 10 days provides the perfect equilibrium between high-octane exploration and serene moments of rest.</p>
+                        </div>
+                    </div> -->
                 </div>
 
                 <!-- Step 4: Departure Location -->
-                <div class="form-step" data-step="4">
-                    <h2 class="text-center mb-5">Where are you travelling from?</h2>
-                    <div class="airport-list row g-3 justify-content-center mx-auto" style="max-width: 800px;">
-                        <div class="col-md-6">
-                            <div class="airport-item airport-card p-0 rounded-4 overflow-hidden position-relative shadow-sm border cursor-pointer" data-value="Bengaluru, BLR">
-                                <img src="assets/cityofwater.jpg" alt="Bengaluru" class="w-100 object-fit-cover opacity-75 airport-bg transition-transform" style="height: 120px;">
-                                <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center px-4 text-white airport-overlay transition-all">
-                                    <i class="bi bi-airplane fs-2 me-3 airport-icon"></i>
-                                    <div class="text-start">
-                                        <h5 class="mb-0 ">Bengaluru</h5>
-                                        <span class="small opacity-75">BLR Airport</span>
-                                    </div>
-                                    <div class="check-circle ms-auto bg-primary text-white rounded-circle d-flex align-items-center justify-content-center opacity-0 transition-all" style="width: 28px; height: 28px;">
-                                        <i class="bi bi-check"></i>
-                                    </div>
-                                </div>
+                <div class="form-step step-airport" data-step="4">
+                    <div class="departure-header text-center mx-auto mb-4" style="max-width: 900px;">
+                        <h2 class="departure-title mb-2">Where will you travel  <br><span class="text-primary">from?</span></h2>
+                        <p class="departure-subtitle mb-0">Select your departure airport for exclusive lounge options.</p>
+                    </div>
+
+                    <div class="airport-list row g-3 justify-content-center mx-auto" style="max-width: 900px;">
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="airport-item airport-tile" data-value="Bengaluru, BLR" role="button" tabindex="0">
+                                <span class="airport-selected-indicator" aria-hidden="true"></span>
+                                <div class="airport-tile-icon"><i class="bi bi-airplane"></i></div>
+                                <div class="airport-tile-name">Bangalore</div>
+                                <div class="airport-tile-code">BLR</div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="airport-item airport-card p-0 rounded-4 overflow-hidden position-relative shadow-sm border cursor-pointer" data-value="Chennai, MAA">
-                                <img src="assets/dest_greece.jpg" alt="Chennai" class="w-100 object-fit-cover opacity-75 airport-bg transition-transform" style="height: 120px;">
-                                <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center px-4 text-white airport-overlay transition-all">
-                                    <i class="bi bi-airplane fs-2 me-3 airport-icon"></i>
-                                    <div class="text-start">
-                                        <h5 class="mb-0 ">Chennai</h5>
-                                        <span class="small opacity-75">MAA Airport</span>
-                                    </div>
-                                    <div class="check-circle ms-auto bg-primary text-white rounded-circle d-flex align-items-center justify-content-center opacity-0 transition-all" style="width: 28px; height: 28px;">
-                                        <i class="bi bi-check"></i>
-                                    </div>
-                                </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="airport-item airport-tile" data-value="Mumbai, BOM" role="button" tabindex="0">
+                                <span class="airport-selected-indicator" aria-hidden="true"></span>
+                                <div class="airport-tile-icon"><i class="bi bi-airplane"></i></div>
+                                <div class="airport-tile-name">Mumbai</div>
+                                <div class="airport-tile-code">BOM</div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="airport-item airport-card p-0 rounded-4 overflow-hidden position-relative shadow-sm border cursor-pointer" data-value="New Delhi, DEL">
-                                <img src="assets/dest_amsterdam.jpg" alt="New Delhi" class="w-100 object-fit-cover opacity-75 airport-bg transition-transform" style="height: 120px;">
-                                <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center px-4 text-white airport-overlay transition-all">
-                                    <i class="bi bi-airplane fs-2 me-3 airport-icon"></i>
-                                    <div class="text-start">
-                                        <h5 class="mb-0 ">New Delhi</h5>
-                                        <span class="small opacity-75">DEL Airport</span>
-                                    </div>
-                                    <div class="check-circle ms-auto bg-primary text-white rounded-circle d-flex align-items-center justify-content-center opacity-0 transition-all" style="width: 28px; height: 28px;">
-                                        <i class="bi bi-check"></i>
-                                    </div>
-                                </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="airport-item airport-tile" data-value="New Delhi, DEL" role="button" tabindex="0">
+                                <span class="airport-selected-indicator" aria-hidden="true"></span>
+                                <div class="airport-tile-icon"><i class="bi bi-airplane"></i></div>
+                                <div class="airport-tile-name">Delhi</div>
+                                <div class="airport-tile-code">DEL</div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="airport-item airport-card p-0 rounded-4 overflow-hidden position-relative shadow-sm border cursor-pointer" data-value="Mumbai, BOM">
-                                <img src="assets/dest_paris.jpg" alt="Mumbai" class="w-100 object-fit-cover opacity-75 airport-bg transition-transform" style="height: 120px;">
-                                <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center px-4 text-white airport-overlay transition-all">
-                                    <i class="bi bi-airplane fs-2 me-3 airport-icon"></i>
-                                    <div class="text-start">
-                                        <h5 class="mb-0 ">Mumbai</h5>
-                                        <span class="small opacity-75">BOM Airport</span>
-                                    </div>
-                                    <div class="check-circle ms-auto bg-primary text-white rounded-circle d-flex align-items-center justify-content-center opacity-0 transition-all" style="width: 28px; height: 28px;">
-                                        <i class="bi bi-check"></i>
-                                    </div>
-                                </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="airport-item airport-tile" data-value="Chennai, MAA" role="button" tabindex="0">
+                                <span class="airport-selected-indicator" aria-hidden="true"></span>
+                                <div class="airport-tile-icon"><i class="bi bi-airplane"></i></div>
+                                <div class="airport-tile-name">Chennai</div>
+                                <div class="airport-tile-code">MAA</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="airport-item airport-tile" data-value="Hyderabad, HYD" role="button" tabindex="0">
+                                <span class="airport-selected-indicator" aria-hidden="true"></span>
+                                <div class="airport-tile-icon"><i class="bi bi-airplane"></i></div>
+                                <div class="airport-tile-name">Hyderabad</div>
+                                <div class="airport-tile-code">HYD</div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="airport-item airport-tile" data-value="Kolkata, CCU" role="button" tabindex="0">
+                                <span class="airport-selected-indicator" aria-hidden="true"></span>
+                                <div class="airport-tile-icon"><i class="bi bi-airplane"></i></div>
+                                <div class="airport-tile-name">Kolkata</div>
+                                <div class="airport-tile-code">CCU</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="airport-item airport-tile" data-value="Kochi, COK" role="button" tabindex="0">
+                                <span class="airport-selected-indicator" aria-hidden="true"></span>
+                                <div class="airport-tile-icon"><i class="bi bi-airplane"></i></div>
+                                <div class="airport-tile-name">Kochi</div>
+                                <div class="airport-tile-code">COK</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="airport-item airport-tile" data-value="Pune, PNQ" role="button" tabindex="0">
+                                <span class="airport-selected-indicator" aria-hidden="true"></span>
+                                <div class="airport-tile-icon"><i class="bi bi-airplane"></i></div>
+                                <div class="airport-tile-name">Pune</div>
+                                <div class="airport-tile-code">PNQ</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="airport-item airport-tile" data-value="Ahmedabad, AMD" role="button" tabindex="0">
+                                <span class="airport-selected-indicator" aria-hidden="true"></span>
+                                <div class="airport-tile-icon"><i class="bi bi-airplane"></i></div>
+                                <div class="airport-tile-name">Ahmedabad</div>
+                                <div class="airport-tile-code">AMD</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="airport-item airport-tile" data-value="Goa, GOI" role="button" tabindex="0">
+                                <span class="airport-selected-indicator" aria-hidden="true"></span>
+                                <div class="airport-tile-icon"><i class="bi bi-airplane"></i></div>
+                                <div class="airport-tile-name">Goa</div>
+                                <div class="airport-tile-code">GOI</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Step 5: Departure Date -->
-                <div class="form-step" data-step="5">
-                    <h2 class="text-center mb-5">When do you plan to travel?</h2>
-                    <div class="row justify-content-center mt-4">
-                        <div class="col-md-8">
-                            <div class="card border-0 shadow-lg rounded-5 overflow-hidden">
-                                <div class="row g-0">
-                                    <div class="col-md-5 d-none d-md-block position-relative">
-                                        <img src="assets/plan_trip_3.jpg" alt="Calendar" class="img-fluid w-100 h-100 object-fit-cover" style="min-height: 250px;">
-                                        <div class="position-absolute bottom-0 start-0 w-100 p-4 bg-gradient-dark text-white">
-                                            <p class="mb-0 fw-medium">Start planning the best days of your life.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-7 d-flex align-items-center p-5 bg-white">
-                                        <div class="w-100 text-start">
-                                            <div class="text-primary mb-3 fs-1"><i class="bi bi-calendar2-heart"></i></div>
-                                            <h3 class="fw-bold mb-2">Select Your Dates</h3>
-                                            <p class="text-muted mb-4 small">Choose when you want to start your exciting journey.</p>
-                                            <div class="datepicker-wrapper position-relative">
-                                                <input type="date" name="travel_date" class="form-control form-control-lg rounded-pill px-4 shadow-sm border-light transition-all date-input-premium">
-                                            </div>
-                                        </div>
-                                    </div>
+                <div class="form-step py-md-4 py-2 step-date" data-step="5">
+                    <div class="text-start mb-4 mx-auto" style="max-width: 800px;">
+                        <h2 class="fw-bold mb-2 text-center" style="font-size: 3rem; letter-spacing: -1.5px; color: #111;">When are you planning your <br><span class="text-primary">journey?</span></h2>
+                        <p class="text-muted mb-0 text-center" style="font-size: 1rem; font-weight: 400;">Pick your start date — we’ll build the itinerary around it.</p>
+                    </div>
+
+                    <div class="trip-date-card mx-auto">
+                        <div class="trip-date-card-header">
+                            <div class="trip-date-month" aria-live="polite">—</div>
+                            <div class="trip-date-actions">
+                                <button class="trip-date-nav prev" type="button" aria-label="Previous month">
+                                    <i class="bi bi-chevron-left"></i>
+                                </button>
+                                <button class="trip-date-nav next" type="button" aria-label="Next month">
+                                    <i class="bi bi-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="trip-date-grid" aria-hidden="true">
+                            <div class="trip-date-dow">SU</div><div class="trip-date-dow">MO</div><div class="trip-date-dow">TU</div><div class="trip-date-dow">WE</div><div class="trip-date-dow">TH</div><div class="trip-date-dow">FR</div><div class="trip-date-dow">SA</div>
+                        </div>
+
+                        <div class="trip-date-days" role="grid" aria-label="Choose a date"></div>
+
+                        <div class="trip-date-footer">
+                            <div class="trip-date-hint">
+                                <span class="trip-date-hint-dot" aria-hidden="true"></span>
+                                <span class="trip-date-hint-text">Tip: Weekday departures often have better flight availability.</span>
+                            </div>
+
+                            <div class="trip-date-input-wrap">
+                                <label class="trip-date-input-label" for="travel_date_input">Starting journey on</label>
+                                <div class="datepicker-wrapper datepicker-wrapper--inline">
+                                    <input id="travel_date_input" type="date" name="travel_date"
+                                        class="form-control form-control-lg rounded-pill px-4 shadow-sm border-light transition-all date-input-premium">
                                 </div>
                             </div>
                         </div>
@@ -1317,42 +1628,127 @@
 
 
                 <!-- Step 6: Daily City Planning -->
-                <div class="form-step" data-step="6">
-                    <h2 class="text-center mb-5">Customize your daily plan</h2>
-                    <div id="city-planning-container" class="row g-4">
+                <div class="form-step py-md-4 py-2 step-daily" data-step="6">
+                    <div class="text-start mb-4 mx-auto" style="max-width: 900px;">
+                        <h2 class="fw-bold mb-2 text-center" >Customize your daily <br> <span class="text-primary">experience</span></h2>
+                        <p class="text-muted mb-0 text-center" style="font-size: 1rem; font-weight: 400;">Select the cities you'd like to explore each day. We'll craft a detailed itinerary around your choices.</p>
+                    </div>
+
+                    <div id="city-planning-container" class="mx-auto" style="max-width: 900px;">
                         <!-- Dynamically filled Day fields will go here -->
+                    </div>
+
+                    <!-- Bottom Info Panel -->
+                    <div class="row g-4 mt-4 mx-auto" style="max-width: 900px;">
+                        <div class="col-md-7">
+                            <div class="daily-info-panel p-4 h-100">
+                                <p class="daily-info-label text-uppercase mb-2">A Note on Preferences</p>
+                                <h5 class="fw-bold mb-2" style="color: #1a1a2e;">Your selections are flexible</h5>
+                                <p class="mb-0" style="font-size: 0.9rem; color: #5a6278; line-height: 1.7;">Don't worry about being exact — our travel experts will fine-tune your day plans based on your preferences, travel pace, and seasonal availability.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="daily-highlight-card p-4 h-100 d-flex flex-column justify-content-center">
+                                <p class="daily-highlight-label text-uppercase mb-2">Accommodation</p>
+                                <h4 class="fw-bold mb-1 text-white">Curated Hotels</h4>
+                                <p class="mb-0" style="font-size: 0.85rem; color: rgba(255,255,255,0.80); line-height: 1.6;">Hand-picked stays at every destination, balancing comfort and character.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-step" data-step="7">
-                    <div class="text-center">
-                        <div class="mb-4 text-primary" style="font-size: 5rem;"><i class="bi bi-magic"></i></div>
-                        <h2 class="mb-4">Ready to build your dream itinerary?</h2>
-                        <p class="mb-5 text-muted fs-5">We've gathered all your preferences. Let's see your personalized plan!</p>
-                        <button type="button" class="btn btn-primary rounded-pill px-5 py-3 fs-4 build-itinerary-btn">
-                            Build My Itinerary
-                        </button>
+                <div class="form-step step-review" data-step="7">
+                    <div class="trip-review-layout mx-auto">
+                        <div class="row g-0 align-items-stretch">
+                            <div class="col-lg-6 order-md-1 order-2">
+                                <div class="trip-review-image-wrap">
+                                    <img src="assets/dest_amsterdam.jpg" alt="Destination preview" class="trip-review-image">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 order-md-2 order-1">
+                                <div class="trip-review-panel">
+                                    <p class="trip-review-kicker mb-2">Your journey awaits</p>
+                                    <h3 class="trip-review-title mb-3">You’re one step away from viewing your custom itinerary.</h3>
+
+                                    <div class="trip-review-facts">
+                                        <div class="trip-fact-item">
+                                            <div class="trip-fact-icon"><i class="bi bi-people-fill"></i></div>
+                                            <div class="trip-fact-text">
+                                                <span class="trip-fact-label">Traveler Type</span>
+                                                <strong id="review-travelers">Not selected</strong>
+                                            </div>
+                                        </div>
+                                        <div class="trip-fact-item">
+                                            <div class="trip-fact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                                            <div class="trip-fact-text">
+                                                <span class="trip-fact-label">Destination</span>
+                                                <strong id="review-destination">Not selected</strong>
+                                            </div>
+                                        </div>
+                                        <div class="trip-fact-item">
+                                            <div class="trip-fact-icon"><i class="bi bi-clock-fill"></i></div>
+                                            <div class="trip-fact-text">
+                                                <span class="trip-fact-label">Duration</span>
+                                                <strong id="review-duration">Not selected</strong>
+                                            </div>
+                                        </div>
+                                        <div class="trip-fact-item">
+                                            <div class="trip-fact-icon"><i class="bi bi-calendar2-check-fill"></i></div>
+                                            <div class="trip-fact-text">
+                                                <span class="trip-fact-label">Start Date</span>
+                                                <strong id="review-date">Not selected</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" class="btn btn-primary rounded-pill w-100 py-3 fs-5 build-itinerary-btn">
+                                        Build My Itinerary <i class="bi bi-stars ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Step 8: User Details Form -->
-                <div class="form-step" data-step="8">
-                    <h2 class="text-center mb-5">Where should we send your itinerary?</h2>
-                    <div class="row g-3 mx-auto" style="max-width: 700px;">
-                        <div class="col-md-6">
-                            <input type="text" name="first_name" class="form-control rounded-3 p-3" placeholder="First Name" required>
-                        </div>
-                        <div class="col-md-6">
-                            <input type="text" name="last_name" class="form-control rounded-3 p-3" placeholder="Last Name" required>
-                        </div>
-                        <div class="col-12">
-                            <input type="email" name="email" class="form-control rounded-3 p-3" placeholder="Email ID" required>
-                        </div>
-                        <div class="col-12">
-                            <input type="tel" name="phone" class="form-control rounded-3 p-3" placeholder="Phone Number" required>
-                        </div>
-                        <div class="col-12 text-center mt-4">
-                            <button type="submit" class="btn btn-primary rounded-pill px-5 py-3 fs-5">Get Itinerary</button>
+                <div class="form-step step-contact" data-step="8">
+                    <div class="step-contact-head text-center mx-auto">
+                        <h2 class="mb-2"><span class="text-primary">Almost there!</span> Let’s deliver your personalized itinerary.</h2>
+                        <p class="mb-0">Share your details and we will send your complete day-by-day plan instantly.</p>
+                    </div>
+
+                    <div class="step-contact-card mx-auto">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="step-contact-label">First Name</label>
+                                <input type="text" name="first_name" class="form-control step-contact-input"
+                                    placeholder="E.g., Julian" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="step-contact-label">Last Name</label>
+                                <input type="text" name="last_name" class="form-control step-contact-input"
+                                    placeholder="E.g., Thome" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="step-contact-label">Email Address</label>
+                                <input type="email" name="email" class="form-control step-contact-input"
+                                    placeholder="julian@voyager.com" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="step-contact-label">Phone Number</label>
+                                <input type="tel" name="phone" class="form-control step-contact-input"
+                                    placeholder="+1 (555) 000-0000" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="step-contact-label">Additional Notes</label>
+                                <textarea name="notes" class="form-control step-contact-textarea"
+                                    placeholder="Dietary preferences, preferred airlines, or places you want to include..."></textarea>
+                            </div>
+                            <div class="col-12 text-center mt-2">
+                                <button type="submit" class="btn btn-primary rounded-pill step-contact-submit">
+                                    Get My Itinerary <i class="bi bi-arrow-right ms-2"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1368,8 +1764,8 @@
             <button class="btn btn-outline-secondary rounded-pill px-4 prev-step-btn opacity-0" type="button">
                 <i class="bi bi-chevron-left me-2"></i> Back
             </button>
-            <button class="btn btn-primary rounded-pill px-5 next-step-btn" type="button">
-                Next <i class="bi bi-chevron-right ms-2"></i>
+            <button class="btn btn-primary rounded-pill px-5 py-2 next-step-btn custom-continue-btn" type="button" style="font-size: 1.05rem; background: linear-gradient(135deg, var(--primary-blue), #0b5ed7); border: none; box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3); transition: all 0.3s ease;">
+                Continue <i class="bi bi-arrow-right ms-2 mt-1 fw-bold"></i>
             </button>
         </div>
     </div>
@@ -1386,9 +1782,9 @@
     <script src="script.js"></script>
 
 
-        <script>
-  AOS.init();
-</script>
+    <script>
+        AOS.init();
+    </script>
 
 </body>
 

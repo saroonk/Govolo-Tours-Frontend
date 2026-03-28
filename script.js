@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (bgContainer) {
         const images = [
+            'assets/videos/3542112-uhd_3840_2160_30fps.mp4',
+            'assets/videos/14633767_1920_1080_60fps.mp4',
+
             'assets/pexels-miles-hardacre-1263314-2404370.jpg',
             'assets/pexels-hcdigital-3405484.jpg',
             'assets/pexels-publophoto-33000366.jpg',
@@ -19,17 +22,59 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentIndex = 0;
         const slides = [];
 
-        images.forEach((img, index) => {
-            const slide = document.createElement('div');
-            slide.classList.add('slider-bg');
-            if (index === 0) {
-                slide.classList.add('active');
-                slide.style.opacity = '1';
-            }
-            slide.style.backgroundImage = `url('${img}')`;
-            bgContainer.appendChild(slide);
-            slides.push(slide);
-        });
+        // images.forEach((img, index) => {
+        //     const slide = document.createElement('div');
+        //     slide.classList.add('slider-bg');
+        //     if (index === 0) {
+        //         slide.classList.add('active');
+        //         slide.style.opacity = '1';
+        //     }
+        //     slide.style.backgroundImage = `url('${img}')`;
+        //     bgContainer.appendChild(slide);
+        //     slides.push(slide);
+        // });
+
+
+        
+    images.forEach((item, index) => {
+    const slide = document.createElement('div');
+    slide.classList.add('slider-bg');
+
+    if (index === 0) {
+        slide.classList.add('active');
+        slide.style.opacity = '1';
+    }
+
+    // 👉 Check if it's a video
+    if (item.endsWith('.mp4') || item.endsWith('.webm') || item.endsWith('.ogg')) {
+
+        const video = document.createElement('video');
+        video.src = item;
+        video.autoplay = true;
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+
+        video.style.width = "100%";
+        video.style.height = "100%";
+        video.style.objectFit = "cover";
+
+        slide.appendChild(video);
+
+    } else {
+        // 👉 Image
+        slide.style.backgroundImage = `url('${item}')`;
+        slide.style.backgroundSize = "cover";
+        slide.style.backgroundPosition = "center";
+    }
+
+    bgContainer.appendChild(slide);
+    slides.push(slide);
+});
+
+
+
+
 
         const totalSlides = slides.length;
 
@@ -330,6 +375,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentStepIdx === 6) {
             generateDayPlanningFields();
         }
+
+        // Refresh summary card when opening step 7
+        if (currentStepIdx === 7) {
+            updateReviewStepSummary();
+        }
     }
 
     // ── Open Overlay ──
@@ -393,6 +443,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const travelerRadios = document.querySelectorAll('.traveler-type-radio');
     const memberWrapper = document.getElementById('member-count-wrapper');
     const memberInput = document.getElementById('member-count-input');
+    const memberOverlayHome = document.querySelector('.step-travelers .traveler-cards-wrap');
+
+    function positionMemberOverlay(activeRadio) {
+        if (!memberWrapper || !activeRadio) return;
+        const activeCard = activeRadio.closest('.traveler-selection-card');
+        const imgWrap = activeCard ? activeCard.querySelector('.card-img-wrapper') : null;
+        if (!imgWrap) return;
+        if (memberWrapper.parentElement !== imgWrap) {
+            imgWrap.appendChild(memberWrapper);
+        }
+        memberWrapper.style.left = '50%';
+    }
 
     // Also visually highlight selected card
     travelerRadios.forEach(radio => {
@@ -403,16 +465,31 @@ document.addEventListener('DOMContentLoaded', () => {
             if (val === 'Solo') {
                 memberWrapper.classList.add('d-none');
                 memberInput.value = 1;
+                if (memberOverlayHome && memberWrapper.parentElement !== memberOverlayHome) {
+                    memberOverlayHome.appendChild(memberWrapper);
+                }
             } else if (val === 'Couple') {
                 memberWrapper.classList.add('d-none');
                 memberInput.value = 2;
+                if (memberOverlayHome && memberWrapper.parentElement !== memberOverlayHome) {
+                    memberOverlayHome.appendChild(memberWrapper);
+                }
             } else {
                 // Family or Friends — show input
                 memberWrapper.classList.remove('d-none');
                 memberInput.value = (val === 'Family') ? 4 : 5;
+                positionMemberOverlay(radio);
                 memberInput.focus();
             }
         });
+    });
+
+    window.addEventListener('resize', () => {
+        const active = document.querySelector('.traveler-type-radio:checked');
+        const val = active ? active.value : '';
+        if (val === 'Family' || val === 'Friends') {
+            positionMemberOverlay(active);
+        }
     });
 
     // ==========================================
@@ -429,23 +506,154 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
+    // Step 7: Review summary (dynamic values, no static content)
+    // ==========================================
+    function updateReviewStepSummary() {
+        const travelersEl = document.getElementById('review-travelers');
+        const destinationEl = document.getElementById('review-destination');
+        const durationEl = document.getElementById('review-duration');
+        const dateEl = document.getElementById('review-date');
+        if (!travelersEl || !destinationEl || !durationEl || !dateEl) return;
+
+        const travelerType = document.querySelector('input[name="traveler_type"]:checked')?.value || '';
+        const travelersCount = document.querySelector('input[name="travelers"]')?.value || '';
+        const destination = document.querySelector('input[name="destination"]:checked')?.value || '';
+        const duration = document.querySelector('input[name="duration"]:checked')?.value || '';
+        const travelDate = document.querySelector('input[name="travel_date"]')?.value || '';
+
+        let travelerLabel = 'Not selected';
+        if (travelerType) {
+            if (travelersCount) travelerLabel = `${travelerType} • ${travelersCount} traveler${Number(travelersCount) > 1 ? 's' : ''}`;
+            else travelerLabel = travelerType;
+        }
+
+        travelersEl.textContent = travelerLabel;
+        destinationEl.textContent = destination || 'Not selected';
+        durationEl.textContent = duration ? `${duration} Days` : 'Not selected';
+        dateEl.textContent = travelDate
+            ? new Date(travelDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })
+            : 'Not selected';
+    }
+
+    // ==========================================
+    // Step 5: Travel Date — Dynamic Calendar UI (syncs to input[name="travel_date"])
+    // ==========================================
+    (function initTravelDateCalendar() {
+        const step5 = document.querySelector('.form-step[data-step="5"]');
+        if (!step5) return;
+
+        const input = step5.querySelector('input[name="travel_date"]');
+        const monthLabel = step5.querySelector('.trip-date-month');
+        const daysGrid = step5.querySelector('.trip-date-days');
+        const prevBtn = step5.querySelector('.trip-date-nav.prev');
+        const nextBtn = step5.querySelector('.trip-date-nav.next');
+        if (!input || !monthLabel || !daysGrid || !prevBtn || !nextBtn) return;
+
+        const monthNames = [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+
+        const pad2 = (n) => String(n).padStart(2, '0');
+        const toISODate = (d) => `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+
+        const parseISO = (s) => {
+            if (!s) return null;
+            const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(s).trim());
+            if (!m) return null;
+            const dt = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+            return isNaN(dt.getTime()) ? null : dt;
+        };
+
+        let selected = parseISO(input.value);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        let viewYear = (selected || today).getFullYear();
+        let viewMonth = (selected || today).getMonth(); // 0-11
+
+        function render() {
+            monthLabel.textContent = `${monthNames[viewMonth]} ${viewYear}`;
+            daysGrid.innerHTML = '';
+
+            const firstOfMonth = new Date(viewYear, viewMonth, 1);
+            const startDow = firstOfMonth.getDay(); // 0 (Sun) - 6
+            const start = new Date(viewYear, viewMonth, 1 - startDow);
+
+            for (let i = 0; i < 42; i++) {
+                const d = new Date(start);
+                d.setDate(start.getDate() + i);
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'trip-date-day';
+                btn.textContent = String(d.getDate());
+                btn.setAttribute('role', 'gridcell');
+                btn.dataset.date = toISODate(d);
+
+                if (d.getMonth() !== viewMonth) btn.classList.add('is-outside');
+                if (selected && toISODate(d) === toISODate(selected)) btn.classList.add('is-selected');
+
+                btn.addEventListener('click', () => {
+                    selected = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+                    input.value = toISODate(selected);
+                    input.dispatchEvent(new Event('input', { bubbles: true }));
+                    input.dispatchEvent(new Event('change', { bubbles: true }));
+                    viewYear = selected.getFullYear();
+                    viewMonth = selected.getMonth();
+                    render();
+                });
+
+                daysGrid.appendChild(btn);
+            }
+        }
+
+        prevBtn.addEventListener('click', () => {
+            viewMonth -= 1;
+            if (viewMonth < 0) {
+                viewMonth = 11;
+                viewYear -= 1;
+            }
+            render();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            viewMonth += 1;
+            if (viewMonth > 11) {
+                viewMonth = 0;
+                viewYear += 1;
+            }
+            render();
+        });
+
+        input.addEventListener('change', () => {
+            const dt = parseISO(input.value);
+            if (!dt) return;
+            selected = dt;
+            viewYear = dt.getFullYear();
+            viewMonth = dt.getMonth();
+            render();
+        });
+
+        render();
+    })();
+
+    // ==========================================
     // Step 6: City Planning — Duration → Days → Multi-select Cities
     // ==========================================
     const citiesByDestination = {
         'Vietnam': ['Hanoi', 'Ho Chi Minh City', 'Da Nang', 'Ha Long Bay', 'Hoi An', 'Nha Trang', 'Hue', 'Sapa'],
         'Bali': ['Ubud', 'Seminyak', 'Kuta', 'Nusa Dua', 'Canggu', 'Uluwatu', 'Jimbaran', 'Sanur'],
         'Thailand': ['Bangkok', 'Phuket', 'Chiang Mai', 'Pattaya', 'Krabi', 'Hua Hin', 'Koh Samui', 'Ayutthaya'],
-        'Maldives': ['Male', 'Maafushi', 'Hulhumale', 'Ari Atoll', 'Baa Atoll', 'Villingili']
+        'Maldives': ['Male', 'Maafushi', 'Hulhumale', 'Ari Atoll', 'Baa Atoll', 'Villingili'],
+        'Greece': ['Athens', 'Santorini', 'Mykonos', 'Thessaloniki', 'Crete', 'Rhodes', 'Corfu', 'Meteora'],
+        'Paris': ['Eiffel Tower District', 'Montmartre', 'Le Marais', 'Saint-Germain', 'Versailles', 'Louvre Quarter', 'Champs-Élysées', 'Bastille']
     };
 
     function getDurationMaxDays() {
         const checked = document.querySelector('input[name="duration"]:checked');
-        const val = checked ? checked.value : '3-5';
-        if (val === '3-5')  return 5;
-        if (val === '6-8')  return 8;
-        if (val === '9-10') return 10;
-        if (val === '10-12') return 12;
-        return 5;
+        const val = checked ? parseInt(checked.value, 10) : 5;
+        return isNaN(val) ? 5 : val;
     }
 
     function generateDayPlanningFields() {
@@ -459,19 +667,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
         container.innerHTML = ''; // Clear previous fields
 
+        const dayLabels = ['ARRIVAL & DISCOVERY', 'EXPLORATION', 'CULTURE & HERITAGE', 'LEISURE DAY', 'ADVENTURE', 'LOCAL IMMERSION', 'COASTAL RETREAT', 'MOUNTAIN ESCAPE', 'FREE EXPLORATION', 'DEPARTURE DAY', 'EXTENDED STAY', 'GRAND FINALE'];
+
         for (let i = 1; i <= maxDays; i++) {
             const col = document.createElement('div');
-            col.className = 'col-md-6 mb-1';
+            col.className = 'daily-plan-col';
+            const dayTag = dayLabels[i - 1] || `DAY ${i} PLAN`;
             col.innerHTML = `
-                <div class="day-plan-card">
-                    <span class="day-label">Day ${i}</span>
-                    <div class="city-multi-select" id="day-${i}-select" role="button" tabindex="0">
-                        <span class="text-muted placeholder-text">Select cities...</span>
+                <div class="day-plan-card daily-day-card">
+                    <div class="daily-card-left">
+                        <span class="daily-day-tag">${dayTag}</span>
+                        <h4 class="daily-day-number">Day ${String(i).padStart(2, '0')}</h4>
+                        <p class="daily-day-dest mb-0"><i class="bi bi-geo-alt-fill me-1"></i>${dest}</p>
                     </div>
-                    <div class="city-dropdown-menu" id="day-${i}-menu">
-                        ${cities.map(city => `<div class="city-option" data-city="${city}">${city}</div>`).join('')}
+                    <div class="daily-card-right">
+                        <label class="daily-select-label">Select Cities</label>
+                        <div class="city-multi-select" id="day-${i}-select" role="button" tabindex="0">
+                            <span class="text-muted placeholder-text">Choose cities to explore...</span>
+                            <i class="bi bi-chevron-down daily-select-chevron"></i>
+                        </div>
+                        <div class="city-dropdown-menu" id="day-${i}-menu">
+                            ${cities.map(city => `<div class="city-option" data-city="${city}">${city}</div>`).join('')}
+                        </div>
+                        <input type="hidden" name="day_${i}_cities" id="day-${i}-input">
                     </div>
-                    <input type="hidden" name="day_${i}_cities" id="day-${i}-input">
                 </div>
             `;
             container.appendChild(col);
