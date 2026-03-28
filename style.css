@@ -446,7 +446,7 @@ h6 {
 
 /* ===== Hero Section ===== */
 .hero-section {
-    min-height: 100svh;
+    min-height: 100svh !important;
 }
 
 .hero-content-box {
@@ -2801,16 +2801,26 @@ input[name="duration"]:checked~.card-overlay .icon-animate {
 
 
 
+.social-iconss{
+    /* border: 2px solid red; */
+    position: fixed;
+    top: 80%;
+    right: 20px;
+    transform: translateY(-50%);
+        z-index: 1000;
+
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
 
 
 
 
 .whatsapp-float {
-    position: fixed;
-    top: 80%;
-    right: 20px;
-    transform: translateY(-50%);
+
 
     width: 60px;
     height: 60px;
@@ -2833,7 +2843,7 @@ input[name="duration"]:checked~.card-overlay .icon-animate {
 
 .whatsapp-float:hover {
     background-color: #1ebe5d;
-    transform: translateY(-50%) scale(1.1);
+    transform: translateY(-10%) scale(1.1);
     color: white;
 }
 
@@ -2862,10 +2872,8 @@ input[name="duration"]:checked~.card-overlay .icon-animate {
 
 
 .telephone-float {
-    position: fixed;
-    top: 91%;
-    right: 20px;
-    transform: translateY(-50%);
+ 
+
 
     width: 60px;
     height: 60px;
@@ -2888,7 +2896,7 @@ input[name="duration"]:checked~.card-overlay .icon-animate {
 
 .telephone-float:hover {
     background-color: #1e69be;
-    transform: translateY(-50%) scale(1.1);
+    transform: translateY(-10%) scale(1.1);
     color: white;
 }
 
@@ -2917,10 +2925,7 @@ input[name="duration"]:checked~.card-overlay .icon-animate {
 
 
 .email-float {
-    position: fixed;
-    top: 69%;
-    right: 20px;
-    transform: translateY(-50%);
+
 
     width: 60px;
     height: 60px;
@@ -2943,7 +2948,7 @@ input[name="duration"]:checked~.card-overlay .icon-animate {
 
 .email-float:hover {
     background-color: #adc0d5;
-    transform: translateY(-50%) scale(1.1);
+    transform: translateY(-10%) scale(1.1);
     color: white;
 }
 
@@ -2970,7 +2975,7 @@ input[name="duration"]:checked~.card-overlay .icon-animate {
 
 
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
 .whatsapp-float {
     top: 84%;
     right: 20px;
@@ -2988,7 +2993,7 @@ input[name="duration"]:checked~.card-overlay .icon-animate {
     right: 20px;
   
 }
-}
+} */
 
 
 
