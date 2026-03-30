@@ -55,6 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
         video.loop = true;
         video.playsInline = true;
 
+        video.setAttribute("playsinline", "");
+        video.setAttribute("webkit-playsinline", "");
+
+        video.muted = true;
+        video.defaultMuted = true;
+
         video.style.width = "100%";
         video.style.height = "100%";
         video.style.objectFit = "cover";
@@ -916,9 +922,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p class="itin-footer-note">
                             Our travel experts will be in touch within 24 hours to confirm your itinerary.
                         </p>
-                        <button type="button" class="btn itin-download-btn">
-                            <i class="bi bi-download me-2"></i>Download PDF
-                        </button>
+
                     </div>
 
                 </div>
@@ -930,3 +934,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+
+                        // <button type="button" class="btn itin-download-btn">
+                        //     <i class="bi bi-download me-2"></i>Download PDF
+                        // </button>
