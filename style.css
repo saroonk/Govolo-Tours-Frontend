@@ -299,42 +299,27 @@ h6 {
    FULL WIDTH MEGA MENU
 ========================= */
 
-
+/* =========================
+   MEGA MENU — CLEAN & MINIMAL
+========================= */
 
 .mega-menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 6px);
     left: 0;
     width: 100%;
-    /* FULL WIDTH */
-
     background: #fff;
-    padding: 40px 0;
-
+    padding: 32px 0;
     border-radius: 16px;
-    /* bottom rounded only */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 
     opacity: 0;
     visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.25s ease;
-
+    transform: translateY(6px);
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
     z-index: 9999;
 }
 
-.mega-menu .col-lg-4 {
-    border-right: 1px solid #e5e5e5;
-    padding-left: 50px;
-    padding-right: 50px;
-
-}
-
-.mega-menu .col-lg-4:last-child {
-    border-right: none;
-}
-
-/* SHOW ON HOVER */
 @media (min-width: 992px) {
     .mega-parent:hover .mega-menu {
         opacity: 1;
@@ -343,48 +328,98 @@ h6 {
     }
 }
 
-/* =========================
-   HOVER GAP FIX (CRITICAL)
-========================= */
-
 .mega-parent::after {
     content: "";
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    height: 20px;
+    height: 16px;
 }
 
 /* =========================
-   CONTENT STYLING
+   COLUMNS
+========================= */
+
+.mega-menu .col-lg-4 {
+    padding: 0 40px;
+    border-right: 1px solid #f0f0f0;
+}
+
+.mega-menu .col-lg-4:last-child {
+    border-right: none;
+}
+
+/* =========================
+   REGION HEADING
 ========================= */
 
 .mega-heading {
-    font-weight: 600;
-    margin-bottom: 15px;
-    font-size: 18px;
+    font-size: 14px;
+    font-weight: 800 !important;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #383b3f;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    /* Slide-in animation on menu open */
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
 }
 
-/* List */
+.mega-parent:hover .mega-heading {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Globe / map icon before heading */
+.mega-heading::before {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+}
+
+/* Stagger heading animations per column */
+.mega-menu .col-lg-4:nth-child(1) .mega-heading { transition-delay: 0.05s; }
+.mega-menu .col-lg-4:nth-child(2) .mega-heading { transition-delay: 0.1s; }
+.mega-menu .col-lg-4:nth-child(3) .mega-heading { transition-delay: 0.15s; }
+
+/* =========================
+   DESTINATION LIST
+========================= */
+
 .mega-list {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .mega-list li {
-    font-size: 15px;
-    margin-bottom: 12px;
+    font-size: 14.5px;
+    color: #1f2937;
+    padding: 7px 0;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     cursor: pointer;
-    transition: 0.2s ease;
+    border-radius: 6px;
+    transition: color 0.15s ease, transform 0.15s ease;
+    line-height: 1.4;
 }
 
 .mega-list li:hover {
-    color: #0d6efd;
-    transform: translateX(4px);
+    color: #2563eb;
+    transform: translateX(3px);
 }
 
 /* =========================
@@ -393,52 +428,66 @@ h6 {
 
 .badge {
     font-size: 10px;
-    padding: 4px 10px;
+    font-weight: 500;
+    padding: 4px 8px;
     border-radius: 20px;
-    font-weight: 600;
+    letter-spacing: 0.03em;
+    flex-shrink: 0;
 }
 
 .badge-trending {
-    background: #f8caca;
-    color: #a94442;
+    background: #edf5fb !important;
+    color: var(--primary-blue) !important;
 }
 
 .badge-honeymoon {
-    background: #e7c6d3;
-    color: #7a2e4d;
+    background: #fce7f3;
+    color: #be185d;
 }
 
 .badge-budget {
-    background: #e9dfd7;
-    color: #5a4634;
+    background: #fef3c7;
+    color: #92400e;
 }
 
 /* =========================
-   VIEW ALL
+   VIEW ALL LINK
 ========================= */
 
+/* .mega-list li:last-child {
+    margin-top: 6px;
+    padding-top: 12px;
+    border-top: 1px solid #f3f4f6;
+} */
+
 .view-all {
+    font-size: 13px;
     font-weight: 600;
-    color: #2c3e50;
+    color: #2563eb;
     text-decoration: none;
+    transition: gap 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .view-all:hover {
-    color: #0d6efd;
+    color: #1d4ed8;
+    gap: 7px;
 }
 
 /* =========================
-   ARROW ROTATION
+   DROPDOWN ICON ROTATION
 ========================= */
 
 .dropdown-icon {
-    transition: transform 0.3s ease;
+    display: inline-block;
+    transition: transform 0.22s ease;
 }
 
 .mega-parent:hover .dropdown-icon {
     transform: rotate(180deg);
 }
-
 
 
 
